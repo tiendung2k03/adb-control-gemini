@@ -1,0 +1,5 @@
+prompt = """
+Kết nối với thiết bị Android qua TCP/IP.
+Nhập các tham số sau: <tên param IP:PORT>.
+Ví dụ thực thi: adb connect <IP:PORT>.
+"""

@@ -1,0 +1,4 @@
+prompt = """
+Tắt Wi-Fi trên thiết bị.
+Ví dụ thực thi: adb shell svc wifi disable.
+"""

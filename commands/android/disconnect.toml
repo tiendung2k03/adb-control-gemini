@@ -1,0 +1,4 @@
+prompt = """
+Ngắt kết nối với thiết bị Android qua TCP/IP.
+Ví dụ thực thi: adb disconnect.
+"""

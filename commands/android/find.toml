@@ -1,0 +1,5 @@
+prompt = """
+Tìm kiếm tệp trên thiết bị.
+Nhập các tham số sau: <tên param directory>, <tên param tên tệp/pattern>.
+Ví dụ thực thi: adb shell find /sdcard -name "*.jpg".
+"""

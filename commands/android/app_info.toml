@@ -1,0 +1,5 @@
+prompt = """
+Hiển thị thông tin chi tiết về ứng dụng (dumpsys).
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb shell dumpsys package <package_name>.
+"""

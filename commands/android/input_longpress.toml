@@ -1,0 +1,5 @@
+prompt = """
+Nhấn giữ một vị trí trên màn hình.
+Nhập các tham số sau: <tên param x>, <tên param y>, <tên param thời gian (ms)>.
+Ví dụ thực thi: adb shell input swipe 500 1000 500 1000 1500.
+"""

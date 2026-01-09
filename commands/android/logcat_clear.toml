@@ -1,0 +1,4 @@
+prompt = """
+Xóa nhật ký logcat hiện có.
+Ví dụ thực thi: adb logcat -c.
+"""

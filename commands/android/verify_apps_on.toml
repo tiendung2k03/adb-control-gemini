@@ -1,0 +1,4 @@
+prompt = """
+Bật xác minh ứng dụng qua ADB.
+Ví dụ thực thi: adb shell settings put global verify_apps_over_adb 1.
+"""

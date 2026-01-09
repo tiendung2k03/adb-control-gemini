@@ -1,0 +1,5 @@
+prompt = """
+Đặt mức pin mô phỏng (0-100, yêu cầu quyền root).
+Nhập các tham số sau: <tên param level>.
+Ví dụ thực thi: adb shell dumpsys battery set level <level>.
+"""

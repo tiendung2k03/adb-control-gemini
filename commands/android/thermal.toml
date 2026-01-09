@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị thông tin nhiệt độ của thiết bị.
+Ví dụ thực thi: adb shell dumpsys thermalservice.
+"""

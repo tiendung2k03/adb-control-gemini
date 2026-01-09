@@ -1,0 +1,4 @@
+prompt = """
+Lấy ngôn ngữ và khu vực hiện tại của thiết bị.
+Ví dụ thực thi: adb shell getprop persist.sys.locale.
+"""

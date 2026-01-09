@@ -1,0 +1,5 @@
+prompt = """
+Đặt độ sáng màn hình (0-255).
+Nhập các tham số sau: <tên param mức độ sáng>.
+Ví dụ thực thi: adb shell settings put system screen_brightness <mức độ sáng>.
+"""

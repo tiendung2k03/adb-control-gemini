@@ -1,0 +1,5 @@
+prompt = """
+Kết thúc một tiến trình bằng PID.
+Nhập các tham số sau: <tên param PID>.
+Ví dụ thực thi: adb shell kill <PID>.
+"""

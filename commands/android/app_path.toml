@@ -1,0 +1,5 @@
+prompt = """
+Lấy đường dẫn cài đặt của ứng dụng.
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb shell pm path <package_name>.
+"""

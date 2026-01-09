@@ -1,0 +1,5 @@
+prompt = """
+Flash một image vào thiết bị (yêu cầu fastboot).
+Nhập các tham số sau: <tên param partition>, <tên param image_file>.
+Ví dụ thực thi: fastboot flash <partition> <image_file> (Lưu ý: Lệnh này không phải adb, mà là fastboot và cần thiết bị ở chế độ bootloader).
+"""

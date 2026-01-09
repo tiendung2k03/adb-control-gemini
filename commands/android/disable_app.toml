@@ -1,0 +1,5 @@
+prompt = """
+Vô hiệu hóa một ứng dụng.
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb shell pm disable-user <package_name>.
+"""

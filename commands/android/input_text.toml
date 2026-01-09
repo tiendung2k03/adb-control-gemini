@@ -1,0 +1,5 @@
+prompt = """
+Nhập văn bản vào thiết bị.
+Nhập các tham số sau: <tên param văn bản>.
+Ví dụ thực thi: adb shell input text 'hello world'.
+"""

@@ -1,0 +1,5 @@
+prompt = """
+Kéo tệp ghi màn hình từ thiết bị về máy tính.
+Nhập các tham số sau: <tên param remote_path>, <tên param local_file_path>.
+Ví dụ thực thi: adb pull /sdcard/demo.mp4 <local_file_path>.
+"""

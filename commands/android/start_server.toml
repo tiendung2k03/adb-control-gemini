@@ -1,0 +1,4 @@
+prompt = """
+Khởi động máy chủ ADB.
+Ví dụ thực thi: adb start-server.
+"""

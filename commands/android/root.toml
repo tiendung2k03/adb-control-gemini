@@ -1,0 +1,4 @@
+prompt = """
+Khởi động lại ADB với quyền root.
+Ví dụ thực thi: adb root.
+"""

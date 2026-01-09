@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị các kết nối mạng và thống kê.
+Ví dụ thực thi: adb shell netstat.
+"""

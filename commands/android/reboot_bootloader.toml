@@ -1,0 +1,4 @@
+prompt = """
+Khởi động lại thiết bị vào chế độ Bootloader.
+Ví dụ thực thi: adb reboot bootloader.
+"""

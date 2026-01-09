@@ -1,0 +1,5 @@
+prompt = """
+Lọc nhật ký logcat theo tag.
+Nhập các tham số sau: <tên param tag>.
+Ví dụ thực thi: adb logcat -s <tag>.
+"""

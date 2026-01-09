@@ -1,0 +1,4 @@
+prompt = """
+Giữ màn hình luôn sáng khi sạc.
+Ví dụ thực thi: adb shell settings put global stay_on_while_plugged_in 7.
+"""

@@ -1,0 +1,5 @@
+prompt = """
+Ghi nhật ký logcat ra tệp trên máy tính.
+Nhập các tham số sau: <tên param local_file_path>.
+Ví dụ thực thi: adb logcat -d > <local_file_path>.
+"""

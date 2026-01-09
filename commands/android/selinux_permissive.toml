@@ -1,0 +1,4 @@
+prompt = """
+Đặt SELinux ở chế độ Permissive (cảnh báo nhưng không chặn).
+Ví dụ thực thi: adb shell setenforce 0.
+"""

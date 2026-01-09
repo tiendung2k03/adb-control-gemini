@@ -1,0 +1,4 @@
+prompt = """
+Lấy thông tin ABI của thiết bị.
+Ví dụ thực thi: adb shell getprop ro.product.cpu.abi.
+"""

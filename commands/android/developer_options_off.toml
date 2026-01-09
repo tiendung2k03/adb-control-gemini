@@ -1,0 +1,4 @@
+prompt = """
+Tắt tùy chọn nhà phát triển.
+Ví dụ thực thi: adb shell settings put global development_settings_enabled 0.
+"""

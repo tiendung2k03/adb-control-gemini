@@ -1,0 +1,5 @@
+prompt = """
+Ghép nối với thiết bị Android qua Wi-Fi.
+Nhập các tham số sau: <tên param IP:PORT>, <tên param mã ghép nối>.
+Ví dụ thực thi: adb pair <IP:PORT> <mã ghép nối>.
+"""

@@ -1,0 +1,4 @@
+prompt = """
+Lấy tên thương hiệu của thiết bị.
+Ví dụ thực thi: adb shell getprop ro.product.brand.
+"""

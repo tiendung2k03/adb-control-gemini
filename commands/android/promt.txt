@@ -1,0 +1,186 @@
+
+Tạo một gói danh sách lệnh extension hiện tại với **tất cả các lệnh ADB phổ biến**, mỗi lệnh là 1 file `.toml`.  
+
+Yêu cầu chi tiết:
+
+1. **Tên file và tham số**: Danh sách file theo nhóm, nếu lệnh cần nhập tham số, ghi rõ trong ngoặc. Ví dụ: `connect.toml (nhập IP:PORT)`.
+
+2. **Nội dung file `.toml`**: 
+```toml
+prompt = """
+<Mô tả hành động, ví dụ lệnh adb, yêu cầu nhập tham số nếu cần>
+"""
+Nếu lệnh cần param, ghi rõ: “nhập <tên param>”.
+Nếu lệnh chạy trực tiếp, ghi ví dụ thực thi: adb <lệnh>.
+DANH SÁCH FILE (ví dụ format Gemini CLI hiểu được)
+KẾT NỐI – SERVER
+devices.toml
+devices_long.toml
+start_server.toml
+kill_server.toml
+connect.toml (nhập IP:PORT)
+disconnect.toml
+pair.toml (IP:PORT + code)
+tcpip.toml (nhập port)
+usb.toml
+wait_device.toml
+get_state.toml
+get_serial.toml
+THIẾT BỊ – HỆ THỐNG
+getprop.toml
+android_version.toml
+sdk_version.toml
+model.toml
+brand.toml
+manufacturer.toml
+hardware.toml
+abi.toml
+cpuinfo.toml
+meminfo.toml
+disk_usage.toml
+uptime.toml
+battery_status.toml
+battery_level.toml
+thermal.toml
+timezone.toml
+locale.toml
+SHELL – TIẾN TRÌNH
+shell.toml
+root.toml
+unroot.toml
+su.toml
+ps.toml
+top.toml
+kill.toml (nhập PID)
+killall.toml
+jobs.toml
+env.toml
+whoami.toml
+id.toml
+FILE – THƯ MỤC
+ls.toml
+tree.toml
+pull.toml (nhập path)
+push.toml (file + dest)
+cp.toml
+mv.toml
+rm.toml
+rmdir.toml
+mkdir.toml
+stat.toml
+du.toml
+chmod.toml
+chown.toml
+find.toml
+cat.toml
+less.toml
+head.toml
+tail.toml
+ỨNG DỤNG – PACKAGE
+list_packages.toml
+list_packages_user.toml
+list_packages_system.toml
+install.toml (chọn APK)
+install_replace.toml
+install_multiple.toml
+uninstall.toml (nhập package)
+clear_data.toml
+force_stop.toml
+enable_app.toml
+disable_app.toml
+app_path.toml
+app_info.toml
+app_permissions.toml
+grant_permission.toml
+revoke_permission.toml
+set_app_debuggable.toml
+LOG – DEBUG
+logcat.toml
+logcat_clear.toml
+logcat_file.toml
+logcat_tag.toml
+dumpsys.toml
+dumpsys_activity.toml
+dumpsys_window.toml
+dumpsys_package.toml
+bugreport.toml
+anr_traces.toml
+tombstones.toml
+MÀN HÌNH – MEDIA
+screenshot.toml
+screenrecord.toml (nhập thời gian)
+screenrecord_size.toml
+screenrecord_bitrate.toml
+pull_record.toml
+media_scan.toml
+INPUT – ĐIỀU KHIỂN
+input_text.toml
+input_keyevent.toml
+input_tap.toml
+input_swipe.toml
+input_longpress.toml
+home.toml
+back.toml
+recents.toml
+power.toml
+volume_up.toml
+volume_down.toml
+volume_mute.toml
+brightness_set.toml
+brightness_auto.toml
+MẠNG – WIFI – DATA
+wifi_on.toml
+wifi_off.toml
+data_on.toml
+data_off.toml
+airplane_on.toml
+airplane_off.toml
+ip_addr.toml
+ifconfig.toml
+ping.toml (nhập host)
+netstat.toml
+route.toml
+dns.toml
+proxy_set.toml
+proxy_clear.toml
+MÀN HÌNH – UI
+wm_size.toml
+wm_density.toml
+wm_reset.toml
+rotation_lock.toml
+rotation_unlock.toml
+show_touches.toml
+pointer_location.toml
+layout_bounds.toml
+immersive_mode.toml
+PIN – NGUỒN
+reboot.toml
+reboot_recovery.toml
+reboot_bootloader.toml
+shutdown.toml
+charging_on.toml
+charging_off.toml
+battery_set_level.toml
+battery_reset.toml
+stay_awake_on.toml
+stay_awake_off.toml
+BẢO MẬT – DEV
+developer_options_on.toml
+developer_options_off.toml
+verify_apps_off.toml
+verify_apps_on.toml
+selinux_status.toml
+selinux_permissive.toml
+selinux_enforcing.toml
+NGUY HIỂM – HÀNH ĐỘNG CAO
+remount.toml
+mount_rw.toml
+mount_ro.toml
+flash_image.toml
+erase_partition.toml
+factory_reset.toml
+Yêu cầu Gemini CLI:
+Tạo từng file .toml theo danh sách.
+Mỗi file có nội dung prompt đầy đủ mô tả hành động.
+Nếu cần nhập param, ghi hướng dẫn nhập param.
+Nếu lệnh trực tiếp, ghi ví dụ thực thi adb <lệnh>.

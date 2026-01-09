@@ -1,0 +1,4 @@
+prompt = """
+Mở màn hình ứng dụng gần đây.
+Ví dụ thực thi: adb shell input keyevent KEYCODE_APP_SWITCH.
+"""

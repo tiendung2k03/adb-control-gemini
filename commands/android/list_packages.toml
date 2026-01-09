@@ -1,0 +1,4 @@
+prompt = """
+Liệt kê tất cả các gói ứng dụng đã cài đặt.
+Ví dụ thực thi: adb shell pm list packages.
+"""

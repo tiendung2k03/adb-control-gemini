@@ -1,0 +1,4 @@
+prompt = """
+Nhấn nút Home.
+Ví dụ thực thi: adb shell input keyevent KEYCODE_HOME.
+"""

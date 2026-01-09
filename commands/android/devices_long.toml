@@ -1,0 +1,4 @@
+prompt = """
+Liệt kê các thiết bị Android đang kết nối với thông tin chi tiết.
+Ví dụ thực thi: adb devices -l.
+"""

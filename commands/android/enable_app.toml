@@ -1,0 +1,5 @@
+prompt = """
+Bật một ứng dụng đã bị vô hiệu hóa.
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb shell pm enable <package_name>.
+"""

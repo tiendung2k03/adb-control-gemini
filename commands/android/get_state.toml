@@ -1,0 +1,4 @@
+prompt = """
+Lấy trạng thái kết nối của thiết bị.
+Ví dụ thực thi: adb get-state.
+"""

@@ -1,0 +1,5 @@
+prompt = """
+Kiểm tra kết nối mạng đến một host.
+Nhập các tham số sau: <tên param host>.
+Ví dụ thực thi: adb shell ping <host>.
+"""

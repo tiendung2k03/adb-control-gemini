@@ -1,0 +1,4 @@
+prompt = """
+Lấy thông tin phần cứng của thiết bị.
+Ví dụ thực thi: adb shell getprop ro.hardware.
+"""

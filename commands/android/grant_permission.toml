@@ -1,0 +1,5 @@
+prompt = """
+Cấp quyền cho ứng dụng.
+Nhập các tham số sau: <tên param package_name>, <tên param permission>.
+Ví dụ thực thi: adb shell pm grant <package_name> android.permission.READ_CONTACTS.
+"""

@@ -1,0 +1,4 @@
+prompt = """
+Đặt lại kích thước và mật độ màn hình về mặc định.
+Ví dụ thực thi: adb shell wm size reset; adb shell wm density reset.
+"""

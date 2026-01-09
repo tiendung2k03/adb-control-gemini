@@ -1,0 +1,5 @@
+prompt = """
+Chạm vào một vị trí trên màn hình.
+Nhập các tham số sau: <tên param x>, <tên param y>.
+Ví dụ thực thi: adb shell input tap 500 1000.
+"""

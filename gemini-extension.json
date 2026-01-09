@@ -1,0 +1,16 @@
+{
+  "name": "adb-control-extension",
+  "version": "1.1.0",
+  "description": "Điều khiển thiết bị Android qua ADB bằng Gemini CLI với các lệnh /android",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "androidServer": {
+      "command": "node",
+      "args": ["${extensionPath}/mcp-server/dist/index.js"],
+      "cwd": "${extensionPath}/mcp-server",
+      "env": {
+        "EXTENSION_PATH": "${extensionPath}"
+      }
+    }
+  }
+}

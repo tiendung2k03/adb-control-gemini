@@ -1,0 +1,5 @@
+prompt = """
+Hiển thị nội dung của tệp.
+Nhập các tham số sau: <tên param file_path>.
+Ví dụ thực thi: adb shell cat /sdcard/file.txt.
+"""

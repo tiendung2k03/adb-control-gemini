@@ -1,0 +1,4 @@
+prompt = """
+Khởi động lại ADB không có quyền root.
+Ví dụ thực thi: adb unroot.
+"""

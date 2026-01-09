@@ -1,0 +1,5 @@
+prompt = """
+Hiển thị cấu trúc cây thư mục (nếu có sẵn).
+Nhập các tham số sau: <tên param path (tùy chọn)>.
+Ví dụ thực thi: adb shell tree /sdcard.
+"""

@@ -1,0 +1,5 @@
+prompt = """
+Quay video màn hình với kích thước cụ thể.
+Nhập các tham số sau: <tên param width x height>.
+Ví dụ thực thi: adb shell screenrecord --size <width>x<height> /sdcard/demo.mp4.
+"""

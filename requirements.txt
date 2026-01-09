@@ -1,0 +1,50 @@
+# Android Agent - Claude Code Edition
+# Requirements
+
+# =============================================================================
+# BASIC MODE (Current Implementation)
+# =============================================================================
+# No external dependencies required!
+#
+# The basic mode uses only Python standard library:
+# - xml.etree.ElementTree (XML parsing)
+# - subprocess (ADB commands)
+# - json (data serialization)
+# - argparse (CLI)
+# - time (delays)
+# - datetime (logging)
+#
+# Claude Code's built-in reasoning handles the intelligence layer.
+# =============================================================================
+
+# =============================================================================
+# FUTURE: API MODE (Optional)
+# =============================================================================
+# Uncomment these dependencies if you want to build an HTTP API server
+# that exposes the Android agent as a REST API for external systems.
+#
+# anthropic>=0.18.0     # Anthropic SDK for Claude API integration
+# flask>=3.0.0          # Web server framework
+# requests>=2.31.0      # HTTP client for webhooks
+# python-dotenv>=1.0.0  # Environment variable management
+# =============================================================================
+
+# =============================================================================
+# FUTURE: VISION MODE (Optional)
+# =============================================================================
+# Uncomment if adding vision capabilities for apps with poor accessibility
+#
+# pillow>=10.0.0        # Image processing
+# pytesseract>=0.3.10   # OCR for text extraction from screenshots
+# =============================================================================
+
+# =============================================================================
+# DEVELOPMENT DEPENDENCIES (Optional)
+# =============================================================================
+# Uncomment for development and testing
+#
+# pytest>=7.4.0         # Testing framework
+# black>=23.0.0         # Code formatter
+# mypy>=1.5.0           # Type checking
+# pylint>=3.0.0         # Linting
+# =============================================================================

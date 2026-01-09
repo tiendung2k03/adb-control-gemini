@@ -1,0 +1,4 @@
+prompt = """
+Bật mô phỏng sạc pin (yêu cầu quyền root).
+Ví dụ thực thi: adb shell dumpsys battery set ac 1; adb shell dumpsys battery set usb 1.
+"""

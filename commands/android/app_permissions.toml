@@ -1,0 +1,5 @@
+prompt = """
+Liệt kê các quyền của ứng dụng.
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb shell dumpsys package <package_name> | grep perm.
+"""

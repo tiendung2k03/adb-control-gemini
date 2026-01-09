@@ -1,0 +1,5 @@
+prompt = """
+Liệt kê nội dung của một thư mục.
+Nhập các tham số sau: <tên param path (tùy chọn)>.
+Ví dụ thực thi: adb shell ls /sdcard.
+"""

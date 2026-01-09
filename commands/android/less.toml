@@ -1,0 +1,5 @@
+prompt = """
+Xem nội dung của tệp theo từng trang (nếu có sẵn).
+Nhập các tham số sau: <tên param file_path>.
+Ví dụ thực thi: adb shell less /sdcard/log.txt.
+"""

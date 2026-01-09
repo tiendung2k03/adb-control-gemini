@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị thông tin trạng thái tệp hoặc thư mục.
+Ví dụ thực thi: adb shell stat /sdcard/file.txt.
+"""

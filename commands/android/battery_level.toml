@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị mức pin hiện tại của thiết bị.
+Ví dụ thực thi: adb shell dumpsys battery | grep level.
+"""

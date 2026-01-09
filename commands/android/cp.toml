@@ -1,0 +1,5 @@
+prompt = """
+Sao chép tệp hoặc thư mục trên thiết bị.
+Nhập các tham số sau: <tên param source_path>, <tên param destination_path>.
+Ví dụ thực thi: adb shell cp /sdcard/file.txt /sdcard/file_copy.txt.
+"""

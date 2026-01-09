@@ -1,0 +1,5 @@
+prompt = """
+Thay đổi quyền của tệp hoặc thư mục.
+Nhập các tham số sau: <tên param permissions>, <tên param path>.
+Ví dụ thực thi: adb shell chmod 777 /sdcard/file.txt.
+"""

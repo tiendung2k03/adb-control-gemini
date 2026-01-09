@@ -1,0 +1,5 @@
+prompt = """
+Quay video màn hình của thiết bị.
+Nhập các tham số sau: <tên param thời gian (giây)>.
+Ví dụ thực thi: adb shell screenrecord --time-limit <thời gian> /sdcard/demo.mp4.
+"""

@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị thông tin về Package Manager.
+Ví dụ thực thi: adb shell dumpsys package.
+"""

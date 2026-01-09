@@ -1,0 +1,5 @@
+prompt = """
+Gỡ cài đặt một ứng dụng.
+Nhập các tham số sau: <tên param package_name>.
+Ví dụ thực thi: adb uninstall <package_name>.
+"""

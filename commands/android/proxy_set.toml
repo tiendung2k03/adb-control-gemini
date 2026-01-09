@@ -1,0 +1,5 @@
+prompt = """
+Đặt proxy HTTP toàn cầu.
+Nhập các tham số sau: <tên param host>, <tên param port>.
+Ví dụ thực thi: adb shell settings put global http_proxy <host>:<port>.
+"""

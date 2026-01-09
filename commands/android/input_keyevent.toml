@@ -1,0 +1,5 @@
+prompt = """
+Gửi một sự kiện phím.
+Nhập các tham số sau: <tên param mã phím (KEY_CODE)>.
+Ví dụ thực thi: adb shell input keyevent KEYCODE_BACK.
+"""

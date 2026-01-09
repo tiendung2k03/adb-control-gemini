@@ -1,0 +1,4 @@
+prompt = """
+Đặt lại trạng thái pin về mặc định (yêu cầu quyền root).
+Ví dụ thực thi: adb shell dumpsys battery reset.
+"""

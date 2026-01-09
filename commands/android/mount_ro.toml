@@ -1,0 +1,5 @@
+prompt = """
+Mount lại phân vùng hệ thống ở chế độ chỉ đọc.
+Nhập các tham số sau: <tên param partition_path>.
+Ví dụ thực thi: adb shell mount -o ro,remount /system.
+"""

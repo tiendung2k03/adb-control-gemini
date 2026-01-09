@@ -1,0 +1,4 @@
+prompt = """
+Hiển thị cấu hình giao diện mạng.
+Ví dụ thực thi: adb shell ifconfig.
+"""

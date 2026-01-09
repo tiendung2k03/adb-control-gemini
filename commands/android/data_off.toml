@@ -1,0 +1,4 @@
+prompt = """
+Tắt dữ liệu di động trên thiết bị.
+Ví dụ thực thi: adb shell svc data disable.
+"""

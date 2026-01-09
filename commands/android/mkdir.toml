@@ -1,0 +1,5 @@
+prompt = """
+Tạo thư mục trên thiết bị.
+Nhập các tham số sau: <tên param directory_path>.
+Ví dụ thực thi: adb shell mkdir /sdcard/new_dir.
+"""

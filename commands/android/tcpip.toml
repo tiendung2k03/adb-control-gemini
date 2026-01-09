@@ -1,0 +1,5 @@
+prompt = """
+Khởi động lại ADB ở chế độ TCP/IP trên một cổng cụ thể.
+Nhập các tham số sau: <tên param port>.
+Ví dụ thực thi: adb tcpip <port>.
+"""
