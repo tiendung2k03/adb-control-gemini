@@ -1,5 +1,5 @@
 {
-  "name": "adb-control-extension",
+  "name": "adb-control-gemini",
   "version": "1.0.0",
   "description": "Gemini CLI extension for ADB control",
   "main": "dist/index.js",
