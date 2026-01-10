@@ -1,0 +1,60 @@
+name: Release ADB Gemini Cli
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build MCP server
+        working-directory: mcp-server
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify MCP build output
+        run: |
+          test -d mcp-server/dist || (echo "❌ MCP build failed" && exit 1)
+
+      - name: Prepare extension package
+        run: |
+          mkdir -p dist/pkg
+          rsync -av \
+            --exclude ".git" \
+            --exclude "node_modules" \
+            --exclude "mcp-server/src" \
+            --exclude "mcp-server/tsconfig.json" \
+            --exclude "mcp-server/package-lock.json" \
+            --exclude "dist/pkg" \
+            ./ dist/pkg/
+
+      - name: Create archives
+        run: |
+          cd dist/pkg
+          zip -r ../linux.x64.adb-control-gemini.zip .
+          zip -r ../darwin.arm64.adb-control-gemini.zip .
+          zip -r ../win32.adb-control-gemini.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/linux.x64.adb-control-gemini.zip
+            dist/darwin.arm64.adb-control-gemini.zip
+            dist/win32.adb-control-gemini.zip
