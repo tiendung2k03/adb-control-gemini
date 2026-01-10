@@ -12,7 +12,7 @@ import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 
 const server = new McpServer({
   name: 'android-gemini-extension',
-  version: '1.1.0', // Version from package.json
+  version: '1.0.0', // Version from package.json
 });
 
 // Enhanced shell command execution with better error handling
