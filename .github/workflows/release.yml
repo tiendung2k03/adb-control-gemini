@@ -58,7 +58,7 @@ jobs:
       # 7. Create TAR archive with MCP server dependencies
       # Exclude root node_modules but INCLUDE mcp-server/node_modules
       - name: Create TAR archive
-        run: tar -cvzf ../adb-release.tar.gz --exclude='.git' --exclude='.github' --exclude='./node_modules' . && mv ../nanobanana-release.tar.gz .
+        run: tar -cvzf ../adb-release.tar.gz --exclude='.git' --exclude='.github' --exclude='./node_modules' . && mv ../adb-release.tar.gz .
   
       # 8. Creates the GitHub Release
       # This step uses the 'gh' CLI (pre-installed on the runner) to:
