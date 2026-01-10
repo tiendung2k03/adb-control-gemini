@@ -11,6 +11,8 @@
     "strict": true,
     "declaration": true,
     "skipLibCheck": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
