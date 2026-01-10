@@ -1,3 +1,4 @@
+description = "Mount lại phân vùng hệ thống ở chế độ chỉ đọc."
 prompt = """
 Mount lại phân vùng hệ thống ở chế độ chỉ đọc.
 Nhập các tham số sau: <tên param partition_path>.

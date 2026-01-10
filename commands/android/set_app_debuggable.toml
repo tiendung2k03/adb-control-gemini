@@ -1,3 +1,4 @@
+description = "Đặt ứng dụng là debuggable."
 prompt = """
 Đặt ứng dụng là debuggable.
 Nhập các tham số sau: <tên param package_name>.

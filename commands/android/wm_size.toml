@@ -1,3 +1,4 @@
+description = "Hiển thị hoặc đặt kích thước màn hình."
 prompt = """
 Hiển thị hoặc đặt kích thước màn hình.
 Nhập các tham số sau: <tên param width x height (tùy chọn)>.

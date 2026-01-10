@@ -1,3 +1,4 @@
+description = "Đặt ứng dụng vào chế độ nhập vai toàn màn hình."
 prompt = """
 Đặt ứng dụng vào chế độ nhập vai toàn màn hình.
 Nhập các tham số sau: <tên param package_name>.

@@ -1,3 +1,4 @@
+description = "Chụp ảnh màn hình của thiết bị và lưu cục bộ."
 prompt = """
 Chụp ảnh màn hình của thiết bị và lưu cục bộ.
 Nhập các tham số sau: <tên param local_file_path (tùy chọn)>.

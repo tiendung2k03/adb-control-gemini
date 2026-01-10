@@ -1,3 +1,4 @@
+description = "Kết thúc một tiến trình bằng PID."
 prompt = """
 Kết thúc một tiến trình bằng PID.
 Nhập các tham số sau: <tên param PID>.

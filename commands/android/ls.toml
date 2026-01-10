@@ -1,3 +1,4 @@
+description = "Liệt kê nội dung của một thư mục."
 prompt = """
 Liệt kê nội dung của một thư mục.
 Nhập các tham số sau: <tên param path (tùy chọn)>.

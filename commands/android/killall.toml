@@ -1,3 +1,4 @@
+description = "Kết thúc tất cả các tiến trình có tên cụ thể."
 prompt = """
 Kết thúc tất cả các tiến trình có tên cụ thể.
 Nhập các tham số sau: <tên param tên tiến trình>.

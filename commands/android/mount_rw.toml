@@ -1,3 +1,4 @@
+description = "Mount lại phân vùng hệ thống ở chế độ đọc-ghi (yêu cầu quyền root)."
 prompt = """
 Mount lại phân vùng hệ thống ở chế độ đọc-ghi (yêu cầu quyền root).
 Nhập các tham số sau: <tên param partition_path>.

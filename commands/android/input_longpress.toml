@@ -1,3 +1,4 @@
+description = "Nhấn giữ một vị trí trên màn hình."
 prompt = """
 Nhấn giữ một vị trí trên màn hình.
 Nhập các tham số sau: <tên param x>, <tên param y>, <tên param thời gian (ms)>.

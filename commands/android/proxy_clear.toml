@@ -1,3 +1,4 @@
+description = "Xóa proxy HTTP toàn cầu."
 prompt = """
 Xóa proxy HTTP toàn cầu.
 Ví dụ thực thi: adb shell settings put global http_proxy :0.

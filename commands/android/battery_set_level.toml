@@ -1,3 +1,4 @@
+description = "Đặt mức pin mô phỏng (0-100, yêu cầu quyền root)."
 prompt = """
 Đặt mức pin mô phỏng (0-100, yêu cầu quyền root).
 Nhập các tham số sau: <tên param level>.

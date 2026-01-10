@@ -1,3 +1,4 @@
+description = "Sao chép tệp hoặc thư mục từ máy tính lên thiết bị."
 prompt = """
 Sao chép tệp hoặc thư mục từ máy tính lên thiết bị.
 Nhập các tham số sau: <tên param local_path>, <tên param remote_path>.

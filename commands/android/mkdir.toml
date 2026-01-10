@@ -1,3 +1,4 @@
+description = "Tạo thư mục trên thiết bị."
 prompt = """
 Tạo thư mục trên thiết bị.
 Nhập các tham số sau: <tên param directory_path>.

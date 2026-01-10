@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin về Activity Manager."
 prompt = """
 Hiển thị thông tin về Activity Manager.
 Ví dụ thực thi: adb shell dumpsys activity.

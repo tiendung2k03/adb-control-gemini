@@ -1,3 +1,4 @@
+description = "Nhấn nút nguồn (tắt/mở màn hình)."
 prompt = """
 Nhấn nút nguồn (tắt/mở màn hình).
 Ví dụ thực thi: adb shell input keyevent KEYCODE_POWER.

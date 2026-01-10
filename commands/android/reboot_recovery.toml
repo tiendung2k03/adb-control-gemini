@@ -1,3 +1,4 @@
+description = "Khởi động lại thiết bị vào chế độ Recovery."
 prompt = """
 Khởi động lại thiết bị vào chế độ Recovery.
 Ví dụ thực thi: adb reboot recovery.

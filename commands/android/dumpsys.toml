@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin chẩn đoán hệ thống."
 prompt = """
 Hiển thị thông tin chẩn đoán hệ thống.
 Nhập các tham số sau: <tên param service_name (tùy chọn)>.

@@ -1,3 +1,4 @@
+description = "Chạm vào một vị trí trên màn hình."
 prompt = """
 Chạm vào một vị trí trên màn hình.
 Nhập các tham số sau: <tên param x>, <tên param y>.

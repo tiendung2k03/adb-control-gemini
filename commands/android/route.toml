@@ -1,3 +1,4 @@
+description = "Hiển thị bảng định tuyến."
 prompt = """
 Hiển thị bảng định tuyến.
 Ví dụ thực thi: adb shell route.

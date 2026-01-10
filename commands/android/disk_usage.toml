@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin sử dụng bộ nhớ trong của thiết bị."
 prompt = """
 Hiển thị thông tin sử dụng bộ nhớ trong của thiết bị.
 Ví dụ thực thi: adb shell df -h.

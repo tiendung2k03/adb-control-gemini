@@ -1,3 +1,4 @@
+description = "Chờ đợi thiết bị được kết nối."
 prompt = """
 Chờ đợi thiết bị được kết nối.
 Ví dụ thực thi: adb wait-for-device.

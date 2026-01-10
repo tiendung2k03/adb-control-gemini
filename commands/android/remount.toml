@@ -1,3 +1,4 @@
+description = "Remount phân vùng hệ thống để có thể ghi (yêu cầu quyền root)."
 prompt = """
 Remount phân vùng hệ thống để có thể ghi (yêu cầu quyền root).
 Ví dụ thực thi: adb remount.

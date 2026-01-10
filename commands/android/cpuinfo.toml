@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin CPU của thiết bị."
 prompt = """
 Hiển thị thông tin CPU của thiết bị.
 Ví dụ thực thi: adb shell cat /proc/cpuinfo.

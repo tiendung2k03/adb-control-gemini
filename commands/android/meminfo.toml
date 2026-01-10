@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin bộ nhớ của thiết bị."
 prompt = """
 Hiển thị thông tin bộ nhớ của thiết bị.
 Ví dụ thực thi: adb shell cat /proc/meminfo.

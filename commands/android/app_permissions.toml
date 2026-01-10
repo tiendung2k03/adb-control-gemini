@@ -1,3 +1,4 @@
+description = "Liệt kê các quyền của ứng dụng."
 prompt = """
 Liệt kê các quyền của ứng dụng.
 Nhập các tham số sau: <tên param package_name>.

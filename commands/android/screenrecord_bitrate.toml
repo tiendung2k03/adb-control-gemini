@@ -1,3 +1,4 @@
+description = "Quay video màn hình với tốc độ bit cụ thể."
 prompt = """
 Quay video màn hình với tốc độ bit cụ thể.
 Nhập các tham số sau: <tên param bitrate (Mbps)>.

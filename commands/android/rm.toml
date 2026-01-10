@@ -1,3 +1,4 @@
+description = "Xóa tệp trên thiết bị."
 prompt = """
 Xóa tệp trên thiết bị.
 Nhập các tham số sau: <tên param file_path>.

@@ -1,3 +1,4 @@
+description = "Cài đặt nhiều APK cho một ứng dụng."
 prompt = """
 Cài đặt nhiều APK cho một ứng dụng.
 Nhập các tham số sau: <tên param đường dẫn đến các APK trên máy tính>.

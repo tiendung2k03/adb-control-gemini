@@ -1,3 +1,4 @@
+description = "Đặt proxy HTTP toàn cầu."
 prompt = """
 Đặt proxy HTTP toàn cầu.
 Nhập các tham số sau: <tên param host>, <tên param port>.

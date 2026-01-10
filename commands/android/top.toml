@@ -1,3 +1,4 @@
+description = "Hiển thị các tiến trình đang sử dụng nhiều tài nguyên nhất."
 prompt = """
 Hiển thị các tiến trình đang sử dụng nhiều tài nguyên nhất.
 Ví dụ thực thi: adb shell top -n 1.

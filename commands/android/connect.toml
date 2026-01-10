@@ -1,3 +1,4 @@
+description = "Kết nối với thiết bị Android qua TCP/IP."
 prompt = """
 Kết nối với thiết bị Android qua TCP/IP.
 Nhập các tham số sau: <tên param IP:PORT>.

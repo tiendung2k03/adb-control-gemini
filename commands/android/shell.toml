@@ -1,3 +1,4 @@
+description = "Mở một shell tương tác trên thiết bị."
 prompt = """
 Mở một shell tương tác trên thiết bị.
 Ví dụ thực thi: adb shell.

@@ -1,3 +1,4 @@
+description = "Hiển thị cấu trúc cây thư mục (nếu có sẵn)."
 prompt = """
 Hiển thị cấu trúc cây thư mục (nếu có sẵn).
 Nhập các tham số sau: <tên param path (tùy chọn)>.

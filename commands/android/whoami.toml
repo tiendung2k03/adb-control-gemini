@@ -1,3 +1,4 @@
+description = "Hiển thị tên người dùng hiện tại."
 prompt = """
 Hiển thị tên người dùng hiện tại.
 Ví dụ thực thi: adb shell whoami.

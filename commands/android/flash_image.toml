@@ -1,3 +1,4 @@
+description = "Flash một image vào thiết bị (yêu cầu fastboot)."
 prompt = """
 Flash một image vào thiết bị (yêu cầu fastboot).
 Nhập các tham số sau: <tên param partition>, <tên param image_file>.

@@ -1,3 +1,4 @@
+description = "Chạy lệnh với quyền superuser (chỉ trên thiết bị đã root)."
 prompt = """
 Chạy lệnh với quyền superuser (chỉ trên thiết bị đã root).
 Nhập các tham số sau: <tên param lệnh>.

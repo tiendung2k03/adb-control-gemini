@@ -1,3 +1,4 @@
+description = "Yêu cầu MediaScanner quét lại thư mục."
 prompt = """
 Yêu cầu MediaScanner quét lại thư mục.
 Nhập các tham số sau: <tên param path>.

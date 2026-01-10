@@ -1,3 +1,4 @@
+description = "Xóa dữ liệu của một ứng dụng."
 prompt = """
 Xóa dữ liệu của một ứng dụng.
 Nhập các tham số sau: <tên param package_name>.

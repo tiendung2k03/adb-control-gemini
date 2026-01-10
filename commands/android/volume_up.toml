@@ -1,3 +1,4 @@
+description = "Tăng âm lượng."
 prompt = """
 Tăng âm lượng.
 Ví dụ thực thi: adb shell input keyevent KEYCODE_VOLUME_UP.

@@ -1,3 +1,4 @@
+description = "Nhập văn bản vào thiết bị."
 prompt = """
 Nhập văn bản vào thiết bị.
 Nhập các tham số sau: <tên param văn bản>.

@@ -1,3 +1,4 @@
+description = "Hiển thị hoặc đặt mật độ DPI màn hình."
 prompt = """
 Hiển thị hoặc đặt mật độ DPI màn hình.
 Nhập các tham số sau: <tên param density (dpi) (tùy chọn)>.

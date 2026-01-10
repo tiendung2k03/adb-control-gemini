@@ -1,3 +1,4 @@
+description = "Hiển thị những dòng cuối của tệp."
 prompt = """
 Hiển thị những dòng cuối của tệp.
 Nhập các tham số sau: <tên param file_path>.

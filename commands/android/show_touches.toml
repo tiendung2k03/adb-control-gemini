@@ -1,3 +1,4 @@
+description = "Hiển thị các tương tác chạm trên màn hình (để gỡ lỗi UI)."
 prompt = """
 Hiển thị các tương tác chạm trên màn hình (để gỡ lỗi UI).
 Nhập các tham số sau: <tên param 0 (tắt) hoặc 1 (bật)>.

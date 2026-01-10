@@ -1,3 +1,4 @@
+description = "Hiển thị những dòng đầu của tệp."
 prompt = """
 Hiển thị những dòng đầu của tệp.
 Nhập các tham số sau: <tên param file_path>.

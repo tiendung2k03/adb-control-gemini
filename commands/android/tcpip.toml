@@ -1,3 +1,4 @@
+description = "Khởi động lại ADB ở chế độ TCP/IP trên một cổng cụ thể."
 prompt = """
 Khởi động lại ADB ở chế độ TCP/IP trên một cổng cụ thể.
 Nhập các tham số sau: <tên param port>.

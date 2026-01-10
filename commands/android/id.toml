@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin người dùng và nhóm."
 prompt = """
 Hiển thị thông tin người dùng và nhóm.
 Ví dụ thực thi: adb shell id.

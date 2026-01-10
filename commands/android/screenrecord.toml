@@ -1,3 +1,4 @@
+description = "Quay video màn hình của thiết bị."
 prompt = """
 Quay video màn hình của thiết bị.
 Nhập các tham số sau: <tên param thời gian (giây)>.

@@ -1,3 +1,4 @@
+description = "Thay đổi chủ sở hữu của tệp hoặc thư mục."
 prompt = """
 Thay đổi chủ sở hữu của tệp hoặc thư mục.
 Nhập các tham số sau: <tên param owner:group>, <tên param path>.

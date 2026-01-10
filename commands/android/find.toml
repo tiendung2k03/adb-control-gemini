@@ -1,3 +1,4 @@
+description = "Tìm kiếm tệp trên thiết bị."
 prompt = """
 Tìm kiếm tệp trên thiết bị.
 Nhập các tham số sau: <tên param directory>, <tên param tên tệp/pattern>.

@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin vị trí con trỏ trên màn hình."
 prompt = """
 Hiển thị thông tin vị trí con trỏ trên màn hình.
 Nhập các tham số sau: <tên param 0 (tắt) hoặc 1 (bật)>.

@@ -1,3 +1,4 @@
+description = "Ghi nhật ký logcat ra tệp trên máy tính."
 prompt = """
 Ghi nhật ký logcat ra tệp trên máy tính.
 Nhập các tham số sau: <tên param local_file_path>.

@@ -1,3 +1,4 @@
+description = "Liệt kê các tiến trình đang chạy trên thiết bị."
 prompt = """
 Liệt kê các tiến trình đang chạy trên thiết bị.
 Ví dụ thực thi: adb shell ps.

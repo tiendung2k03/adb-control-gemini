@@ -1,3 +1,4 @@
+description = "Quay video màn hình với kích thước cụ thể."
 prompt = """
 Quay video màn hình với kích thước cụ thể.
 Nhập các tham số sau: <tên param width x height>.

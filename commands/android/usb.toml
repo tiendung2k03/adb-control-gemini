@@ -1,3 +1,4 @@
+description = "Chuyển ADB sang chế độ USB."
 prompt = """
 Chuyển ADB sang chế độ USB.
 Ví dụ thực thi: adb usb.

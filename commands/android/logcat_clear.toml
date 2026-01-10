@@ -1,3 +1,4 @@
+description = "Xóa nhật ký logcat hiện có."
 prompt = """
 Xóa nhật ký logcat hiện có.
 Ví dụ thực thi: adb logcat -c.

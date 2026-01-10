@@ -1,3 +1,4 @@
+description = "Hiển thị dung lượng sử dụng của tệp hoặc thư mục."
 prompt = """
 Hiển thị dung lượng sử dụng của tệp hoặc thư mục.
 Nhập các tham số sau: <tên param path>.

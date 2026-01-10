@@ -1,3 +1,4 @@
+description = "Hiển thị nhật ký logcat của thiết bị."
 prompt = """
 Hiển thị nhật ký logcat của thiết bị.
 Ví dụ thực thi: adb logcat.

@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin chi tiết về ứng dụng (dumpsys)."
 prompt = """
 Hiển thị thông tin chi tiết về ứng dụng (dumpsys).
 Nhập các tham số sau: <tên param package_name>.

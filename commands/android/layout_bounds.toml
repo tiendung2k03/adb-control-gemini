@@ -1,3 +1,4 @@
+description = "Hiển thị ranh giới bố cục của các thành phần UI."
 prompt = """
 Hiển thị ranh giới bố cục của các thành phần UI.
 Nhập các tham số sau: <tên param 0 (tắt) hoặc 1 (bật)>.

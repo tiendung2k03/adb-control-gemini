@@ -1,3 +1,4 @@
+description = "Xem nội dung của tệp theo từng trang (nếu có sẵn)."
 prompt = """
 Xem nội dung của tệp theo từng trang (nếu có sẵn).
 Nhập các tham số sau: <tên param file_path>.

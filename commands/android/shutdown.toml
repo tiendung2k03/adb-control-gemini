@@ -1,3 +1,4 @@
+description = "Tắt thiết bị."
 prompt = """
 Tắt thiết bị.
 Ví dụ thực thi: adb shell reboot -p.

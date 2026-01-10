@@ -1,3 +1,4 @@
+description = "Tắt/bật tiếng."
 prompt = """
 Tắt/bật tiếng.
 Ví dụ thực thi: adb shell input keyevent KEYCODE_VOLUME_MUTE.

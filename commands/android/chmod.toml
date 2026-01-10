@@ -1,3 +1,4 @@
+description = "Thay đổi quyền của tệp hoặc thư mục."
 prompt = """
 Thay đổi quyền của tệp hoặc thư mục.
 Nhập các tham số sau: <tên param permissions>, <tên param path>.

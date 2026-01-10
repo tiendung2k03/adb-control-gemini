@@ -1,3 +1,4 @@
+description = "Lọc nhật ký logcat theo tag."
 prompt = """
 Lọc nhật ký logcat theo tag.
 Nhập các tham số sau: <tên param tag>.

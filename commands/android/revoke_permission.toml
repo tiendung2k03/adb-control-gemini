@@ -1,3 +1,4 @@
+description = "Thu hồi quyền của ứng dụng."
 prompt = """
 Thu hồi quyền của ứng dụng.
 Nhập các tham số sau: <tên param package_name>, <tên param permission>.

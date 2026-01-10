@@ -1,3 +1,4 @@
+description = "Kéo tệp ghi màn hình từ thiết bị về máy tính."
 prompt = """
 Kéo tệp ghi màn hình từ thiết bị về máy tính.
 Nhập các tham số sau: <tên param remote_path>, <tên param local_file_path>.

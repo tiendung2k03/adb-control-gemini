@@ -1,3 +1,4 @@
+description = "Liệt kê các tệp tombstones (thông tin lỗi ứng dụng)."
 prompt = """
 Liệt kê các tệp tombstones (thông tin lỗi ứng dụng).
 Ví dụ thực thi: adb shell ls /data/tombstones.

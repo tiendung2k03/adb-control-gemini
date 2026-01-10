@@ -1,3 +1,4 @@
+description = "Chuyển sang chế độ độ sáng tự động."
 prompt = """
 Chuyển sang chế độ độ sáng tự động.
 Ví dụ thực thi: adb shell settings put system screen_brightness_mode 1.

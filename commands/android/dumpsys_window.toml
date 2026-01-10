@@ -1,3 +1,4 @@
+description = "Hiển thị thông tin về Window Manager."
 prompt = """
 Hiển thị thông tin về Window Manager.
 Ví dụ thực thi: adb shell dumpsys window.

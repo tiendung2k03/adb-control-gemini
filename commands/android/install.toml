@@ -1,3 +1,4 @@
+description = "Cài đặt ứng dụng từ tệp APK."
 prompt = """
 Cài đặt ứng dụng từ tệp APK.
 Nhập các tham số sau: <tên param đường dẫn APK trên máy tính>.

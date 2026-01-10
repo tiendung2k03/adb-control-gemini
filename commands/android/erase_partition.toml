@@ -1,3 +1,4 @@
+description = "Xóa một phân vùng trên thiết bị (yêu cầu fastboot)."
 prompt = """
 Xóa một phân vùng trên thiết bị (yêu cầu fastboot).
 Nhập các tham số sau: <tên param partition>.

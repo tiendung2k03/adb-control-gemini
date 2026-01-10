@@ -1,3 +1,4 @@
+description = "Bật dữ liệu di động trên thiết bị."
 prompt = """
 Bật dữ liệu di động trên thiết bị.
 Ví dụ thực thi: adb shell svc data enable.

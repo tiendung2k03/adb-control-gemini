@@ -1,3 +1,4 @@
+description = "Liệt kê các gói ứng dụng hệ thống đã cài đặt."
 prompt = """
 Liệt kê các gói ứng dụng hệ thống đã cài đặt.
 Ví dụ thực thi: adb shell pm list packages -s.

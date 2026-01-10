@@ -1,3 +1,4 @@
+description = "Lấy đường dẫn cài đặt của ứng dụng."
 prompt = """
 Lấy đường dẫn cài đặt của ứng dụng.
 Nhập các tham số sau: <tên param package_name>.

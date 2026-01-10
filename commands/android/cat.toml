@@ -1,3 +1,4 @@
+description = "Hiển thị nội dung của tệp."
 prompt = """
 Hiển thị nội dung của tệp.
 Nhập các tham số sau: <tên param file_path>.

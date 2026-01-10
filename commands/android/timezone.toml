@@ -1,3 +1,4 @@
+description = "Lấy múi giờ hiện tại của thiết bị."
 prompt = """
 Lấy múi giờ hiện tại của thiết bị.
 Ví dụ thực thi: adb shell getprop persist.sys.timezone.

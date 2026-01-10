@@ -1,3 +1,4 @@
+description = "Xóa thư mục rỗng trên thiết bị."
 prompt = """
 Xóa thư mục rỗng trên thiết bị.
 Nhập các tham số sau: <tên param directory_path>.

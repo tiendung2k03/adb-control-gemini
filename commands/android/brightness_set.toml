@@ -1,3 +1,4 @@
+description = "Đặt độ sáng màn hình (0-255)."
 prompt = """
 Đặt độ sáng màn hình (0-255).
 Nhập các tham số sau: <tên param mức độ sáng>.

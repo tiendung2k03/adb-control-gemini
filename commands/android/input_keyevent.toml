@@ -1,3 +1,4 @@
+description = "Gửi một sự kiện phím."
 prompt = """
 Gửi một sự kiện phím.
 Nhập các tham số sau: <tên param mã phím (KEY_CODE)>.

@@ -1,3 +1,4 @@
+description = "Khóa xoay màn hình ở chế độ hiện tại."
 prompt = """
 Khóa xoay màn hình ở chế độ hiện tại.
 Ví dụ thực thi: adb shell settings put system accelerometer_rotation 0.

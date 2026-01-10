@@ -1,3 +1,4 @@
+description = "Hiển thị địa chỉ IP của thiết bị."
 prompt = """
 Hiển thị địa chỉ IP của thiết bị.
 Ví dụ thực thi: adb shell ip addr show wlan0.

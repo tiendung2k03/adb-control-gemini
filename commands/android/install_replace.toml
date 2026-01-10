@@ -1,3 +1,4 @@
+description = "Cài đặt lại ứng dụng, giữ nguyên dữ liệu."
 prompt = """
 Cài đặt lại ứng dụng, giữ nguyên dữ liệu.
 Nhập các tham số sau: <tên param đường dẫn APK trên máy tính>.
