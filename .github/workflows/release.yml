@@ -45,7 +45,7 @@ jobs:
       # This assumes 'npm run build' creates a 'dist' or 'build' folder.
       # If your build output is different, change the 'tar' command below.
       - name: Run build
-        run: npm run build
+        run: npx tsc
 
       # 6. Update extension version from tag
       # This step extracts the version from the Git tag (e.g., v1.0.7 -> 1.0.7)
