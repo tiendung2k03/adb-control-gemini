@@ -1,1 +1,2 @@
-*.zip
+mcp-server/node_modules
+mcp-server/dist
