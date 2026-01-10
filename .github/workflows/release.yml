@@ -1,4 +1,4 @@
-name: Release ADB Gemini Cli
+name: Create Release
 
 on:
   push:
@@ -11,50 +11,37 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
-      - name: Build MCP server
-        working-directory: mcp-server
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install MCP server dependencies
+        run: cd mcp-server && npm ci
+
+      - name: Run build
+        run: npm run build
+
+      - name: Update extension version
+        run: |
+          VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
+
+      - name: Create TAR archive
+        run: tar -cvzf ../adb-release.tar.gz --exclude='.git' --exclude='.github' --exclude='./node_modules' . && mv ../adb-release.tar.gz .
+
+      - name: Create GitHub Release and Upload Asset
         env:
-          NODE_OPTIONS: --max-old-space-size=12288
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install
-          npm run build
-
-      - name: Verify MCP build output
-        run: |
-          test -d mcp-server/dist || (echo "❌ MCP build failed" && exit 1)
-
-      - name: Prepare extension package
-        run: |
-          mkdir -p dist/pkg
-          rsync -av \
-            --exclude ".git" \
-            --exclude "node_modules" \
-            --exclude "mcp-server/src" \
-            --exclude "mcp-server/tsconfig.json" \
-            --exclude "mcp-server/package-lock.json" \
-            --exclude "dist/pkg" \
-            ./ dist/pkg/
-
-      - name: Create archives
-        run: |
-          cd dist/pkg
-          zip -r ../linux.x64.adb-control-gemini.zip .
-          zip -r ../darwin.arm64.adb-control-gemini.zip .
-          zip -r ../win32.adb-control-gemini.zip .
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            dist/linux.x64.adb-control-gemini.zip
-            dist/darwin.arm64.adb-control-gemini.zip
-            dist/win32.adb-control-gemini.zip
+          gh release create ${{ github.ref_name }} \
+             --generate-notes \
+             --title "Release ${{ github.ref_name }}" \
+             --notes "See the changelog for details." \
+             adb-release.tar.gz
