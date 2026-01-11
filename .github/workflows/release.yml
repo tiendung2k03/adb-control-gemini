@@ -25,13 +25,10 @@ jobs:
 
       - name: Update Version from Tag
         run: |
-          # Extract version from tag (e.g., v1.2.3 -> 1.2.3)
           VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')
           echo "Updating extension to version $VERSION"
-          # Update version in the main extension config
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" adb-control-gemini/gemini-extension.json
-          # Update version in the mcp-server's package.json
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" adb-control-gemini/mcp-server/package.json
+          [ -f gemini-extension.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
+          [ -f mcp-server/package.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
 
       - name: Build MCP Server
         working-directory: ./adb-control-gemini/mcp-server
