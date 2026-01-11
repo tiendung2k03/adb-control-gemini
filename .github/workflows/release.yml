@@ -39,10 +39,10 @@ jobs:
       - name: Package Extension for Release
         run: |
           tar -czvf adb-release.tar.gz \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='adb-control-gemini/mcp-server/node_modules' \
-            -C adb-control-gemini .
+           --exclude='.git' \
+           --exclude='.github' \
+           --exclude='mcp-server/node_modules' \
+           -C . .
       
       - name: Create GitHub Release and Upload Asset
         env:
