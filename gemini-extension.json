@@ -1,6 +1,6 @@
 {
   "name": "adb-control-gemini",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Control Android devices via ADB with Gemini CLI using /android commands",
   "contextFileName": "GEMINI.md",
   "mcpServers": {

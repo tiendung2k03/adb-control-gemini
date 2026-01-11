@@ -23,7 +23,7 @@ if (!extensionPath) {
 // Initialize the MCP Server.
 const server = new McpServer({
   name: 'adb-control-gemini',
-  version: '1.4.0', // Final working version
+  version: '0.1.0', // Final working version
 });
 
 /**
