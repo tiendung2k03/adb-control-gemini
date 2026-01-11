@@ -13,33 +13,40 @@ jobs:
   build-and-release:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout repo into a specific directory
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          # Checkout the repo into the 'adb-control-gemini' directory
-          path: 'adb-control-gemini'
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
-      # 2. Build and package using Docker
-      - name: Build and Package with Docker
-        # Run commands from the checked-out directory
-        working-directory: ./adb-control-gemini
+      - name: Update Version from Tag
         run: |
-          # Update extension version from tag inside the Dockerfile context before building
+          # Extract version from tag (e.g., v1.2.3 -> 1.2.3)
           VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')
-          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
-          # Build the docker image
-          docker build -f Dockerfile -t adb-release-build .
-          
-          # Use the container to create the tarball
-          docker run --name adb-release-container adb-release-build \
-            tar -C /extension -cvzf /tmp/adb-release.tar.gz --exclude='.git' --exclude='.github' --exclude='Dockerfile' .
-          
-          # Copy the tarball out of the container
-          docker cp adb-release-container:/tmp/adb-release.tar.gz ../adb-release.tar.gz
-          docker rm adb-release-container
+          echo "Updating extension to version $VERSION"
+          # Update version in the main extension config
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" adb-control-gemini/gemini-extension.json
+          # Update version in the mcp-server's package.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" adb-control-gemini/mcp-server/package.json
 
-      # 3. Create GitHub Release and upload asset
+      - name: Build MCP Server
+        working-directory: ./adb-control-gemini/mcp-server
+        run: |
+          npm ci
+          npm run build
+
+      - name: Package Extension for Release
+        run: |
+          tar -czvf adb-release.tar.gz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='adb-control-gemini/mcp-server/node_modules' \
+            -C adb-control-gemini .
+      
       - name: Create GitHub Release and Upload Asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,5 +54,5 @@ jobs:
           gh release create ${{ github.ref_name }} \
             --generate-notes \
             --title "Release ${{ github.ref_name }}" \
-            --notes "See the changelog for details." \
-            ./adb-release.tar.gz # Path to the asset at the root of the workspace
+            --notes "Automated release based on new version tag." \
+            ./adb-release.tar.gz

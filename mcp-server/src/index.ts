@@ -6,166 +6,153 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { z } from 'zod';
+import { z, ZodRawShape } from 'zod';
+import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { exec } from 'child_process';
-import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as toml from 'toml';
+import toml from 'toml';
 
+// Ensure the EXTENSION_PATH is set.
+const extensionPath = process.env.EXTENSION_PATH;
+if (!extensionPath) {
+  console.error('FATAL: EXTENSION_PATH environment variable is not set.');
+  process.exit(1);
+}
+
+// Initialize the MCP Server.
 const server = new McpServer({
-  name: 'android-gemini-extension',
-  version: '1.0.0',
+  name: 'adb-control-gemini',
+  version: '1.4.0', // Final working version
 });
 
-// --- Shell command execution ---
-function executeShellCommand(command: string): Promise<string> {
-  return new Promise((resolve, reject) => {
+/**
+ * Executes a shell command and wraps the result in a CallToolResult.
+ * @param command The shell command to execute.
+ * @returns A Promise that resolves to a CallToolResult.
+ */
+async function executeCommandAsTool(command: string): Promise<CallToolResult> {
+  return new Promise((resolve) => {
     exec(command, (error, stdout, stderr) => {
       if (error) {
-        console.error(`Command failed: ${command}`);
-        console.error(`Error: ${error.message}`);
-        reject(JSON.stringify({ error: 'CommandExecutionError', message: stderr || error.message }));
-        return;
+        const errorMessage = `Command failed: ${command}\nError: ${error.message}\nStderr: ${stderr}`;
+        console.error(errorMessage);
+        // On failure, resolve with an error message in the tool output.
+        resolve({
+          content: [{
+            type: 'text',
+            text: JSON.stringify({ error: 'CommandExecutionError', message: stderr || error.message }),
+          }],
+        });
+      } else {
+        // On success, resolve with the command's output.
+        resolve({
+          content: [{
+            type: 'text',
+            text: stdout || stderr || 'Command executed successfully.',
+          }],
+        });
       }
-      if (stderr) {
-        console.warn(`Command produced stderr: ${stderr}`);
-      }
-      resolve(stdout || stderr || 'Command executed successfully.');
     });
   });
 }
 
-async function registerCommand(command: string): Promise<CallToolResult> {
-  try {
-    const output = await executeShellCommand(command);
-    return { content: [{ type: 'text', text: output }] };
-  } catch (error) {
-    return { content: [{ type: 'text', text: typeof error === 'string' ? error : JSON.stringify(error) }] };
-  }
-}
+// --- Register Core Python-based Tools ---
 
-// --- Core Python-based tools ---
+const utilsPath = (script: string) => path.join(extensionPath, 'utils', script);
 
 server.tool(
   'get_screen',
   'Lấy trạng thái màn hình hiện tại của thiết bị Android dưới dạng JSON.',
-  z.object({}),
-  () => registerCommand(`python ${process.env.EXTENSION_PATH}/utils/get_screen.py`)
+  {},
+  () => executeCommandAsTool(`python3 ${utilsPath('get_screen.py')}`)
 );
 
 server.tool(
   'execute_action',
-  'Thực hiện một hành động trên thiết bị Android (tap, type, swipe, v.v.) dựa trên đối tượng JSON.',
-  z.object({
-    action_json: z.string().describe('Đối tượng JSON mô tả hành động cần thực hiện.'),
-  }),
-  ({ action_json }) =>
-    registerCommand(`python ${process.env.EXTENSION_PATH}/utils/execute_action.py --json '${action_json.replace(/'/g, `\'`)}'`)
+  'Thực hiện một hành động trên thiết bị Android.',
+  {
+    action_json: z.string().describe('Đối tượng JSON mô tả hành động. Ví dụ: `{\"action\":\"tap\", \"coordinates\":[x,y]}`'),
+  },
+  ({ action_json }) => {
+    const encodedJson = Buffer.from(action_json, 'utf8').toString('base64');
+    return executeCommandAsTool(`echo '${encodedJson}' | base64 -d | python3 ${utilsPath('execute_action.py')}`);
+  }
 );
 
 server.tool(
   'check_env',
   'Kiểm tra môi trường ADB và kết nối thiết bị Android.',
-  z.object({}),
-  () => registerCommand(`python ${process.env.EXTENSION_PATH}/utils/check_env.py`)
+  {},
+  () => executeCommandAsTool(`python3 ${utilsPath('check_env.py')}`)
 );
 
-server.tool(
-  'find_element',
-  'Tìm kiếm phần tử UI trên màn hình Android theo văn bản.',
-  z.object({ text: z.string().describe('Văn bản của phần tử UI cần tìm.') }),
-  ({ text }) => registerCommand(`python ${process.env.EXTENSION_PATH}/utils/find_element.py --text '${text}'`)
-);
+// --- Dynamically Register TOML-based Tools ---
 
-server.tool(
-  'manage_app',
-  'Quản lý ứng dụng Android (cài đặt, gỡ bỏ, liệt kê).',
-  z.object({
-    action: z.enum(['install', 'uninstall', 'list']).describe('Hành động quản lý ứng dụng.'),
-    package_name: z.string().optional().describe('Tên gói ứng dụng (cho uninstall, list).'),
-    file_path: z.string().optional().describe('Đường dẫn đến tệp APK (cho install).'),
-  }),
-  ({ action, package_name, file_path }) => {
-    let command = `python ${process.env.EXTENSION_PATH}/utils/manage_app.py --action ${action}`;
-    if (package_name) command += ` --package_name '${package_name}'`;
-    if (file_path) command += ` --file_path '${file_path}'`;
-    return registerCommand(command);
-  }
-);
+try {
+  const commandsDir = path.join(extensionPath, 'commands', 'android');
+  if (fs.existsSync(commandsDir)) {
+    const files = fs.readdirSync(commandsDir);
+    for (const file of files) {
+      if (path.extname(file) !== '.toml') continue;
 
-// --- Dynamically register TOML tools ---
-function registerToolsFromToml() {
-  const commandsDir = path.join(process.env.EXTENSION_PATH!, 'commands', 'android');
-  if (!fs.existsSync(commandsDir)) return;
+      const filePath = path.join(commandsDir, file);
+      const tomlContent = fs.readFileSync(filePath, 'utf-8');
+      const parsedToml = toml(tomlContent);
 
-  const files = fs.readdirSync(commandsDir);
-  for (const file of files) {
-    if (path.extname(file) !== '.toml') continue;
+      const toolName = path.basename(file, '.toml');
+      const description = parsedToml.description || `Tool for ${toolName}`;
+      const prompt = parsedToml.prompt || '';
+      const execMatch = prompt.match(/Ví dụ thực thi: (.+)/);
+      
+      if (!execMatch || !execMatch[1]) continue;
 
-    const filePath = path.join(commandsDir, file);
-    const tomlContent = fs.readFileSync(filePath, 'utf-8');
-    const parsedToml = toml.parse(tomlContent);
+      const commandTemplate = execMatch[1].trim();
+      const paramMap = new Map<string, { original: string; clean: string }>();
+      const paramRegex = /<([^>]+)>/g;
+      let match;
 
-    const toolName = path.basename(file, '.toml');
-    const description = parsedToml.description || '';
-    const prompt = parsedToml.prompt || '';
-    const fullDescription = `${description}\n${prompt}`.trim();
-
-    // Regex to find parameters like <name> or <name (description)>
-    const paramRegex = /<([a-zA-Z0-9_:\s\(\)]+?)>/g;
-    let match;
-    const paramNames = new Set<string>();
-    while ((match = paramRegex.exec(prompt)) !== null) {
-      const cleanName = match[1].split(' ')[0].replace('tên param ', '').replace(/:/g, '_');
-      paramNames.add(cleanName);
-    }
-
-    const schemaObj: Record<string, any> = {};
-    paramNames.forEach((name) => {
-      if (['level', 'port', 'duration', 'limit', 'brightness', 'state', 'pid', 'width', 'height'].some(k => name.includes(k))) {
-        schemaObj[name] = z.number().describe(name.replace(/_/g, ' '));
-      } else {
-        schemaObj[name] = z.string().describe(name.replace(/_/g, ' '));
+      while ((match = paramRegex.exec(prompt)) !== null) {
+        const original = match[1];
+        const clean = original.replace('tên param ', '').split(' ')[0].replace(/:/g, '_');
+        if (clean) paramMap.set(clean, { original, clean });
       }
-    });
+      
+      const shape: ZodRawShape = {};
+      const numberKeywords = ['level', 'port', 'duration', 'limit', 'brightness', 'state', 'pid', 'width', 'height', 'giây', 'ms', 'dpi'];
+      paramMap.forEach(({ original, clean }) => {
+        const isNumber = numberKeywords.some(k => clean.includes(k) || original.includes(k));
+        shape[clean] = (isNumber ? z.number() : z.string()).describe(original.replace(/_/g, ' '));
+      });
 
-    const zodSchema = z.object(schemaObj);
-
-    // Determine command template
-    let commandTemplate = prompt;
-    const execMatch = prompt.match(/Ví dụ thực thi: (.+)/);
-    if (execMatch) commandTemplate = execMatch[1];
-
-    server.tool(
-      toolName,
-      fullDescription,
-      zodSchema, // pass the object directly, no .shape
-      (args: any) => {
+      server.tool(toolName, description, shape, (args: Record<string, string | number>) => {
         let finalCommand = commandTemplate;
-        for (const key in args) {
-          const placeholderRegex = new RegExp(`<[^>]*${key}[^>]*>`, 'g');
-          finalCommand = finalCommand.replace(placeholderRegex, String(args[key]));
-        }
+        paramMap.forEach(({ original, clean }) => {
+          if (clean in args) {
+            const value = args[clean];
+            finalCommand = finalCommand.split(`<${original}>`).join(String(value));
+          }
+        });
+        
         finalCommand = finalCommand.replace(/<[^>]+>/g, '').trim();
-        return registerCommand(finalCommand);
-      }
-    );
+        return executeCommandAsTool(finalCommand);
+      });
+    }
   }
+} catch (e) {
+  console.error('Failed during dynamic tool registration:', e);
 }
 
-// --- Start server ---
-async function startServer() {
-  try {
-    registerToolsFromToml();
-    console.log('Successfully registered tools from TOML files.');
-  } catch (error) {
-    console.error('Failed to register tools from TOML files:', error);
-    process.exit(1);
-  }
 
+/**
+ * Starts the MCP server and connects the transport.
+ */
+async function startServer() {
+  console.log('Starting MCP Server for ADB Control...');
   const transport = new StdioServerTransport();
   await server.connect(transport);
+  console.log('Server connected and ready.');
 }
 
+// Start the server.
 startServer();
