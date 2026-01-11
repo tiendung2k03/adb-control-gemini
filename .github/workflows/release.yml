@@ -39,10 +39,13 @@ jobs:
       - name: Package Extension for Release
         run: |
           tar -czvf adb-release.tar.gz \
-           --exclude='.git' \
-           --exclude='.github' \
-           --exclude='mcp-server/node_modules' \
-           -C . .
+            --exclude='mcp-server/tsconfig.tsbuildinfo' \
+            commands/ \
+            utils/ \
+            mcp-server/dist/ \
+            GEMINI.md \
+            README.md \
+            gemini-extension.json
       
       - name: Create GitHub Release and Upload Asset
         env:
