@@ -1,6 +1,6 @@
-description = "Cài đặt lại ứng dụng, giữ nguyên dữ liệu."
+description = "Reinstall an application, keeping the data."
 prompt = """
-Cài đặt lại ứng dụng, giữ nguyên dữ liệu.
-Nhập các tham số sau: <tên param đường dẫn APK trên máy tính>.
-Ví dụ thực thi: adb install -r <đường dẫn APK>.
+Reinstall an application, keeping the data.
+Enter the following parameters: <APK path on computer param name>.
+Example execution: adb install -r <APK path>.
 """

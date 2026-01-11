@@ -1,5 +1,5 @@
-description = "Xóa proxy HTTP toàn cầu."
+description = "Clear the global HTTP proxy."
 prompt = """
-Xóa proxy HTTP toàn cầu.
-Ví dụ thực thi: adb shell settings put global http_proxy :0.
+Clear the global HTTP proxy.
+Example execution: adb shell settings put global http_proxy :0.
 """

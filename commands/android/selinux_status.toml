@@ -1,5 +1,5 @@
-description = "Hiển thị trạng thái SELinux."
+description = "Display the SELinux status."
 prompt = """
-Hiển thị trạng thái SELinux.
-Ví dụ thực thi: adb shell getenforce.
+Display the SELinux status.
+Example execution: adb shell getenforce.
 """

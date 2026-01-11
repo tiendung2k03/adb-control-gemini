@@ -1,181 +1,181 @@
-# Tham chiếu lệnh ADB
+# ADB Command Reference
 
-Dưới đây là danh sách chi tiết các lệnh ADB có sẵn thông qua tiện ích mở rộng `adb-control-gemini`, được phân loại để dễ dàng tìm kiếm và sử dụng. Mỗi lệnh đi kèm với mô tả và ví dụ thực thi.
+Below is a detailed list of ADB commands available through the `adb-control-gemini` extension, categorized for easy searching and use. Each command comes with a description and an execution example.
 
-## KẾT NỐI – SERVER
-- `abi`: Lấy thông tin ABI của thiết bị.
-- `connect <IP:PORT>`: Kết nối thiết bị Android với máy tính qua TCP/IP, cho phép điều khiển thiết bị không dây.
-- `devices`: Liệt kê tất cả các thiết bị Android đang kết nối với máy tính qua USB hoặc TCP/IP.
-- `devices_long`: Liệt kê tất cả các thiết bị Android đang kết nối, bao gồm thông tin chi tiết.
-- `disconnect`: Ngắt kết nối với thiết bị Android qua TCP/IP.
-- `get_serial`: Lấy số serial của thiết bị.
-- `get_state`: Lấy trạng thái kết nối của thiết bị.
-- `kill_server`: Dừng hoàn toàn máy chủ ADB đang chạy trên máy tính.
-- `pair <IP:PORT>, <mã ghép nối>`: Ghép nối với thiết bị Android qua Wi-Fi.
-- `start_server`: Khởi động máy chủ ADB trên máy tính.
-- `tcpip <port>`: Khởi động lại ADB ở chế độ TCP/IP trên một cổng cụ thể.
-- `usb`: Chuyển ADB sang chế độ USB.
-- `wait_device`: Chờ đợi thiết bị được kết nối.
+## CONNECTION – SERVER
+- `abi`: Get the ABI information of the device.
+- `connect <IP:PORT>`: Connect the Android device to the computer via TCP/IP, allowing wireless device control.
+- `devices`: List all Android devices currently connected to the computer via USB or TCP/IP.
+- `devices_long`: List all connected Android devices, including detailed information.
+- `disconnect`: Disconnect from the Android device via TCP/IP.
+- `get_serial`: Get the serial number of the device.
+- `get_state`: Get the connection state of the device.
+- `kill_server`: Completely stop the ADB server running on the computer.
+- `pair <IP:PORT>, <pairing_code>`: Pair with an Android device via Wi-Fi.
+- `start_server`: Start the ADB server on the computer.
+- `tcpip <port>`: Restart ADB in TCP/IP mode on a specific port.
+- `usb`: Switch ADB to USB mode.
+- `wait_device`: Wait for a device to be connected.
 
-## THIẾT BỊ – HỆ THỐNG
-- `android_version`: Lấy phiên bản Android của thiết bị.
-- `brand`: Lấy tên thương hiệu của thiết bị.
-- `cpuinfo`: Hiển thị thông tin CPU của thiết bị.
-- `disk_usage`: Hiển thị thông tin sử dụng bộ nhớ trong của thiết bị.
-- `getprop`: Lấy thông tin thuộc tính hệ thống của thiết bị.
-- `hardware`: Lấy thông tin phần cứng của thiết bị.
-- `locale`: Lấy ngôn ngữ và khu vực hiện tại của thiết bị.
-- `manufacturer`: Lấy tên nhà sản xuất của thiết bị.
-- `meminfo`: Hiển thị thông tin bộ nhớ của thiết bị.
-- `model`: Lấy tên model của thiết bị.
-- `sdk_version`: Lấy phiên bản SDK của thiết bị.
-- `thermal`: Hiển thị thông tin nhiệt độ của thiết bị.
-- `timezone`: Lấy múi giờ hiện tại của thiết bị.
-- `uptime`: Hiển thị thời gian hoạt động của thiết bị.
+## DEVICE – SYSTEM
+- `android_version`: Get the Android version of the device.
+- `brand`: Get the brand name of the device.
+- `cpuinfo`: Display CPU information of the device.
+- `disk_usage`: Display internal memory usage information of the device.
+- `getprop`: Get system property information of the device.
+- `hardware`: Get hardware information of the device.
+- `locale`: Get the current language and region of the device.
+- `manufacturer`: Get the manufacturer name of the device.
+- `meminfo`: Display memory information of the device.
+- `model`: Get the model name of the device.
+- `sdk_version`: Get the SDK version of the device.
+- `thermal`: Display temperature information of the device.
+- `timezone`: Get the current time zone of the device.
+- `uptime`: Display the uptime of the device.
 
-## SHELL – TIẾN TRÌNH
-- `env`: Hiển thị các biến môi trường của shell.
-- `id`: Hiển thị thông tin người dùng và nhóm.
-- `jobs`: Liệt kê các công việc trong shell.
-- `kill <PID>`: Kết thúc một tiến trình bằng PID.
-- `killall <tên tiến trình>`: Kết thúc tất cả các tiến trình có tên cụ thể.
-- `ps`: Liệt kê các tiến trình đang chạy trên thiết bị.
-- `root`: Khởi động lại ADB với quyền root.
-- `shell`: Mở một shell tương tác trên thiết bị.
-- `su <lệnh>`: Chạy lệnh với quyền superuser (chỉ trên thiết bị đã root).
-- `top`: Hiển thị các tiến trình đang sử dụng nhiều tài nguyên nhất.
-- `unroot`: Khởi động lại ADB không có quyền root.
-- `whoami`: Hiển thị tên người dùng hiện tại.
+## SHELL – PROCESS
+- `env`: Display the shell's environment variables.
+- `id`: Display user and group information.
+- `jobs`: List jobs in the shell.
+- `kill <PID>`: Terminate a process by PID.
+- `killall <process_name>`: Terminate all processes with a specific name.
+- `ps`: List running processes on the device.
+- `root`: Restart ADB with root privileges.
+- `shell`: Open an interactive shell on the device.
+- `su <command>`: Run a command with superuser privileges (only on rooted devices).
+- `top`: Display the most resource-intensive processes.
+- `unroot`: Restart ADB without root privileges.
+- `whoami`: Display the current username.
 
-## FILE – THƯ MỤC
-- `cat <file_path>`: Hiển thị nội dung của tệp.
-- `chmod <permissions>, <path>`: Thay đổi quyền của tệp hoặc thư mục.
-- `chown <owner:group>, <path>`: Thay đổi chủ sở hữu của tệp hoặc thư mục.
-- `cp <source_path>, <destination_path>`: Sao chép tệp hoặc thư mục trên thiết bị.
-- `du <path>`: Hiển thị dung lượng sử dụng của tệp hoặc thư mục.
-- `find <directory>, <tên tệp/pattern>`: Tìm kiếm tệp trên thiết bị.
-- `head <file_path>`: Hiển thị những dòng đầu của tệp.
-- `less <file_path>`: Xem nội dung của tệp theo từng trang (nếu có sẵn).
-- `ls <path (tùy chọn)>`: Liệt kê nội dung của một thư mục.
-- `mkdir <directory_path>`: Tạo thư mục trên thiết bị.
-- `mount_ro <partition_path>`: Mount lại phân vùng hệ thống ở chế độ chỉ đọc.
-- `mount_rw <partition_path>`: Mount lại phân vùng hệ thống ở chế độ đọc-ghi (yêu cầu quyền root).
-- `mv <source_path>, <destination_path>`: Di chuyển hoặc đổi tên tệp/thư mục trên thiết bị.
-- `pull <remote_path>, <local_path>`: Sao chép tệp hoặc thư mục từ thiết bị về máy tính.
-- `push <local_path>, <remote_path>`: Sao chép tệp hoặc thư mục từ máy tính lên thiết bị.
-- `rm <file_path>`: Xóa tệp trên thiết bị.
-- `rmdir <directory_path>`: Xóa thư mục rỗng trên thiết bị.
-- `stat <path>`: Hiển thị thông tin trạng thái tệp hoặc thư mục.
-- `tail <file_path>`: Hiển thị những dòng cuối của tệp.
-- `tree <path (tùy chọn)>`: Hiển thị cấu trúc cây thư mục (nếu có sẵn).
+## FILE – DIRECTORY
+- `cat <file_path>`: Display the content of a file.
+- `chmod <permissions>, <path>`: Change the permissions of a file or directory.
+- `chown <owner:group>, <path>`: Change the owner of a file or directory.
+- `cp <source_path>, <destination_path>`: Copy a file or directory on the device.
+- `du <path>`: Display the disk usage of a file or directory.
+- `find <directory>, <file_name/pattern>`: Search for a file on the device.
+- `head <file_path>`: Display the first few lines of a file.
+- `less <file_path>`: View the content of a file page by page (if available).
+- `ls <path (optional)>`: List the content of a directory.
+- `mkdir <directory_path>`: Create a directory on the device.
+- `mount_ro <partition_path>`: Remount the system partition in read-only mode.
+- `mount_rw <partition_path>`: Remount the system partition in read-write mode (requires root).
+- `mv <source_path>, <destination_path>`: Move or rename a file/directory on the device.
+- `pull <remote_path>, <local_path>`: Copy a file or directory from the device to the computer.
+- `push <local_path>, <remote_path>`: Copy a file or directory from the computer to the device.
+- `rm <file_path>`: Delete a file on the device.
+- `rmdir <directory_path>`: Delete an empty directory on the device.
+- `stat <path>`: Display file or directory status information.
+- `tail <file_path>`: Display the last few lines of a file.
+- `tree <path (optional)>`: Display the directory tree structure (if available).
 
-## ỨNG DỤNG – PACKAGE
-- `app_info <package_name>`: Hiển thị thông tin chi tiết về ứng dụng (dumpsys).
-- `app_permissions <package_name>`: Liệt kê các quyền của ứng dụng.
-- `app_path <package_name>`: Lấy đường dẫn cài đặt của ứng dụng.
-- `clear_data <package_name>`: Xóa dữ liệu của một ứng dụng.
-- `disable_app <package_name>`: Vô hiệu hóa một ứng dụng.
-- `enable_app <package_name>`: Bật một ứng dụng đã bị vô hiệu hóa.
-- `force_stop <package_name>`: Buộc dừng một ứng dụng.
-- `grant_permission <package_name>, <permission>`: Cấp quyền cho ứng dụng.
-- `install <đường dẫn APK trên máy tính>`: Cài đặt ứng dụng từ tệp APK.
-- `install_multiple <đường dẫn đến các APK trên máy tính>`: Cài đặt nhiều APK cho một ứng dụng.
-- `install_replace <đường dẫn APK trên máy tính>`: Cài đặt lại ứng dụng, giữ nguyên dữ liệu.
-- `list_packages`: Liệt kê tất cả các gói ứng dụng đã cài đặt.
-- `list_packages_system`: Liệt kê các gói ứng dụng hệ thống đã cài đặt.
-- `list_packages_user`: Liệt kê các gói ứng dụng đã cài đặt cho người dùng.
-- `revoke_permission <package_name>, <permission>`: Thu hồi quyền của ứng dụng.
-- `set_app_debuggable <package_name>`: Đặt ứng dụng là debuggable.
-- `uninstall <package_name>`: Gỡ cài đặt một ứng dụng.
+## APPLICATION – PACKAGE
+- `app_info <package_name>`: Display detailed information about the application (dumpsys).
+- `app_permissions <package_name>`: List the permissions of the application.
+- `app_path <package_name>`: Get the installation path of the application.
+- `clear_data <package_name>`: Clear the data of an application.
+- `disable_app <package_name>`: Disable an application.
+- `enable_app <package_name>`: Enable a disabled application.
+- `force_stop <package_name>`: Force stop an application.
+- `grant_permission <package_name>, <permission>`: Grant a permission to the application.
+- `install <APK path on computer>`: Install an application from an APK file.
+- `install_multiple <path to APKs on computer>`: Install multiple APKs for an application.
+- `install_replace <APK path on computer>`: Reinstall an application, keeping the data.
+- `list_packages`: List all installed application packages.
+- `list_packages_system`: List installed system application packages.
+- `list_packages_user`: List application packages installed for the user.
+- `revoke_permission <package_name>, <permission>`: Revoke a permission from the application.
+- `set_app_debuggable <package_name>`: Set the application as debuggable.
+- `uninstall <package_name>`: Uninstall an application.
 
 ## LOG – DEBUG
-- `anr_traces`: Hiển thị các dấu vết ANR (Application Not Responding).
-- `bugreport <path>`: Tạo một báo cáo lỗi đầy đủ.
-- `dumpsys <service_name (tùy chọn)>`: Hiển thị thông tin chẩn đoán hệ thống.
-- `dumpsys_activity`: Hiển thị thông tin về Activity Manager.
-- `dumpsys_package`: Hiển thị thông tin về Package Manager.
-- `dumpsys_window`: Hiển thị thông tin về Window Manager.
-- `logcat`: Hiển thị nhật ký logcat của thiết bị.
-- `logcat_clear`: Xóa nhật ký logcat hiện có.
-- `logcat_file <local_file_path>`: Ghi nhật ký logcat ra tệp trên máy tính.
-- `logcat_tag <tag>`: Lọc nhật ký logcat theo tag.
-- `tombstones`: Liệt kê các tệp tombstones (thông tin lỗi ứng dụng).
+- `anr_traces`: Display ANR (Application Not Responding) traces.
+- `bugreport <path>`: Create a full bug report.
+- `dumpsys <service_name (optional)>`: Display system diagnostic information.
+- `dumpsys_activity`: Display information about the Activity Manager.
+- `dumpsys_package`: Display information about the Package Manager.
+- `dumpsys_window`: Display information about the Window Manager.
+- `logcat`: Display the logcat logs of the device.
+- `logcat_clear`: Clear the existing logcat logs.
+- `logcat_file <local_file_path>`: Write the logcat logs to a file on the computer.
+- `logcat_tag <tag>`: Filter logcat logs by tag.
+- `tombstones`: List tombstones files (application error information).
 
-## MÀN HÌNH – MEDIA
-- `media_scan <path>`: Yêu cầu MediaScanner quét lại thư mục.
-- `pull_record <remote_path>, <local_file_path>`: Kéo tệp ghi màn hình từ thiết bị về máy tính.
-- `screenrecord <thời gian (giây)>`: Quay video màn hình của thiết bị.
-- `screenrecord_bitrate <bitrate (Mbps)>`: Quay video màn hình với tốc độ bit cụ thể.
-- `screenrecord_size <width x height>`: Quay video màn hình với kích thước cụ thể.
-- `screenshot <local_file_path (tùy chọn)>`: Chụp ảnh màn hình của thiết bị và lưu cục bộ.
+## SCREEN – MEDIA
+- `media_scan <path>`: Request MediaScanner to rescan a directory.
+- `pull_record <remote_path>, <local_file_path>`: Pull the screen recording file from the device to the computer.
+- `screenrecord <time (seconds)>`: Record the device's screen.
+- `screenrecord_bitrate <bitrate (Mbps)>`: Record the screen with a specific bit rate.
+- `screenrecord_size <width x height>`: Record the screen with a specific size.
+- `screenshot <local_file_path (optional)>`: Take a screenshot of the device and save it locally.
 
-## INPUT – ĐIỀU KHIỂN
-- `back`: Nhấn nút Back.
-- `brightness_auto`: Chuyển sang chế độ độ sáng tự động.
-- `brightness_set <mức độ sáng>`: Đặt độ sáng màn hình (0-255).
-- `home`: Nhấn nút Home.
-- `input_keyevent <mã phím (KEY_CODE)>`: Gửi một sự kiện phím.
-- `input_longpress <x>, <y>, <thời gian (ms)>`: Nhấn giữ một vị trí trên màn hình.
-- `input_swipe <x1>, <y1>, <x2>, <y2>, <thời gian (ms) (tùy chọn)>`: Vuốt trên màn hình.
-- `input_tap <x>, <y>`: Chạm vào một vị trí trên màn hình.
-- `input_text <văn bản>`: Nhập văn bản vào thiết bị.
-- `power`: Nhấn nút nguồn (tắt/mở màn hình).
-- `recents`: Mở màn hình ứng dụng gần đây.
-- `volume_down`: Giảm âm lượng.
-- `volume_mute`: Tắt/bật tiếng.
-- `volume_up`: Tăng âm lượng.
+## INPUT – CONTROL
+- `back`: Press the Back button.
+- `brightness_auto`: Switch to automatic brightness mode.
+- `brightness_set <brightness_level>`: Set the screen brightness (0-255).
+- `home`: Press the Home button.
+- `input_keyevent <key_code (KEY_CODE)>`: Send a key event.
+- `input_longpress <x>, <y>, <time (ms)>`: Long press a position on the screen.
+- `input_swipe <x1>, <y1>, <x2>, <y2>, <time (ms) (optional)>`: Swipe on the screen.
+- `input_tap <x>, <y>`: Tap a position on the screen.
+- `input_text <text>`: Enter text on the device.
+- `power`: Press the power button (turn screen on/off).
+- `recents`: Open the recent apps screen.
+- `volume_down`: Decrease the volume.
+- `volume_mute`: Mute/unmute the volume.
+- `volume_up`: Increase the volume.
 
-## MẠNG – WIFI – DATA
-- `airplane_off`: Tắt chế độ máy bay trên thiết bị.
-- `airplane_on`: Bật chế độ máy bay trên thiết bị.
-- `data_off`: Tắt dữ liệu di động trên thiết bị.
-- `data_on`: Bật dữ liệu di động trên thiết bị.
-- `dns`: Hiển thị cấu hình DNS của thiết bị.
-- `ifconfig`: Hiển thị cấu hình giao diện mạng.
-- `ip_addr`: Hiển thị địa chỉ IP của thiết bị.
-- `netstat`: Hiển thị các kết nối mạng và thống kê.
-- `ping <host>`: Kiểm tra kết nối mạng đến một host.
-- `proxy_clear`: Xóa proxy HTTP toàn cầu.
-- `proxy_set <host>, <port>`: Đặt proxy HTTP toàn cầu.
-- `route`: Hiển thị bảng định tuyến.
-- `wifi_off`: Tắt Wi-Fi trên thiết bị.
-- `wifi_on`: Bật Wi-Fi trên thiết bị.
+## NETWORK – WIFI – DATA
+- `airplane_off`: Turn off airplane mode on the device.
+- `airplane_on`: Turn on airplane mode on the device.
+- `data_off`: Turn off mobile data on the device.
+- `data_on`: Turn on mobile data on the device.
+- `dns`: Display the DNS configuration of the device.
+- `ifconfig`: Display the network interface configuration.
+- `ip_addr`: Display the IP address of the device.
+- `netstat`: Display network connections and statistics.
+- `ping <host>`: Check the network connection to a host.
+- `proxy_clear`: Clear the global HTTP proxy.
+- `proxy_set <host>, <port>`: Set the global HTTP proxy.
+- `route`: Display the routing table.
+- `wifi_off`: Turn off Wi-Fi on the device.
+- `wifi_on`: Turn on Wi-Fi on the device.
 
-## MÀN HÌNH – UI
-- `immersive_mode <package_name>`: Đặt ứng dụng vào chế độ nhập vai toàn màn hình.
-- `layout_bounds <0 (tắt) hoặc 1 (bật)>`: Hiển thị ranh giới bố cục của các thành phần UI.
-- `pointer_location <0 (tắt) hoặc 1 (bật)>`: Hiển thị thông tin vị trí con trỏ trên màn hình.
-- `rotation_lock`: Khóa xoay màn hình ở chế độ hiện tại.
-- `rotation_unlock`: Mở khóa xoay màn hình (cho phép tự động xoay).
-- `show_touches <0 (tắt) hoặc 1 (bật)>`: Hiển thị các tương tác chạm trên màn hình (để gỡ lỗi UI).
-- `wm_density <density (dpi) (tùy chọn)>`: Hiển thị hoặc đặt mật độ DPI màn hình.
-- `wm_reset`: Đặt lại kích thước và mật độ màn hình về mặc định.
-- `wm_size <width x height (tùy chọn)>`: Hiển thị hoặc đặt kích thước màn hình.
+## SCREEN – UI
+- `immersive_mode <package_name>`: Set the application to full-screen immersive mode.
+- `layout_bounds <0 (off) or 1 (on)>`: Display the layout boundaries of UI components.
+- `pointer_location <0 (off) or 1 (on)>`: Display pointer location information on the screen.
+- `rotation_lock`: Lock screen rotation in the current mode.
+- `rotation_unlock`: Unlock screen rotation (allow auto-rotate).
+- `show_touches <0 (off) or 1 (on)>`: Display touch interactions on the screen (for UI debugging).
+- `wm_density <density (dpi) (optional)>`: Display or set the screen DPI density.
+- `wm_reset`: Reset the screen size and density to default.
+- `wm_size <width x height (optional)>`: Display or set the screen size.
 
-## PIN – NGUỒN
-- `battery_level`: Hiển thị mức pin hiện tại của thiết bị.
-- `battery_reset`: Đặt lại trạng thái pin về mặc định (yêu cầu quyền root).
-- `battery_set_level <level>`: Đặt mức pin mô phỏng (0-100, yêu cầu quyền root).
-- `battery_status`: Hiển thị trạng thái pin của thiết bị.
-- `charging_off`: Tắt mô phỏng sạc pin (yêu cầu quyền root).
-- `charging_on`: Bật mô phỏng sạc pin (yêu cầu quyền root).
-- `reboot`: Khởi động lại thiết bị.
-- `reboot_bootloader`: Khởi động lại thiết bị vào chế độ Bootloader.
-- `reboot_recovery`: Khởi động lại thiết bị vào chế độ Recovery.
-- `shutdown`: Tắt thiết bị.
-- `stay_awake_off`: Tắt chế độ màn hình luôn sáng.
-- `stay_awake_on`: Giữ màn hình luôn sáng khi sạc.
+## BATTERY – POWER
+- `battery_level`: Display the current battery level of the device.
+- `battery_reset`: Reset the battery status to default (requires root).
+- `battery_set_level <level>`: Set the simulated battery level (0-100, requires root).
+- `battery_status`: Display the battery status of the device.
+- `charging_off`: Turn off simulated battery charging (requires root).
+- `charging_on`: Turn on simulated battery charging (requires root).
+- `reboot`: Reboot the device.
+- `reboot_bootloader`: Reboot the device into Bootloader mode.
+- `reboot_recovery`: Reboot the device into Recovery mode.
+- `shutdown`: Shut down the device.
+- `stay_awake_off`: Turn off the always-on screen mode.
+- `stay_awake_on`: Keep the screen on while charging.
 
-## BẢO MẬT – DEV
-- `developer_options_off`: Tắt tùy chọn nhà phát triển.
-- `developer_options_on`: Bật tùy chọn nhà phát triển (nếu chưa bật).
-- `selinux_enforcing`: Đặt SELinux ở chế độ Enforcing (chặn và ghi log).
-- `selinux_permissive`: Đặt SELinux ở chế độ Permissive (cảnh báo nhưng không chặn).
-- `selinux_status`: Hiển thị trạng thái SELinux.
-- `verify_apps_off`: Tắt xác minh ứng dụng qua ADB.
-- `verify_apps_on`: Bật xác minh ứng dụng qua ADB.
+## SECURITY – DEV
+- `developer_options_off`: Turn off developer options.
+- `developer_options_on`: Turn on developer options (if not already on).
+- `selinux_enforcing`: Set SELinux to Enforcing mode (block and log).
+- `selinux_permissive`: Set SELinux to Permissive mode (warn but do not block).
+- `selinux_status`: Display the SELinux status.
+- `verify_apps_off`: Turn off app verification over ADB.
+- `verify_apps_on`: Turn on app verification over ADB.
 
-## NGUY HIỂM – HÀNH ĐỘNG CAO
-- `erase_partition <partition>`: Xóa một phân vùng trên thiết bị (yêu cầu fastboot).
-- `flash_image <partition>, <image_file>`: Flash một image vào thiết bị (yêu cầu fastboot).
-- `remount`: Remount phân vùng hệ thống để có thể ghi (yêu cầu quyền root).
+## DANGEROUS – HIGH-RISK ACTIONS
+- `erase_partition <partition>`: Erase a partition on the device (requires fastboot).
+- `flash_image <partition>, <image_file>`: Flash an image to the device (requires fastboot).
+- `remount`: Remount the system partition to be writable (requires root).

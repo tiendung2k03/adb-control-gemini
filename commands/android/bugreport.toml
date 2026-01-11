@@ -1,5 +1,5 @@
-description = "Tạo một báo cáo lỗi đầy đủ."
+description = "Create a full bug report."
 prompt = """
-Tạo một báo cáo lỗi đầy đủ.
-Ví dụ thực thi: adb bugreport <path>.
+Create a full bug report.
+Example execution: adb bugreport <path>.
 """

@@ -1,5 +1,5 @@
-description = "Hiển thị cấu hình giao diện mạng."
+description = "Display the network interface configuration."
 prompt = """
-Hiển thị cấu hình giao diện mạng.
-Ví dụ thực thi: adb shell ifconfig.
+Display the network interface configuration.
+Example execution: adb shell ifconfig.
 """

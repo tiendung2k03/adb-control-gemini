@@ -1,5 +1,5 @@
-description = "Tắt/bật tiếng."
+description = "Mute/unmute the volume."
 prompt = """
-Tắt/bật tiếng.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_VOLUME_MUTE.
+Mute/unmute the volume.
+Example execution: adb shell input keyevent KEYCODE_VOLUME_MUTE.
 """

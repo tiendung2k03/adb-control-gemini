@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin nhiệt độ của thiết bị."
+description = "Display temperature information of the device."
 prompt = """
-Hiển thị thông tin nhiệt độ của thiết bị.
-Ví dụ thực thi: adb shell dumpsys thermalservice.
+Display temperature information of the device.
+Example execution: adb shell dumpsys thermalservice.
 """

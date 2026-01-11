@@ -1,5 +1,5 @@
-description = "Lấy thông tin phần cứng của thiết bị."
+description = "Get hardware information of the device."
 prompt = """
-Lấy thông tin phần cứng của thiết bị.
-Ví dụ thực thi: adb shell getprop ro.hardware.
+Get hardware information of the device.
+Example execution: adb shell getprop ro.hardware.
 """

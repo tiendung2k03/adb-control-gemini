@@ -1,6 +1,6 @@
-description = "Kéo tệp ghi màn hình từ thiết bị về máy tính."
+description = "Pull the screen recording file from the device to the computer."
 prompt = """
-Kéo tệp ghi màn hình từ thiết bị về máy tính.
-Nhập các tham số sau: <tên param remote_path>, <tên param local_file_path>.
-Ví dụ thực thi: adb pull /sdcard/demo.mp4 <local_file_path>.
+Pull the screen recording file from the device to the computer.
+Enter the following parameters: <remote_path param name>, <local_file_path param name>.
+Example execution: adb pull /sdcard/demo.mp4 <local_file_path>.
 """

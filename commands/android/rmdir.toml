@@ -1,6 +1,6 @@
-description = "Xóa thư mục rỗng trên thiết bị."
+description = "Delete an empty directory on the device."
 prompt = """
-Xóa thư mục rỗng trên thiết bị.
-Nhập các tham số sau: <tên param directory_path>.
-Ví dụ thực thi: adb shell rmdir /sdcard/empty_dir.
+Delete an empty directory on the device.
+Enter the following parameters: <directory_path param name>.
+Example execution: adb shell rmdir /sdcard/empty_dir.
 """

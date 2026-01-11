@@ -1,86 +1,86 @@
-# Hướng dẫn cài đặt
+# Installation Guide
 
-Đây là hướng dẫn chi tiết để cài đặt ADB (Android Debug Bridge) và tiện ích mở rộng `adb-control-gemini` cho Gemini CLI.
+This is a detailed guide to installing ADB (Android Debug Bridge) and the `adb-control-gemini` extension for Gemini CLI.
 
-## 1. Cài đặt Android SDK Platform-Tools (bao gồm ADB)
+## 1. Install Android SDK Platform-Tools (including ADB)
 
-ADB là một công cụ dòng lệnh cho phép bạn giao tiếp với một thiết bị Android. Nó là một phần của Android SDK Platform-Tools.
+ADB is a command-line tool that lets you communicate with an Android device. It is part of the Android SDK Platform-Tools.
 
-### Trên Windows:
-1. Tải xuống [SDK Platform-Tools cho Windows](https://developer.android.com/studio/releases/platform-tools).
-2. Giải nén tệp ZIP vào một vị trí dễ nhớ (ví dụ: `C:\platform-tools`).
-3. Thêm đường dẫn của thư mục `platform-tools` vào biến môi trường `Path` của hệ thống:
-   - Nhấn `Win + R`, gõ `sysdm.cpl`, nhấn Enter.
-   - Chuyển đến tab `Advanced`, sau đó nhấp vào `Environment Variables`.
-   - Trong phần `System variables`, tìm `Path`, chọn nó và nhấp vào `Edit`.
-   - Nhấp vào `New` và thêm đường dẫn đến thư mục `platform-tools` của bạn (ví dụ: `C:\platform-tools`).
-   - Nhấn `OK` cho tất cả các cửa sổ.
-4. Mở một cửa sổ Command Prompt mới và gõ `adb --version` để kiểm tra.
+### On Windows:
+1. Download [SDK Platform-Tools for Windows](https://developer.android.com/studio/releases/platform-tools).
+2. Unzip the ZIP file to a memorable location (e.g., `C:\platform-tools`).
+3. Add the path of the `platform-tools` folder to the system's `Path` environment variable:
+   - Press `Win + R`, type `sysdm.cpl`, press Enter.
+   - Go to the `Advanced` tab, then click on `Environment Variables`.
+   - In the `System variables` section, find `Path`, select it and click `Edit`.
+   - Click `New` and add the path to your `platform-tools` folder (e.g., `C:\platform-tools`).
+   - Press `OK` for all windows.
+4. Open a new Command Prompt window and type `adb --version` to check.
 
-### Trên macOS:
-1. Tải xuống [SDK Platform-Tools cho macOS](https://developer.android.com/studio/releases/platform-tools).
-2. Giải nén tệp ZIP vào một vị trí (ví dụ: `/Users/yourusername/platform-tools`).
-3. Mở Terminal và thêm đường dẫn vào biến môi trường `PATH`. Bạn có thể chỉnh sửa tệp `~/.zshrc` hoặc `~/.bash_profile`:
+### On macOS:
+1. Download [SDK Platform-Tools for macOS](https://developer.android.com/studio/releases/platform-tools).
+2. Unzip the ZIP file to a location (e.g., `/Users/yourusername/platform-tools`).
+3. Open Terminal and add the path to the `PATH` environment variable. You can edit the `~/.zshrc` or `~/.bash_profile` file:
    ```bash
    echo 'export PATH=$PATH:/Users/yourusername/platform-tools' >> ~/.zshrc
    source ~/.zshrc
    ```
-   (Thay `/Users/yourusername/platform-tools` bằng đường dẫn thực tế của bạn)
-4. Mở một cửa sổ Terminal mới và gõ `adb --version` để kiểm tra.
+   (Replace `/Users/yourusername/platform-tools` with your actual path)
+4. Open a new Terminal window and type `adb --version` to check.
 
-### Trên Linux:
-1. Tải xuống [SDK Platform-Tools cho Linux](https://developer.android.com/studio/releases/platform-tools).
-2. Giải nén tệp ZIP (ví dụ: `~/platform-tools`).
-3. Thêm đường dẫn vào biến môi trường `PATH` bằng cách chỉnh sửa `~/.bashrc` hoặc `~/.zshrc`:
+### On Linux:
+1. Download [SDK Platform-Tools for Linux](https://developer.android.com/studio/releases/platform-tools).
+2. Unzip the ZIP file (e.g., `~/platform-tools`).
+3. Add the path to the `PATH` environment variable by editing `~/.bashrc` or `~/.zshrc`:
    ```bash
    echo 'export PATH=$PATH:~/platform-tools' >> ~/.bashrc
    source ~/.bashrc
    ```
-   (Thay `~/platform-tools` bằng đường dẫn thực tế của bạn)
-4. Mở một cửa sổ Terminal mới và gõ `adb --version` để kiểm tra.
+   (Replace `~/platform-tools` with your actual path)
+4. Open a new Terminal window and type `adb --version` to check.
 
-## 2. Bật USB Debugging trên thiết bị Android
+## 2. Enable USB Debugging on your Android device
 
-Để ADB có thể giao tiếp với thiết bị của bạn, bạn cần bật chế độ gỡ lỗi USB (USB Debugging).
+For ADB to be able to communicate with your device, you need to enable USB Debugging.
 
-1.  **Bật Tùy chọn nhà phát triển (Developer Options):**
-    *   Mở ứng dụng `Settings` (Cài đặt) trên thiết bị Android của bạn.
-    *   Cuộn xuống và tìm `About phone` (Thông tin điện thoại) hoặc `About tablet` (Thông tin máy tính bảng).
-    *   Tìm `Build number` (Số bản dựng) và chạm vào nó liên tục (khoảng 7 lần) cho đến khi bạn thấy thông báo "You are now a developer!" (Bạn đã là nhà phát triển!).
-2.  **Bật USB Debugging:**
-    *   Quay lại màn hình `Settings` chính.
-    *   Tìm `Developer options` (Tùy chọn nhà phát triển) (thường nằm trong `System` hoặc ngay bên dưới `About phone`).
-    *   Cuộn xuống và tìm `USB debugging` (Gỡ lỗi USB) và bật nó lên.
-3.  Kết nối thiết bị Android của bạn với máy tính bằng cáp USB. Trên thiết bị Android, bạn có thể được hỏi "Allow USB debugging?" (Cho phép gỡ lỗi USB?), hãy chọn `Always allow from this computer` (Luôn cho phép từ máy tính này) và nhấn `OK`.
+1.  **Enable Developer Options:**
+    *   Open the `Settings` app on your Android device.
+    *   Scroll down and find `About phone` or `About tablet`.
+    *   Find `Build number` and tap it repeatedly (about 7 times) until you see the message "You are now a developer!".
+2.  **Enable USB Debugging:**
+    *   Go back to the main `Settings` screen.
+    *   Find `Developer options` (usually in `System` or just below `About phone`).
+    *   Scroll down and find `USB debugging` and turn it on.
+3.  Connect your Android device to your computer with a USB cable. On your Android device, you may be asked "Allow USB debugging?", select `Always allow from this computer` and press `OK`.
 
-## 3. Cài đặt tiện ích mở rộng `adb-control-gemini`
+## 3. Install the `adb-control-gemini` extension
 
-Tiện ích mở rộng này có thể được cài đặt trực tiếp từ repository GitHub bằng lệnh của Gemini CLI.
+This extension can be installed directly from the GitHub repository using the Gemini CLI command.
 
-1.  **Cài đặt trực tiếp từ GitHub:**
-    *   Chạy lệnh sau trong terminal của bạn, thay thế `<URL-GITHUB-CUA-EXTENSION>` bằng URL GitHub của repository tiện ích mở rộng này:
+1.  **Install directly from GitHub:**
+    *   Run the following command in your terminal, replacing `<GITHUB-URL-OF-EXTENSION>` with the GitHub URL of this extension's repository:
         ```bash
-        gemini extension install <URL-GITHUB-CUA-EXTENSION>
+        gemini extension install <GITHUB-URL-OF-EXTENSION>
         ```
-        Ví dụ:
+        Example:
         ```bash
         gemini extension install https://github.com/your-username/adb-control-gemini.git
         ```
-        (Thay `https://github.com/your-username/adb-control-gemini.git` bằng URL GitHub thực tế của repository tiện ích mở rộng này).
+        (Replace `https://github.com/your-username/adb-control-gemini.git` with the actual GitHub URL of this extension's repository).
 
-2.  **Cài đặt các phụ thuộc (nếu có):**
-    *   Sau khi cài đặt tiện ích mở rộng, bạn có thể cần cài đặt các phụ thuộc của nó. Điều hướng đến thư mục cài đặt của tiện ích mở rộng (thường nằm trong thư mục cài đặt của Gemini CLI hoặc thư mục `extensions/` của nó) và chạy các lệnh sau:
+2.  **Install dependencies (if any):**
+    *   After installing the extension, you may need to install its dependencies. Navigate to the extension's installation directory (usually in the Gemini CLI's installation directory or its `extensions/` directory) and run the following commands:
         ```bash
-        # Ví dụ: Nếu tiện ích mở rộng được cài đặt tại ~/.gemini/extensions/adb-control-gemini
+        # Example: If the extension is installed at ~/.gemini/extensions/adb-control-gemini
         cd ~/.gemini/extensions/adb-control-gemini
 
-        # Đối với Node.js dependencies (trong thư mục mcp-server nếu có)
+        # For Node.js dependencies (in the mcp-server directory if it exists)
         cd mcp-server
         npm install
         cd ..
 
-        # Đối với Python dependencies
+        # For Python dependencies
         pip install -r requirements.txt
         ```
 
-Sau khi cài đặt, tiện ích mở rộng sẽ tự động kích hoạt và các lệnh của nó sẽ có sẵn trong Gemini CLI.
+After installation, the extension will be automatically activated and its commands will be available in the Gemini CLI.

@@ -1,6 +1,6 @@
-description = "Nhấn giữ một vị trí trên màn hình."
+description = "Long press a position on the screen."
 prompt = """
-Nhấn giữ một vị trí trên màn hình.
-Nhập các tham số sau: <tên param x>, <tên param y>, <tên param thời gian (ms)>.
-Ví dụ thực thi: adb shell input swipe 500 1000 500 1000 1500.
+Long press a position on the screen.
+Enter the following parameters: <x param name>, <y param name>, <time (ms) param name>.
+Example execution: adb shell input swipe 500 1000 500 1000 1500.
 """

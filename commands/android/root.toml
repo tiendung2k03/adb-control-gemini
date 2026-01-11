@@ -1,5 +1,5 @@
-description = "Khởi động lại ADB với quyền root."
+description = "Restart ADB with root privileges."
 prompt = """
-Khởi động lại ADB với quyền root.
-Ví dụ thực thi: adb root.
+Restart ADB with root privileges.
+Example execution: adb root.
 """

@@ -1,5 +1,5 @@
-description = "Giảm âm lượng."
+description = "Decrease the volume."
 prompt = """
-Giảm âm lượng.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_VOLUME_DOWN.
+Decrease the volume.
+Example execution: adb shell input keyevent KEYCODE_VOLUME_DOWN.
 """

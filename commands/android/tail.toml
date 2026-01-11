@@ -1,6 +1,6 @@
-description = "Hiển thị những dòng cuối của tệp."
+description = "Display the last few lines of a file."
 prompt = """
-Hiển thị những dòng cuối của tệp.
-Nhập các tham số sau: <tên param file_path>.
-Ví dụ thực thi: adb shell tail -n 10 /sdcard/log.txt.
+Display the last few lines of a file.
+Enter the following parameters: <file_path param name>.
+Example execution: adb shell tail -n 10 /sdcard/log.txt.
 """

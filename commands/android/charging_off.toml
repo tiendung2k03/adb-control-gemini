@@ -1,5 +1,5 @@
-description = "Tắt mô phỏng sạc pin (yêu cầu quyền root)."
+description = "Turn off simulated battery charging (requires root)."
 prompt = """
-Tắt mô phỏng sạc pin (yêu cầu quyền root).
-Ví dụ thực thi: adb shell dumpsys battery set ac 0; adb shell dumpsys battery set usb 0.
+Turn off simulated battery charging (requires root).
+Example execution: adb shell dumpsys battery set ac 0; adb shell dumpsys battery set usb 0.
 """

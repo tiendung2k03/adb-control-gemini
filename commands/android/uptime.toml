@@ -1,5 +1,5 @@
-description = "Hiển thị thời gian hoạt động của thiết bị."
+description = "Display the uptime of the device."
 prompt = """
-Hiển thị thời gian hoạt động của thiết bị.
-Ví dụ thực thi: adb shell uptime.
+Display the uptime of the device.
+Example execution: adb shell uptime.
 """

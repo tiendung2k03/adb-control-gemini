@@ -1,5 +1,5 @@
-description = "Nhấn nút Back."
+description = "Press the Back button."
 prompt = """
-Nhấn nút Back.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_BACK.
+Press the Back button.
+Example execution: adb shell input keyevent KEYCODE_BACK.
 """

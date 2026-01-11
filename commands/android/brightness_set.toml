@@ -1,6 +1,6 @@
-description = "Đặt độ sáng màn hình (0-255)."
+description = "Set the screen brightness (0-255)."
 prompt = """
-Đặt độ sáng màn hình (0-255).
-Nhập các tham số sau: <tên param mức độ sáng>.
-Ví dụ thực thi: adb shell settings put system screen_brightness <mức độ sáng>.
+Set the screen brightness (0-255).
+Enter the following parameters: <brightness level param name>.
+Example execution: adb shell settings put system screen_brightness <brightness level>.
 """

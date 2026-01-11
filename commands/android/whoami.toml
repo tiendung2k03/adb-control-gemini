@@ -1,5 +1,5 @@
-description = "Hiển thị tên người dùng hiện tại."
+description = "Display the current username."
 prompt = """
-Hiển thị tên người dùng hiện tại.
-Ví dụ thực thi: adb shell whoami.
+Display the current username.
+Example execution: adb shell whoami.
 """

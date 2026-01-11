@@ -1,7 +1,7 @@
 {
   "name": "adb-control-gemini",
   "version": "1.0.0",
-  "description": "Điều khiển thiết bị Android qua ADB bằng Gemini CLI với các lệnh /android",
+  "description": "Control Android devices via ADB with Gemini CLI using /android commands",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "adbServer": {

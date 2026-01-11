@@ -1,6 +1,6 @@
-description = "Vô hiệu hóa một ứng dụng."
+description = "Disable an application."
 prompt = """
-Vô hiệu hóa một ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell pm disable-user <package_name>.
+Disable an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell pm disable-user <package_name>.
 """

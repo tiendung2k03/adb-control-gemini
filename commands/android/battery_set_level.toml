@@ -1,6 +1,6 @@
-description = "Đặt mức pin mô phỏng (0-100, yêu cầu quyền root)."
+description = "Set the simulated battery level (0-100, requires root)."
 prompt = """
-Đặt mức pin mô phỏng (0-100, yêu cầu quyền root).
-Nhập các tham số sau: <tên param level>.
-Ví dụ thực thi: adb shell dumpsys battery set level <level>.
+Set the simulated battery level (0-100, requires root).
+Enter the following parameters: <level param name>.
+Example execution: adb shell dumpsys battery set level <level>.
 """

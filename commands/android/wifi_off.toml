@@ -1,5 +1,5 @@
-description = "Tắt Wi-Fi trên thiết bị."
+description = "Turn off Wi-Fi on the device."
 prompt = """
-Tắt Wi-Fi trên thiết bị.
-Ví dụ thực thi: adb shell svc wifi disable.
+Turn off Wi-Fi on the device.
+Example execution: adb shell svc wifi disable.
 """

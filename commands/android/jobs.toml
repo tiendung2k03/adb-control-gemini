@@ -1,5 +1,5 @@
-description = "Liệt kê các công việc trong shell."
+description = "List jobs in the shell."
 prompt = """
-Liệt kê các công việc trong shell.
-Ví dụ thực thi: adb shell jobs.
+List jobs in the shell.
+Example execution: adb shell jobs.
 """

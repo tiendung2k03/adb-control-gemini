@@ -1,5 +1,5 @@
-description = "Đặt lại kích thước và mật độ màn hình về mặc định."
+description = "Reset the screen size and density to default."
 prompt = """
-Đặt lại kích thước và mật độ màn hình về mặc định.
-Ví dụ thực thi: adb shell wm size reset; adb shell wm density reset.
+Reset the screen size and density to default.
+Example execution: adb shell wm size reset; adb shell wm density reset.
 """

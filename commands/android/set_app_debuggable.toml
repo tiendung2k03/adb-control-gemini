@@ -1,6 +1,6 @@
-description = "Đặt ứng dụng là debuggable."
+description = "Set the application as debuggable."
 prompt = """
-Đặt ứng dụng là debuggable.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell am set-debug-app -w <package_name>.
+Set the application as debuggable.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell am set-debug-app -w <package_name>.
 """

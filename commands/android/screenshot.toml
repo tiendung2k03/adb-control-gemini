@@ -1,6 +1,6 @@
-description = "Chụp ảnh màn hình của thiết bị và lưu cục bộ."
+description = "Take a screenshot of the device and save it locally."
 prompt = """
-Chụp ảnh màn hình của thiết bị và lưu cục bộ.
-Nhập các tham số sau: <tên param local_file_path (tùy chọn)>.
-Ví dụ thực thi: adb exec-out screencap -p > <local_file_path>.
+Take a screenshot of the device and save it locally.
+Enter the following parameters: <local_file_path (optional) param name>.
+Example execution: adb exec-out screencap -p > <local_file_path>.
 """

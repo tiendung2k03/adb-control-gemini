@@ -1,6 +1,6 @@
-description = "Vuốt trên màn hình."
+description = "Swipe on the screen."
 prompt = """
-Vuốt trên màn hình.
-Nhập các tham số sau: <tên param x1>, <tên param y1>, <tên param x2>, <tên param y2>, <tên param thời gian (ms) (tùy chọn)>.
-Ví dụ thực thi: adb shell input swipe 100 500 900 500 200.
+Swipe on the screen.
+Enter the following parameters: <x1 param name>, <y1 param name>, <x2 param name>, <y2 param name>, <time (ms) (optional) param name>.
+Example execution: adb shell input swipe 100 500 900 500 200.
 """

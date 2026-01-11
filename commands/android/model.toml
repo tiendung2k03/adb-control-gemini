@@ -1,5 +1,5 @@
-description = "Lấy tên model của thiết bị."
+description = "Get the model name of the device."
 prompt = """
-Lấy tên model của thiết bị.
-Ví dụ thực thi: adb shell getprop ro.product.model.
+Get the model name of the device.
+Example execution: adb shell getprop ro.product.model.
 """

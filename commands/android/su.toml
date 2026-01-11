@@ -1,6 +1,6 @@
-description = "Chạy lệnh với quyền superuser (chỉ trên thiết bị đã root)."
+description = "Run a command with superuser privileges (only on rooted devices)."
 prompt = """
-Chạy lệnh với quyền superuser (chỉ trên thiết bị đã root).
-Nhập các tham số sau: <tên param lệnh>.
-Ví dụ thực thi: adb shell su -c '<lệnh>'.
+Run a command with superuser privileges (only on rooted devices).
+Enter the following parameters: <command param name>.
+Example execution: adb shell su -c <command>.
 """

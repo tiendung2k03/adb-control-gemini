@@ -1,5 +1,5 @@
-description = "Khởi động lại thiết bị."
+description = "Reboot the device."
 prompt = """
-Khởi động lại thiết bị.
-Ví dụ thực thi: adb reboot.
+Reboot the device.
+Example execution: adb reboot.
 """

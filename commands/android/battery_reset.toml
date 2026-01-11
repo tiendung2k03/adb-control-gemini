@@ -1,5 +1,5 @@
-description = "Đặt lại trạng thái pin về mặc định (yêu cầu quyền root)."
+description = "Reset the battery status to default (requires root)."
 prompt = """
-Đặt lại trạng thái pin về mặc định (yêu cầu quyền root).
-Ví dụ thực thi: adb shell dumpsys battery reset.
+Reset the battery status to default (requires root).
+Example execution: adb shell dumpsys battery reset.
 """

@@ -39,11 +39,11 @@ ACCENT_MAP = {
 }
 
 TONE_MARKS = {
-    's': 1, # sắc
-    'f': 2, # huyền
-    'r': 3, # hỏi
-    'x': 4, # ngã
-    'j': 5, # nặng
+    's': 1, # sharp
+    'f': 2, # falling
+    'r': 3, # asking
+    'x': 4, # tilde
+    'j': 5, # dot
     'z': 0  # remove tone
 }
 

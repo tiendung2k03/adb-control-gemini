@@ -1,5 +1,5 @@
-description = "Liệt kê các thiết bị Android đang kết nối."
+description = "List currently connected Android devices."
 prompt = """
-Liệt kê các thiết bị Android đang kết nối.
-Ví dụ thực thi: adb devices.
+List currently connected Android devices.
+Example execution: adb devices.
 """

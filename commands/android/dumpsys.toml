@@ -1,6 +1,6 @@
-description = "Hiển thị thông tin chẩn đoán hệ thống."
+description = "Display system diagnostic information."
 prompt = """
-Hiển thị thông tin chẩn đoán hệ thống.
-Nhập các tham số sau: <tên param service_name (tùy chọn)>.
-Ví dụ thực thi: adb shell dumpsys activity.
+Display system diagnostic information.
+Enter the following parameters: <service_name (optional) param name>.
+Example execution: adb shell dumpsys activity.
 """

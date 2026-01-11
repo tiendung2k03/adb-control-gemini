@@ -1,5 +1,5 @@
-description = "Bật tùy chọn nhà phát triển (nếu chưa bật)."
+description = "Turn on developer options (if not already on)."
 prompt = """
-Bật tùy chọn nhà phát triển (nếu chưa bật).
-Ví dụ thực thi: adb shell settings put global development_settings_enabled 1.
+Turn on developer options (if not already on).
+Example execution: adb shell settings put global development_settings_enabled 1.
 """

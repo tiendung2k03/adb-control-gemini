@@ -1,5 +1,5 @@
-description = "Hiển thị cấu hình DNS của thiết bị."
+description = "Display the DNS configuration of the device."
 prompt = """
-Hiển thị cấu hình DNS của thiết bị.
-Ví dụ thực thi: adb shell getprop | grep dns.
+Display the DNS configuration of the device.
+Example execution: adb shell getprop | grep dns.
 """

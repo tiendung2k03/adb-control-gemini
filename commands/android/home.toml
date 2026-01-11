@@ -1,5 +1,5 @@
-description = "Nhấn nút Home."
+description = "Press the Home button."
 prompt = """
-Nhấn nút Home.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_HOME.
+Press the Home button.
+Example execution: adb shell input keyevent KEYCODE_HOME.
 """

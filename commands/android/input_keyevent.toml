@@ -1,6 +1,6 @@
-description = "Gửi một sự kiện phím."
+description = "Send a key event."
 prompt = """
-Gửi một sự kiện phím.
-Nhập các tham số sau: <tên param mã phím (KEY_CODE)>.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_BACK.
+Send a key event.
+Enter the following parameters: <key_code (KEY_CODE) param name>.
+Example execution: adb shell input keyevent KEYCODE_BACK.
 """

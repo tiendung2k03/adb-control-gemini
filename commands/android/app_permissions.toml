@@ -1,6 +1,6 @@
-description = "Liệt kê các quyền của ứng dụng."
+description = "List the permissions of an application."
 prompt = """
-Liệt kê các quyền của ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell dumpsys package <package_name> | grep perm.
+List the permissions of an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell dumpsys package <package_name> | grep perm.
 """

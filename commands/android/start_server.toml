@@ -1,5 +1,5 @@
-description = "Khởi động máy chủ ADB."
+description = "Start the ADB server."
 prompt = """
-Khởi động máy chủ ADB.
-Ví dụ thực thi: adb start-server.
+Start the ADB server.
+Example execution: adb start-server.
 """

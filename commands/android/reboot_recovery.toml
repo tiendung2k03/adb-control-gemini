@@ -1,5 +1,5 @@
-description = "Khởi động lại thiết bị vào chế độ Recovery."
+description = "Reboot the device into Recovery mode."
 prompt = """
-Khởi động lại thiết bị vào chế độ Recovery.
-Ví dụ thực thi: adb reboot recovery.
+Reboot the device into Recovery mode.
+Example execution: adb reboot recovery.
 """

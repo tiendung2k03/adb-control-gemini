@@ -1,6 +1,6 @@
-description = "Hiển thị cấu trúc cây thư mục (nếu có sẵn)."
+description = "Display the directory tree structure (if available)."
 prompt = """
-Hiển thị cấu trúc cây thư mục (nếu có sẵn).
-Nhập các tham số sau: <tên param path (tùy chọn)>.
-Ví dụ thực thi: adb shell tree /sdcard.
+Display the directory tree structure (if available).
+Enter the following parameters: <path (optional) param name>.
+Example execution: adb shell tree /sdcard.
 """

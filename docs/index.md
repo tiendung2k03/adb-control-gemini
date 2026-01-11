@@ -1,21 +1,21 @@
-# Tài liệu tiện ích mở rộng `adb-control-gemini`
+# `adb-control-gemini` Extension Documentation
 
-Chào mừng bạn đến với tài liệu hướng dẫn sử dụng tiện ích mở rộng `adb-control-gemini` cho Gemini CLI. Tiện ích mở rộng này cung cấp khả năng điều khiển mạnh mẽ các thiết bị Android thông qua ADB (Android Debug Bridge), giúp bạn tự động hóa các tác vụ, kiểm tra thiết bị và tương tác với các ứng dụng.
+Welcome to the user guide for the `adb-control-gemini` extension for Gemini CLI. This extension provides powerful control over Android devices via ADB (Android Debug Bridge), helping you automate tasks, test devices, and interact with applications.
 
-## Bắt đầu
+## Getting Started
 
--   [**Cài đặt**](/docs/getting_started/installation.md): Hướng dẫn chi tiết cách cài đặt ADB và thiết lập môi trường.
--   [**Sử dụng nhanh**](/docs/getting_started/quick_start.md): Các bước cơ bản để bắt đầu sử dụng tiện ích mở rộng ngay lập tức.
+-   [**Installation**](/docs/getting_started/installation.md): Detailed instructions on how to install ADB and set up the environment.
+-   [**Quick Start**](/docs/getting_started/quick_start.md): Basic steps to start using the extension immediately.
 
-## Tham chiếu lệnh
+## Command Reference
 
--   [**Lệnh ADB**](/docs/commands_reference/adb_commands.md): Danh sách đầy đủ các lệnh ADB được hỗ trợ, được phân loại theo chức năng.
--   [**Slash Commands**](/docs/commands_reference/slash_commands.md): Giải thích các lệnh tùy chỉnh `/android:...` để thực hiện các tác vụ nhanh chóng.
+-   [**ADB Commands**](/docs/commands_reference/adb_commands.md): A complete list of supported ADB commands, categorized by function.
+-   [**Slash Commands**](/docs/commands_reference/slash_commands.md): Explanation of custom `/android:...` commands for performing tasks quickly.
 
-## Câu hỏi thường gặp
+## Frequently Asked Questions
 
--   [**Câu hỏi chung**](/docs/faq/general.md): Giải đáp các thắc mắc phổ biến khi sử dụng tiện ích mở rộng.
+-   [**General Questions**](/docs/faq/general.md): Answers to common questions when using the extension.
 
-## Giới thiệu về tiện ích mở rộng
+## About the Extension
 
--   [**Hướng dẫn gốc**](/docs/GEMINI.md): Tài liệu hướng dẫn gốc của tiện ích mở rộng.
+-   [**Original Guide**](/docs/GEMINI.md): The original guide for the extension.

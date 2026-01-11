@@ -1,5 +1,5 @@
-description = "Nhấn nút nguồn (tắt/mở màn hình)."
+description = "Press the power button (turn screen on/off)."
 prompt = """
-Nhấn nút nguồn (tắt/mở màn hình).
-Ví dụ thực thi: adb shell input keyevent KEYCODE_POWER.
+Press the power button (turn screen on/off).
+Example execution: adb shell input keyevent KEYCODE_POWER.
 """

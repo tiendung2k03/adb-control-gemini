@@ -1,6 +1,6 @@
-description = "Chạm vào một vị trí trên màn hình."
+description = "Tap a position on the screen."
 prompt = """
-Chạm vào một vị trí trên màn hình.
-Nhập các tham số sau: <tên param x>, <tên param y>.
-Ví dụ thực thi: adb shell input tap 500 1000.
+Tap a position on the screen.
+Enter the following parameters: <x param name>, <y param name>.
+Example execution: adb shell input tap 500 1000.
 """

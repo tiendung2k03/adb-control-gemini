@@ -1,6 +1,6 @@
-description = "Kết thúc một tiến trình bằng PID."
+description = "Terminate a process by PID."
 prompt = """
-Kết thúc một tiến trình bằng PID.
-Nhập các tham số sau: <tên param PID>.
-Ví dụ thực thi: adb shell kill <PID>.
+Terminate a process by PID.
+Enter the following parameters: <PID param name>.
+Example execution: adb shell kill <PID>.
 """

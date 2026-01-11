@@ -1,5 +1,5 @@
-description = "Hiển thị các kết nối mạng và thống kê."
+description = "Display network connections and statistics."
 prompt = """
-Hiển thị các kết nối mạng và thống kê.
-Ví dụ thực thi: adb shell netstat.
+Display network connections and statistics.
+Example execution: adb shell netstat.
 """

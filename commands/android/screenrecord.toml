@@ -1,6 +1,6 @@
-description = "Quay video màn hình của thiết bị."
+description = "Record the devices screen."
 prompt = """
-Quay video màn hình của thiết bị.
-Nhập các tham số sau: <tên param thời gian (giây)>.
-Ví dụ thực thi: adb shell screenrecord --time-limit <thời gian> /sdcard/demo.mp4.
+Record the devices screen.
+Enter the following parameters: <time (seconds) param name>.
+Example execution: adb shell screenrecord --time-limit <time> /sdcard/demo.mp4.
 """

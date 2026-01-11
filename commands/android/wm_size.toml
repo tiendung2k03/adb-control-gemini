@@ -1,6 +1,6 @@
-description = "Hiển thị hoặc đặt kích thước màn hình."
+description = "Display or set the screen size."
 prompt = """
-Hiển thị hoặc đặt kích thước màn hình.
-Nhập các tham số sau: <tên param width x height (tùy chọn)>.
-Ví dụ thực thi: adb shell wm size 1080x1920.
+Display or set the screen size.
+Enter the following parameters: <width x height (optional) param name>.
+Example execution: adb shell wm size 1080x1920.
 """

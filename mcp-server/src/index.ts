@@ -63,16 +63,16 @@ const utilsPath = (script: string) => path.join(extensionPath, 'utils', script);
 
 server.tool(
   'get_screen',
-  'Lấy trạng thái màn hình hiện tại của thiết bị Android dưới dạng JSON.',
+  'Get the current screen state of the Android device as JSON.',
   {},
   () => executeCommandAsTool(`python3 ${utilsPath('get_screen.py')}`)
 );
 
 server.tool(
   'execute_action',
-  'Thực hiện một hành động trên thiết bị Android.',
+  'Execute an action on the Android device.',
   {
-    action_json: z.string().describe('Đối tượng JSON mô tả hành động. Ví dụ: `{\"action\":\"tap\", \"coordinates\":[x,y]}`'),
+    action_json: z.string().describe('JSON object describing the action. Example: `{\"action\":\"tap\", \"coordinates\":[x,y]}`'),
   },
   ({ action_json }) => {
     const encodedJson = Buffer.from(action_json, 'utf8').toString('base64');
@@ -82,7 +82,7 @@ server.tool(
 
 server.tool(
   'check_env',
-  'Kiểm tra môi trường ADB và kết nối thiết bị Android.',
+  'Check the ADB environment and Android device connection.',
   {},
   () => executeCommandAsTool(`python3 ${utilsPath('check_env.py')}`)
 );
@@ -103,7 +103,7 @@ try {
       const toolName = path.basename(file, '.toml');
       const description = parsedToml.description || `Tool for ${toolName}`;
       const prompt = parsedToml.prompt || '';
-      const execMatch = prompt.match(/Ví dụ thực thi: (.+)/);
+      const execMatch = prompt.match(/Example execution: (.+)/);
       
       if (!execMatch || !execMatch[1]) continue;
 
@@ -114,12 +114,12 @@ try {
 
       while ((match = paramRegex.exec(prompt)) !== null) {
         const original = match[1];
-        const clean = original.replace('tên param ', '').split(' ')[0].replace(/:/g, '_');
+        const clean = original.replace('param name', '').trim().replace(/\s/g, '_').replace(/:/g, '_');
         if (clean) paramMap.set(clean, { original, clean });
       }
       
       const shape: ZodRawShape = {};
-      const numberKeywords = ['level', 'port', 'duration', 'limit', 'brightness', 'state', 'pid', 'width', 'height', 'giây', 'ms', 'dpi'];
+      const numberKeywords = ['level', 'port', 'duration', 'limit', 'brightness', 'state', 'pid', 'width', 'height', 'seconds', 'ms', 'dpi'];
       paramMap.forEach(({ original, clean }) => {
         const isNumber = numberKeywords.some(k => clean.includes(k) || original.includes(k));
         shape[clean] = (isNumber ? z.number() : z.string()).describe(original.replace(/_/g, ' '));

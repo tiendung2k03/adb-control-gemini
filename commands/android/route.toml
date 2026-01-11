@@ -1,5 +1,5 @@
-description = "Hiển thị bảng định tuyến."
+description = "Display the routing table."
 prompt = """
-Hiển thị bảng định tuyến.
-Ví dụ thực thi: adb shell route.
+Display the routing table.
+Example execution: adb shell route.
 """

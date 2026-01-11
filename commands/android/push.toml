@@ -1,6 +1,6 @@
-description = "Sao chép tệp hoặc thư mục từ máy tính lên thiết bị."
+description = "Copy a file or directory from the computer to the device."
 prompt = """
-Sao chép tệp hoặc thư mục từ máy tính lên thiết bị.
-Nhập các tham số sau: <tên param local_path>, <tên param remote_path>.
-Ví dụ thực thi: adb push <local_path> <remote_path>.
+Copy a file or directory from the computer to the device.
+Enter the following parameters: <local_path param name>, <remote_path param name>.
+Example execution: adb push <local_path> <remote_path>.
 """

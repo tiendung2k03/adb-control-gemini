@@ -1,5 +1,5 @@
-description = "Khởi động lại thiết bị vào chế độ Bootloader."
+description = "Reboot the device into Bootloader mode."
 prompt = """
-Khởi động lại thiết bị vào chế độ Bootloader.
-Ví dụ thực thi: adb reboot bootloader.
+Reboot the device into Bootloader mode.
+Example execution: adb reboot bootloader.
 """

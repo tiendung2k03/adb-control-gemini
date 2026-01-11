@@ -1,6 +1,6 @@
-description = "Lọc nhật ký logcat theo tag."
+description = "Filter logcat logs by tag."
 prompt = """
-Lọc nhật ký logcat theo tag.
-Nhập các tham số sau: <tên param tag>.
-Ví dụ thực thi: adb logcat -s <tag>.
+Filter logcat logs by tag.
+Enter the following parameters: <tag param name>.
+Example execution: adb logcat -s <tag>.
 """

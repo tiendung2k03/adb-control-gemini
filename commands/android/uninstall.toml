@@ -1,6 +1,6 @@
-description = "Gỡ cài đặt một ứng dụng."
+description = "Uninstall an application."
 prompt = """
-Gỡ cài đặt một ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb uninstall <package_name>.
+Uninstall an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb uninstall <package_name>.
 """

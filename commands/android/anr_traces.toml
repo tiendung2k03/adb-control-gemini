@@ -1,5 +1,5 @@
-description = "Hiển thị các dấu vết ANR (Application Not Responding)."
+description = "Display ANR (Application Not Responding) traces."
 prompt = """
-Hiển thị các dấu vết ANR (Application Not Responding).
-Ví dụ thực thi: adb shell cat /data/anr/traces.txt.
+Display ANR (Application Not Responding) traces.
+Example execution: adb shell cat /data/anr/traces.txt.
 """

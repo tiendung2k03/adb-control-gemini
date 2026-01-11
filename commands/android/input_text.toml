@@ -1,6 +1,6 @@
-description = "Nhập văn bản vào thiết bị."
+description = "Enter text on the device."
 prompt = """
-Nhập văn bản vào thiết bị.
-Nhập các tham số sau: <tên param văn bản>.
-Ví dụ thực thi: adb shell input text 'hello world'.
+Enter text on the device.
+Enter the following parameters: <text param name>.
+Example execution: adb shell input text hello world.
 """

@@ -1,6 +1,6 @@
-description = "Di chuyển hoặc đổi tên tệp/thư mục trên thiết bị."
+description = "Move or rename a file/directory on the device."
 prompt = """
-Di chuyển hoặc đổi tên tệp/thư mục trên thiết bị.
-Nhập các tham số sau: <tên param source_path>, <tên param destination_path>.
-Ví dụ thực thi: adb shell mv /sdcard/old.txt /sdcard/new.txt.
+Move or rename a file/directory on the device.
+Enter the following parameters: <source_path param name>, <destination_path param name>.
+Example execution: adb shell mv /sdcard/old.txt /sdcard/new.txt.
 """

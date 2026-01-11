@@ -1,6 +1,6 @@
-description = "Cài đặt nhiều APK cho một ứng dụng."
+description = "Install multiple APKs for an application."
 prompt = """
-Cài đặt nhiều APK cho một ứng dụng.
-Nhập các tham số sau: <tên param đường dẫn đến các APK trên máy tính>.
-Ví dụ thực thi: adb install-multiple <path1.apk> <path2.apk>.
+Install multiple APKs for an application.
+Enter the following parameters: <path to APKs on computer param name>.
+Example execution: adb install-multiple <path1.apk> <path2.apk>.
 """

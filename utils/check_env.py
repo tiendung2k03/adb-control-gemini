@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import adb_helper
 
 def check_env():
-    print("--- Kiểm tra môi trường Android Agent ---")
+    print("--- Checking Android Agent Environment ---")
     
     # 1. Check Python version
     print(f"Python version: {sys.version.split()[0]}")

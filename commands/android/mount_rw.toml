@@ -1,6 +1,6 @@
-description = "Mount lại phân vùng hệ thống ở chế độ đọc-ghi (yêu cầu quyền root)."
+description = "Remount the system partition in read-write mode (requires root)."
 prompt = """
-Mount lại phân vùng hệ thống ở chế độ đọc-ghi (yêu cầu quyền root).
-Nhập các tham số sau: <tên param partition_path>.
-Ví dụ thực thi: adb shell mount -o rw,remount /system.
+Remount the system partition in read-write mode (requires root).
+Enter the following parameters: <partition_path param name>.
+Example execution: adb shell mount -o rw,remount /system.
 """

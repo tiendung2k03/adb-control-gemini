@@ -1,6 +1,6 @@
-description = "Ghép nối với thiết bị Android qua Wi-Fi."
+description = "Pair with an Android device via Wi-Fi."
 prompt = """
-Ghép nối với thiết bị Android qua Wi-Fi.
-Nhập các tham số sau: <tên param IP:PORT>, <tên param mã ghép nối>.
-Ví dụ thực thi: adb pair <IP:PORT> <mã ghép nối>.
+Pair with an Android device via Wi-Fi.
+Enter the following parameters: <IP:PORT param name>, <pairing_code param name>.
+Example execution: adb pair <IP:PORT> <pairing_code>.
 """

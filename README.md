@@ -1,23 +1,23 @@
 # ADB Control Gemini - MCP Server
 
-Dự án này là một **Gemini CLI Extension** được nâng cấp thành **MCP Server (Model Context Protocol)**, cho phép các mô hình AI (như Claude, Gemini) điều khiển thiết bị Android thông qua ADB (Android Debug Bridge).
+This project is a **Gemini CLI Extension** upgraded to an **MCP Server (Model Context Protocol)**, allowing AI models (like Claude, Gemini) to control Android devices via ADB (Android Debug Bridge).
 
-## 🚀 Tính năng chính
+## 🚀 Key Features
 
-- **Điều khiển thiết bị**: Hỗ trợ hơn 100 lệnh ADB từ cơ bản đến nâng cao (tap, swipe, type, install, screenshot, logcat, v.v.).
-- **Tự động hóa UI**: Tìm kiếm phần tử UI theo văn bản và thực hiện hành động.
-- **Quản lý ứng dụng**: Cài đặt, gỡ lỗi, liệt kê và quản lý các gói ứng dụng.
-- **Theo dõi hệ thống**: Kiểm tra pin, bộ nhớ, CPU, nhiệt độ và trạng thái mạng.
-- **Tích hợp MCP**: Hoạt động như một MCP Server hoàn chỉnh, dễ dàng kết nối với các AI Agent.
+- **Device Control**: Supports over 100 ADB commands from basic to advanced (tap, swipe, type, install, screenshot, logcat, etc.).
+- **UI Automation**: Find UI elements by text and perform actions.
+- **App Management**: Install, debug, list, and manage application packages.
+- **System Monitoring**: Check battery, memory, CPU, temperature, and network status.
+- **MCP Integration**: Acts as a complete MCP Server, easily connecting with AI Agents.
 
-## 🛠 Yêu cầu hệ thống
+## 🛠 System Requirements
 
-- **Node.js**: Phiên bản 18 trở lên.
-- **Python**: Phiên bản 3.10 trở lên.
-- **ADB**: Đã được cài đặt và thêm vào biến môi trường (PATH).
-- **Thiết bị Android**: Đã bật chế độ "Gỡ lỗi USB" (USB Debugging).
+- **Node.js**: Version 18 or higher.
+- **Python**: Version 3.10 or higher.
+- **ADB**: Installed and added to the environment variable (PATH).
+- **Android Device**: "USB Debugging" mode enabled.
 
-## 📦 Cài đặt
+## 📦 Installation
 
 1. **Clone repository**:
    ```bash
@@ -25,46 +25,46 @@ Dự án này là một **Gemini CLI Extension** được nâng cấp thành **M
    cd adb-control-gemini
    ```
 
-2. **Cài đặt dependencies cho thư mục gốc**:
+2. **Install dependencies for the root directory**:
    ```bash
    npm install
    ```
 
-3. **Cài đặt và Build MCP Server**:
+3. **Install and Build MCP Server**:
    ```bash
    cd mcp-server
    npm install
    npm run build
    ```
 
-## 🖥 Sử dụng
+## 🖥 Usage
 
-### Khởi động MCP Server
+### Start MCP Server
 ```bash
 cd mcp-server
 npm start
 ```
 
-### Cấu trúc thư mục
-- `commands/android/`: Chứa các định nghĩa lệnh ADB dưới dạng tệp `.toml`.
-- `utils/`: Các script Python hỗ trợ xử lý logic ADB phức tạp.
-- `mcp-server/`: Mã nguồn TypeScript của MCP Server.
-- `dist/`: Mã nguồn JavaScript đã được biên dịch.
+### Directory Structure
+- `commands/android/`: Contains ADB command definitions as `.toml` files.
+- `utils/`: Python scripts to support complex ADB logic processing.
+- `mcp-server/`: TypeScript source code of the MCP Server.
+- `dist/`: Compiled JavaScript source code.
 
-## 📝 Danh sách lệnh tiêu biểu
+## 📝 Typical Command List
 
-| Lệnh | Mô tả |
-|------|-------|
-| `connect` | Kết nối với thiết bị qua TCP/IP. |
-| `screenshot` | Chụp ảnh màn hình thiết bị. |
-| `install` | Cài đặt ứng dụng từ tệp APK. |
-| `logcat` | Xem nhật ký hệ thống thời gian thực. |
-| `input_tap` | Mô phỏng thao tác chạm vào tọa độ. |
+| Command | Description |
+|---|---|
+| `connect` | Connect to a device via TCP/IP. |
+| `screenshot` | Take a screenshot of the device. |
+| `install` | Install an application from an APK file. |
+| `logcat` | View real-time system logs. |
+| `input_tap` | Simulate a tap at coordinates. |
 
-## 🤝 Đóng góp
+## 🤝 Contribution
 
-Mọi đóng góp nhằm cải thiện dự án đều được hoan nghênh. Vui lòng tạo **Issue** hoặc gửi **Pull Request**.
+All contributions to improve the project are welcome. Please create an **Issue** or send a **Pull Request**.
 
-## 📄 Giấy phép
+## 📄 License
 
-Dự án này được phát hành dưới giấy phép **Apache-2.0**.
+This project is released under the **Apache-2.0** license.

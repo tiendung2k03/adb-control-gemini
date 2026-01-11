@@ -1,6 +1,6 @@
-description = "Hiển thị dung lượng sử dụng của tệp hoặc thư mục."
+description = "Display the disk usage of a file or directory."
 prompt = """
-Hiển thị dung lượng sử dụng của tệp hoặc thư mục.
-Nhập các tham số sau: <tên param path>.
-Ví dụ thực thi: adb shell du -h /sdcard.
+Display the disk usage of a file or directory.
+Enter the following parameters: <path param name>.
+Example execution: adb shell du -h /sdcard.
 """

@@ -1,6 +1,6 @@
-description = "Xóa dữ liệu của một ứng dụng."
+description = "Clear the data of an application."
 prompt = """
-Xóa dữ liệu của một ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell pm clear <package_name>.
+Clear the data of an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell pm clear <package_name>.
 """

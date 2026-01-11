@@ -1,5 +1,5 @@
-description = "Mở khóa xoay màn hình (cho phép tự động xoay)."
+description = "Unlock screen rotation (allow auto-rotate)."
 prompt = """
-Mở khóa xoay màn hình (cho phép tự động xoay).
-Ví dụ thực thi: adb shell settings put system accelerometer_rotation 1.
+Unlock screen rotation (allow auto-rotate).
+Example execution: adb shell settings put system accelerometer_rotation 1.
 """

@@ -1,6 +1,6 @@
-description = "Lấy đường dẫn cài đặt của ứng dụng."
+description = "Get the installation path of an application."
 prompt = """
-Lấy đường dẫn cài đặt của ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell pm path <package_name>.
+Get the installation path of an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell pm path <package_name>.
 """

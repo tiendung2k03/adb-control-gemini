@@ -1,6 +1,6 @@
-description = "Kết thúc tất cả các tiến trình có tên cụ thể."
+description = "Terminate all processes with a specific name."
 prompt = """
-Kết thúc tất cả các tiến trình có tên cụ thể.
-Nhập các tham số sau: <tên param tên tiến trình>.
-Ví dụ thực thi: adb shell killall <tên tiến trình>.
+Terminate all processes with a specific name.
+Enter the following parameters: <process_name param name>.
+Example execution: adb shell killall <process_name>.
 """

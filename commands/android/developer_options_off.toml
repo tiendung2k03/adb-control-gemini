@@ -1,5 +1,5 @@
-description = "Tắt tùy chọn nhà phát triển."
+description = "Turn off developer options."
 prompt = """
-Tắt tùy chọn nhà phát triển.
-Ví dụ thực thi: adb shell settings put global development_settings_enabled 0.
+Turn off developer options.
+Example execution: adb shell settings put global development_settings_enabled 0.
 """

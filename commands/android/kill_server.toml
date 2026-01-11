@@ -1,5 +1,5 @@
-description = "Dừng máy chủ ADB."
+description = "Stop the ADB server."
 prompt = """
-Dừng máy chủ ADB.
-Ví dụ thực thi: adb kill-server.
+Stop the ADB server.
+Example execution: adb kill-server.
 """

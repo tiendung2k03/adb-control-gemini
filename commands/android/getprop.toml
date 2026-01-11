@@ -1,5 +1,5 @@
-description = "Lấy thông tin thuộc tính hệ thống của thiết bị."
+description = "Get system property information of the device."
 prompt = """
-Lấy thông tin thuộc tính hệ thống của thiết bị.
-Ví dụ thực thi: adb shell getprop.
+Get system property information of the device.
+Example execution: adb shell getprop.
 """

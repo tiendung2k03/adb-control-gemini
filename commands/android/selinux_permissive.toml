@@ -1,5 +1,5 @@
-description = "Đặt SELinux ở chế độ Permissive (cảnh báo nhưng không chặn)."
+description = "Set SELinux to Permissive mode (warn but do not block)."
 prompt = """
-Đặt SELinux ở chế độ Permissive (cảnh báo nhưng không chặn).
-Ví dụ thực thi: adb shell setenforce 0.
+Set SELinux to Permissive mode (warn but do not block).
+Example execution: adb shell setenforce 0.
 """

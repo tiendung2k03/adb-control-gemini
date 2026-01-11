@@ -1,6 +1,6 @@
-description = "Hiển thị hoặc đặt mật độ DPI màn hình."
+description = "Display or set the screen DPI density."
 prompt = """
-Hiển thị hoặc đặt mật độ DPI màn hình.
-Nhập các tham số sau: <tên param density (dpi) (tùy chọn)>.
-Ví dụ thực thi: adb shell wm density 480.
+Display or set the screen DPI density.
+Enter the following parameters: <density (dpi) (optional) param name>.
+Example execution: adb shell wm density 480.
 """

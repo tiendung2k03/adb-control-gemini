@@ -1,5 +1,5 @@
-description = "Tăng âm lượng."
+description = "Increase the volume."
 prompt = """
-Tăng âm lượng.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_VOLUME_UP.
+Increase the volume.
+Example execution: adb shell input keyevent KEYCODE_VOLUME_UP.
 """

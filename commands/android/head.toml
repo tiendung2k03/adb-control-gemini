@@ -1,6 +1,6 @@
-description = "Hiển thị những dòng đầu của tệp."
+description = "Display the first few lines of a file."
 prompt = """
-Hiển thị những dòng đầu của tệp.
-Nhập các tham số sau: <tên param file_path>.
-Ví dụ thực thi: adb shell head /sdcard/file.txt.
+Display the first few lines of a file.
+Enter the following parameters: <file_path param name>.
+Example execution: adb shell head /sdcard/file.txt.
 """

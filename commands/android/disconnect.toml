@@ -1,5 +1,5 @@
-description = "Ngắt kết nối với thiết bị Android qua TCP/IP."
+description = "Disconnect from an Android device via TCP/IP."
 prompt = """
-Ngắt kết nối với thiết bị Android qua TCP/IP.
-Ví dụ thực thi: adb disconnect.
+Disconnect from an Android device via TCP/IP.
+Example execution: adb disconnect.
 """

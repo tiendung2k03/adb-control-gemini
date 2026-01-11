@@ -1,5 +1,5 @@
-description = "Tắt xác minh ứng dụng qua ADB."
+description = "Turn off app verification over ADB."
 prompt = """
-Tắt xác minh ứng dụng qua ADB.
-Ví dụ thực thi: adb shell settings put global verify_apps_over_adb 0.
+Turn off app verification over ADB.
+Example execution: adb shell settings put global verify_apps_over_adb 0.
 """

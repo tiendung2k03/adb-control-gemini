@@ -1,6 +1,6 @@
-description = "Xóa tệp trên thiết bị."
+description = "Delete a file on the device."
 prompt = """
-Xóa tệp trên thiết bị.
-Nhập các tham số sau: <tên param file_path>.
-Ví dụ thực thi: adb shell rm /sdcard/file.txt.
+Delete a file on the device.
+Enter the following parameters: <file_path param name>.
+Example execution: adb shell rm /sdcard/file.txt.
 """

@@ -1,6 +1,6 @@
-description = "Ghi nhật ký logcat ra tệp trên máy tính."
+description = "Write the logcat logs to a file on the computer."
 prompt = """
-Ghi nhật ký logcat ra tệp trên máy tính.
-Nhập các tham số sau: <tên param local_file_path>.
-Ví dụ thực thi: adb logcat -d > <local_file_path>.
+Write the logcat logs to a file on the computer.
+Enter the following parameters: <local_file_path param name>.
+Example execution: adb logcat -d > <local_file_path>.
 """

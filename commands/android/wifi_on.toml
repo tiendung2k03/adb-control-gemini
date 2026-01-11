@@ -1,5 +1,5 @@
-description = "Bật Wi-Fi trên thiết bị."
+description = "Turn on Wi-Fi on the device."
 prompt = """
-Bật Wi-Fi trên thiết bị.
-Ví dụ thực thi: adb shell svc wifi enable.
+Turn on Wi-Fi on the device.
+Example execution: adb shell svc wifi enable.
 """

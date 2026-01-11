@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin về Package Manager."
+description = "Display information about the Package Manager."
 prompt = """
-Hiển thị thông tin về Package Manager.
-Ví dụ thực thi: adb shell dumpsys package.
+Display information about the Package Manager.
+Example execution: adb shell dumpsys package.
 """

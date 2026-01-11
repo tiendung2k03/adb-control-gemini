@@ -1,5 +1,5 @@
-description = "Hiển thị mức pin hiện tại của thiết bị."
+description = "Display the current battery level of the device."
 prompt = """
-Hiển thị mức pin hiện tại của thiết bị.
-Ví dụ thực thi: adb shell dumpsys battery | grep level.
+Display the current battery level of the device.
+Example execution: adb shell dumpsys battery | grep level.
 """

@@ -1,5 +1,5 @@
-description = "Tắt thiết bị."
+description = "Shut down the device."
 prompt = """
-Tắt thiết bị.
-Ví dụ thực thi: adb shell reboot -p.
+Shut down the device.
+Example execution: adb shell reboot -p.
 """

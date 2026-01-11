@@ -1,6 +1,6 @@
-description = "Buộc dừng một ứng dụng."
+description = "Force stop an application."
 prompt = """
-Buộc dừng một ứng dụng.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell am force-stop <package_name>.
+Force stop an application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell am force-stop <package_name>.
 """

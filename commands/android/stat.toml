@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin trạng thái tệp hoặc thư mục."
+description = "Display file or directory status information."
 prompt = """
-Hiển thị thông tin trạng thái tệp hoặc thư mục.
-Ví dụ thực thi: adb shell stat /sdcard/file.txt.
+Display file or directory status information.
+Example execution: adb shell stat /sdcard/file.txt.
 """

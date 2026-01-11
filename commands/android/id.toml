@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin người dùng và nhóm."
+description = "Display user and group information."
 prompt = """
-Hiển thị thông tin người dùng và nhóm.
-Ví dụ thực thi: adb shell id.
+Display user and group information.
+Example execution: adb shell id.
 """

@@ -1,5 +1,5 @@
-description = "Tắt dữ liệu di động trên thiết bị."
+description = "Turn off mobile data on the device."
 prompt = """
-Tắt dữ liệu di động trên thiết bị.
-Ví dụ thực thi: adb shell svc data disable.
+Turn off mobile data on the device.
+Example execution: adb shell svc data disable.
 """

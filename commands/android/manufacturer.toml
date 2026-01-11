@@ -1,5 +1,5 @@
-description = "Lấy tên nhà sản xuất của thiết bị."
+description = "Get the manufacturer name of the device."
 prompt = """
-Lấy tên nhà sản xuất của thiết bị.
-Ví dụ thực thi: adb shell getprop ro.product.manufacturer.
+Get the manufacturer name of the device.
+Example execution: adb shell getprop ro.product.manufacturer.
 """

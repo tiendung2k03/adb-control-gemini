@@ -1,5 +1,5 @@
-description = "Lấy phiên bản SDK của thiết bị."
+description = "Get the SDK version of the device."
 prompt = """
-Lấy phiên bản SDK của thiết bị.
-Ví dụ thực thi: adb shell getprop ro.build.version.sdk.
+Get the SDK version of the device.
+Example execution: adb shell getprop ro.build.version.sdk.
 """

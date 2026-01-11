@@ -1,5 +1,5 @@
-description = "Khởi động lại ADB không có quyền root."
+description = "Restart ADB without root privileges."
 prompt = """
-Khởi động lại ADB không có quyền root.
-Ví dụ thực thi: adb unroot.
+Restart ADB without root privileges.
+Example execution: adb unroot.
 """

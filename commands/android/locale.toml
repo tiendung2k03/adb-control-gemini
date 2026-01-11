@@ -1,5 +1,5 @@
-description = "Lấy ngôn ngữ và khu vực hiện tại của thiết bị."
+description = "Get the current language and region of the device."
 prompt = """
-Lấy ngôn ngữ và khu vực hiện tại của thiết bị.
-Ví dụ thực thi: adb shell getprop persist.sys.locale.
+Get the current language and region of the device.
+Example execution: adb shell getprop persist.sys.locale.
 """

@@ -1,6 +1,6 @@
-description = "Tìm kiếm tệp trên thiết bị."
+description = "Search for a file on the device."
 prompt = """
-Tìm kiếm tệp trên thiết bị.
-Nhập các tham số sau: <tên param directory>, <tên param tên tệp/pattern>.
-Ví dụ thực thi: adb shell find /sdcard -name "*.jpg".
+Search for a file on the device.
+Enter the following parameters: <directory param name>, <file_name/pattern param name>.
+Example execution: adb shell find /sdcard -name "*.jpg".
 """

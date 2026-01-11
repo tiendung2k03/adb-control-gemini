@@ -1,6 +1,6 @@
-description = "Kiểm tra kết nối mạng đến một host."
+description = "Check the network connection to a host."
 prompt = """
-Kiểm tra kết nối mạng đến một host.
-Nhập các tham số sau: <tên param host>.
-Ví dụ thực thi: adb shell ping <host>.
+Check the network connection to a host.
+Enter the following parameters: <host param name>.
+Example execution: adb shell ping <host>.
 """

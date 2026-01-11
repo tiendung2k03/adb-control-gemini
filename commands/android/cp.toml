@@ -1,6 +1,6 @@
-description = "Sao chép tệp hoặc thư mục trên thiết bị."
+description = "Copy a file or directory on the device."
 prompt = """
-Sao chép tệp hoặc thư mục trên thiết bị.
-Nhập các tham số sau: <tên param source_path>, <tên param destination_path>.
-Ví dụ thực thi: adb shell cp /sdcard/file.txt /sdcard/file_copy.txt.
+Copy a file or directory on the device.
+Enter the following parameters: <source_path param name>, <destination_path param name>.
+Example execution: adb shell cp /sdcard/file.txt /sdcard/file_copy.txt.
 """

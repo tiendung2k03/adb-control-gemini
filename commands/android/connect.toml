@@ -1,6 +1,6 @@
-description = "Kết nối với thiết bị Android qua TCP/IP."
+description = "Connect to an Android device via TCP/IP."
 prompt = """
-Kết nối với thiết bị Android qua TCP/IP.
-Nhập các tham số sau: <tên param IP:PORT>.
-Ví dụ thực thi: adb connect <IP:PORT>.
+Connect to an Android device via TCP/IP.
+Enter the following parameters: <IP:PORT param name>.
+Example execution: adb connect <IP:PORT>.
 """

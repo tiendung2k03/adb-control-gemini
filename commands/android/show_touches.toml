@@ -1,6 +1,6 @@
-description = "Hiển thị các tương tác chạm trên màn hình (để gỡ lỗi UI)."
+description = "Display touch interactions on the screen (for UI debugging)."
 prompt = """
-Hiển thị các tương tác chạm trên màn hình (để gỡ lỗi UI).
-Nhập các tham số sau: <tên param 0 (tắt) hoặc 1 (bật)>.
-Ví dụ thực thi: adb shell settings put system show_touches 1.
+Display touch interactions on the screen (for UI debugging).
+Enter the following parameters: <0 (off) or 1 (on) param name>.
+Example execution: adb shell settings put system show_touches 1.
 """

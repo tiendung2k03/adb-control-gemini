@@ -1,5 +1,5 @@
-description = "Đặt SELinux ở chế độ Enforcing (chặn và ghi log)."
+description = "Set SELinux to Enforcing mode (block and log)."
 prompt = """
-Đặt SELinux ở chế độ Enforcing (chặn và ghi log).
-Ví dụ thực thi: adb shell setenforce 1.
+Set SELinux to Enforcing mode (block and log).
+Example execution: adb shell setenforce 1.
 """

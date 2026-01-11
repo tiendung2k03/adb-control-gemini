@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin sử dụng bộ nhớ trong của thiết bị."
+description = "Display internal memory usage information of the device."
 prompt = """
-Hiển thị thông tin sử dụng bộ nhớ trong của thiết bị.
-Ví dụ thực thi: adb shell df -h.
+Display internal memory usage information of the device.
+Example execution: adb shell df -h.
 """

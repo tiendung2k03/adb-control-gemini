@@ -1,5 +1,5 @@
-description = "Liệt kê tất cả các gói ứng dụng đã cài đặt."
+description = "List all installed application packages."
 prompt = """
-Liệt kê tất cả các gói ứng dụng đã cài đặt.
-Ví dụ thực thi: adb shell pm list packages.
+List all installed application packages.
+Example execution: adb shell pm list packages.
 """

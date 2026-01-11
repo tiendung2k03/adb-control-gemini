@@ -1,5 +1,5 @@
-description = "Lấy thông tin ABI của thiết bị."
+description = "Get the ABI information of the device."
 prompt = """
-Lấy thông tin ABI của thiết bị.
-Ví dụ thực thi: adb shell getprop ro.product.cpu.abi.
+Get the ABI information of the device.
+Example execution: adb shell getprop ro.product.cpu.abi.
 """

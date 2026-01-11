@@ -1,6 +1,6 @@
-description = "Xem nội dung của tệp theo từng trang (nếu có sẵn)."
+description = "View the content of a file page by page (if available)."
 prompt = """
-Xem nội dung của tệp theo từng trang (nếu có sẵn).
-Nhập các tham số sau: <tên param file_path>.
-Ví dụ thực thi: adb shell less /sdcard/log.txt.
+View the content of a file page by page (if available).
+Enter the following parameters: <file_path param name>.
+Example execution: adb shell less /sdcard/log.txt.
 """

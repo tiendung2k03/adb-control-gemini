@@ -1,6 +1,6 @@
-description = "Đặt proxy HTTP toàn cầu."
+description = "Set the global HTTP proxy."
 prompt = """
-Đặt proxy HTTP toàn cầu.
-Nhập các tham số sau: <tên param host>, <tên param port>.
-Ví dụ thực thi: adb shell settings put global http_proxy <host>:<port>.
+Set the global HTTP proxy.
+Enter the following parameters: <host param name>, <port param name>.
+Example execution: adb shell settings put global http_proxy <host>:<port>.
 """

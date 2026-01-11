@@ -1,5 +1,5 @@
-description = "Xóa nhật ký logcat hiện có."
+description = "Clear the existing logcat logs."
 prompt = """
-Xóa nhật ký logcat hiện có.
-Ví dụ thực thi: adb logcat -c.
+Clear the existing logcat logs.
+Example execution: adb logcat -c.
 """

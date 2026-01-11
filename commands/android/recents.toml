@@ -1,5 +1,5 @@
-description = "Mở màn hình ứng dụng gần đây."
+description = "Open the recent apps screen."
 prompt = """
-Mở màn hình ứng dụng gần đây.
-Ví dụ thực thi: adb shell input keyevent KEYCODE_APP_SWITCH.
+Open the recent apps screen.
+Example execution: adb shell input keyevent KEYCODE_APP_SWITCH.
 """

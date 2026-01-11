@@ -1,5 +1,5 @@
-description = "Liệt kê các tiến trình đang chạy trên thiết bị."
+description = "List running processes on the device."
 prompt = """
-Liệt kê các tiến trình đang chạy trên thiết bị.
-Ví dụ thực thi: adb shell ps.
+List running processes on the device.
+Example execution: adb shell ps.
 """

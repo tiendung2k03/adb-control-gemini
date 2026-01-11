@@ -1,88 +1,88 @@
-# Hướng dẫn sử dụng nhanh
+# Quick Start Guide
 
-Hướng dẫn này sẽ giúp bạn bắt đầu sử dụng tiện ích mở rộng `adb-control-gemini` một cách nhanh chóng.
+This guide will help you get started quickly with the `adb-control-gemini` extension.
 
-## 1. Kiểm tra kết nối thiết bị
+## 1. Check Device Connection
 
-Trước khi thực hiện bất kỳ hành động nào, hãy đảm bảo thiết bị Android của bạn đã được kết nối và ADB đang hoạt động:
+Before performing any action, make sure your Android device is connected and ADB is working:
 
 ```
 /android:status
 ```
-Lệnh này sẽ cung cấp thông tin về trạng thái pin, trạng thái màn hình và ứng dụng đang chạy hiện tại.
+This command will provide information about the battery status, screen status, and the currently running application.
 
-Nếu thiết bị chưa được kết nối hoặc phát hiện, bạn sẽ nhận được thông báo lỗi. Hãy tham khảo [Hướng dẫn cài đặt](/docs/getting_started/installation.md) để khắc phục sự cố kết nối.
+If the device is not connected or detected, you will receive an error message. Please refer to the [Installation Guide](/docs/getting_started/installation.md) to troubleshoot the connection.
 
-## 2. Các hành động cơ bản
+## 2. Basic Actions
 
-### Chụp ảnh màn hình
-Để chụp ảnh màn hình của thiết bị và lưu cục bộ:
+### Take a screenshot
+To take a screenshot of the device and save it locally:
 
 ```
 /android:screenshot
 ```
-Kết quả sẽ trả về đường dẫn của file ảnh màn hình được lưu trên máy tính của bạn.
+The result will return the path of the screenshot file saved on your computer.
 
-### Về màn hình chính
-Để đưa thiết bị về màn hình chính:
+### Go to Home Screen
+To return the device to the home screen:
 
 ```
 /android:reset
 ```
-Lệnh này tương đương với việc nhấn nút Home trên thiết bị.
+This command is equivalent to pressing the Home button on the device.
 
-### Bật/Tắt Wi-Fi
-Để bật Wi-Fi:
+### Turn Wi-Fi On/Off
+To turn on Wi-Fi:
 
 ```
 /android:wifi_on
 ```
 
-Để tắt Wi-Fi:
+To turn off Wi-Fi:
 
 ```
 /android:wifi_off
 ```
 
-### Nhập văn bản
-Bạn có thể nhập văn bản trực tiếp vào thiết bị Android. Ví dụ, để nhập "Hello Gemini" vào một trường nhập liệu:
+### Type Text
+You can type text directly into your Android device. For example, to type "Hello Gemini" into an input field:
 
 ```
-execute_action({"action": "type", "text": "Hello Gemini", "reason": "Nhập văn bản vào trường nhập liệu"})
+execute_action({"action": "type", "text": "Hello Gemini", "reason": "Type text into the input field"})
 ```
-*Lưu ý*: Lệnh `type` tự động xử lý Telex cho tiếng Việt.
+*Note*: The `type` command automatically handles Telex for Vietnamese.
 
-### Chạm vào một vị trí cụ thể
-Nếu bạn biết tọa độ X, Y trên màn hình, bạn có thể mô phỏng một lần chạm:
-
-```
-execute_action({"action": "tap", "coordinates": [500, 1000], "reason": "Chạm vào giữa màn hình"})
-```
-*Lưu ý*: Tọa độ này chỉ mang tính ví dụ, bạn cần xác định tọa độ chính xác từ kết quả của `get_screen` hoặc `dumpsys`.
-
-### Vuốt trên màn hình
-Để mô phỏng thao tác vuốt từ điểm này sang điểm khác:
+### Tap a Specific Location
+If you know the X, Y coordinates on the screen, you can simulate a tap:
 
 ```
-execute_action({"action": "swipe", "start_coordinates": [500, 1500], "end_coordinates": [500, 500], "duration": 200, "reason": "Cuộn lên"})
+execute_action({"action": "tap", "coordinates": [500, 1000], "reason": "Tap the middle of the screen"})
+```
+*Note*: These coordinates are just an example, you need to determine the exact coordinates from the results of `get_screen` or `dumpsys`.
+
+### Swipe on the Screen
+To simulate a swipe from one point to another:
+
+```
+execute_action({"action": "swipe", "start_coordinates": [500, 1500], "end_coordinates": [500, 500], "duration": 200, "reason": "Scroll up"})
 ```
 
-## 3. Lấy trạng thái màn hình
+## 3. Get Screen State
 
-Để hiểu cấu trúc UI hiện tại của ứng dụng, bạn có thể lấy trạng thái màn hình dưới dạng JSON:
+To understand the current UI structure of the application, you can get the screen state as JSON:
 
 ```
 get_screen()
 ```
-Kết quả sẽ là một đối tượng JSON mô tả các phần tử UI tương tác trên màn hình, bao gồm ID, văn bản, loại, tọa độ và khả năng click.
+The result will be a JSON object describing the interactive UI elements on the screen, including ID, text, type, coordinates, and clickability.
 
-## 4. Tìm kiếm phần tử UI
+## 4. Find UI Element
 
-Dựa trên kết quả `get_screen`, bạn có thể tìm kiếm một phần tử cụ thể:
+Based on the `get_screen` result, you can search for a specific element:
 
 ```
-find_element(text="Cài đặt")
+find_element(text="Settings")
 ```
-Lệnh này sẽ trả về các phần tử có văn bản "Cài đặt" trên màn hình.
+This command will return the elements with the text "Settings" on the screen.
 
-Để biết thêm chi tiết về tất cả các lệnh ADB có sẵn, hãy tham khảo [Tham chiếu lệnh ADB](/docs/commands_reference/adb_commands.md).
+For more details on all available ADB commands, please refer to the [ADB Command Reference](/docs/commands_reference/adb_commands.md).

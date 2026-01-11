@@ -1,5 +1,5 @@
-description = "Mở một shell tương tác trên thiết bị."
+description = "Open an interactive shell on the device."
 prompt = """
-Mở một shell tương tác trên thiết bị.
-Ví dụ thực thi: adb shell.
+Open an interactive shell on the device.
+Example execution: adb shell.
 """

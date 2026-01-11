@@ -1,6 +1,6 @@
-description = "Hiển thị nội dung của tệp."
+description = "Display the content of a file."
 prompt = """
-Hiển thị nội dung của tệp.
-Nhập các tham số sau: <tên param file_path>.
-Ví dụ thực thi: adb shell cat /sdcard/file.txt.
+Display the content of a file.
+Enter the following parameters: <file_path param name>.
+Example execution: adb shell cat /sdcard/file.txt.
 """

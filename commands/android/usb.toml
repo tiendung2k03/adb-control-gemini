@@ -1,5 +1,5 @@
-description = "Chuyển ADB sang chế độ USB."
+description = "Switch ADB to USB mode."
 prompt = """
-Chuyển ADB sang chế độ USB.
-Ví dụ thực thi: adb usb.
+Switch ADB to USB mode.
+Example execution: adb usb.
 """

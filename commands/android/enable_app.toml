@@ -1,6 +1,6 @@
-description = "Bật một ứng dụng đã bị vô hiệu hóa."
+description = "Enable a disabled application."
 prompt = """
-Bật một ứng dụng đã bị vô hiệu hóa.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell pm enable <package_name>.
+Enable a disabled application.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell pm enable <package_name>.
 """

@@ -1,6 +1,6 @@
-description = "Thu hồi quyền của ứng dụng."
+description = "Revoke a permission from an application."
 prompt = """
-Thu hồi quyền của ứng dụng.
-Nhập các tham số sau: <tên param package_name>, <tên param permission>.
-Ví dụ thực thi: adb shell pm revoke <package_name> android.permission.READ_CONTACTS.
+Revoke a permission from an application.
+Enter the following parameters: <package_name param name>, <permission param name>.
+Example execution: adb shell pm revoke <package_name> android.permission.READ_CONTACTS.
 """

@@ -1,5 +1,5 @@
-description = "Hiển thị thông tin bộ nhớ của thiết bị."
+description = "Display memory information of the device."
 prompt = """
-Hiển thị thông tin bộ nhớ của thiết bị.
-Ví dụ thực thi: adb shell cat /proc/meminfo.
+Display memory information of the device.
+Example execution: adb shell cat /proc/meminfo.
 """

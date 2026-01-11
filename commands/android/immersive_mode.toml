@@ -1,6 +1,6 @@
-description = "Đặt ứng dụng vào chế độ nhập vai toàn màn hình."
+description = "Set the application to full-screen immersive mode."
 prompt = """
-Đặt ứng dụng vào chế độ nhập vai toàn màn hình.
-Nhập các tham số sau: <tên param package_name>.
-Ví dụ thực thi: adb shell settings put global policy_control immersive.full=<package_name>.
+Set the application to full-screen immersive mode.
+Enter the following parameters: <package_name param name>.
+Example execution: adb shell settings put global policy_control immersive.full=<package_name>.
 """

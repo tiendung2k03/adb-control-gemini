@@ -1,5 +1,5 @@
-description = "Tắt chế độ màn hình luôn sáng."
+description = "Turn off the always-on screen mode."
 prompt = """
-Tắt chế độ màn hình luôn sáng.
-Ví dụ thực thi: adb shell settings put global stay_on_while_plugged_in 0.
+Turn off the always-on screen mode.
+Example execution: adb shell settings put global stay_on_while_plugged_in 0.
 """

@@ -1,6 +1,6 @@
-description = "Yêu cầu MediaScanner quét lại thư mục."
+description = "Request MediaScanner to rescan a directory."
 prompt = """
-Yêu cầu MediaScanner quét lại thư mục.
-Nhập các tham số sau: <tên param path>.
-Ví dụ thực thi: adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file://<path>.
+Request MediaScanner to rescan a directory.
+Enter the following parameters: <path param name>.
+Example execution: adb shell am broadcast -a android.intent.action.MEDIA_MOUNTED -d file://<path>.
 """

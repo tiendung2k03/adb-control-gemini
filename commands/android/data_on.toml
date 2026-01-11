@@ -1,5 +1,5 @@
-description = "Bật dữ liệu di động trên thiết bị."
+description = "Turn on mobile data on the device."
 prompt = """
-Bật dữ liệu di động trên thiết bị.
-Ví dụ thực thi: adb shell svc data enable.
+Turn on mobile data on the device.
+Example execution: adb shell svc data enable.
 """

@@ -1,5 +1,5 @@
-description = "Tắt chế độ máy bay trên thiết bị."
+description = "Turn off airplane mode on the device."
 prompt = """
-Tắt chế độ máy bay trên thiết bị.
-Ví dụ thực thi: adb shell settings put global airplane_mode_on 0; adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false.
+Turn off airplane mode on the device.
+Example execution: adb shell settings put global airplane_mode_on 0; adb shell am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false.
 """

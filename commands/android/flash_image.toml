@@ -1,6 +1,6 @@
-description = "Flash một image vào thiết bị (yêu cầu fastboot)."
+description = "Flash an image to the device (requires fastboot)."
 prompt = """
-Flash một image vào thiết bị (yêu cầu fastboot).
-Nhập các tham số sau: <tên param partition>, <tên param image_file>.
-Ví dụ thực thi: fastboot flash <partition> <image_file> (Lưu ý: Lệnh này không phải adb, mà là fastboot và cần thiết bị ở chế độ bootloader).
+Flash an image to the device (requires fastboot).
+Enter the following parameters: <partition param name>, <image_file param name>.
+Example execution: fastboot flash <partition> <image_file> (Note: This is a fastboot command, not adb, and requires the device to be in bootloader mode).
 """

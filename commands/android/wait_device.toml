@@ -1,5 +1,5 @@
-description = "Chờ đợi thiết bị được kết nối."
+description = "Wait for a device to be connected."
 prompt = """
-Chờ đợi thiết bị được kết nối.
-Ví dụ thực thi: adb wait-for-device.
+Wait for a device to be connected.
+Example execution: adb wait-for-device.
 """

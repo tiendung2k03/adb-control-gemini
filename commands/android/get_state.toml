@@ -1,5 +1,5 @@
-description = "Lấy trạng thái kết nối của thiết bị."
+description = "Get the connection state of the device."
 prompt = """
-Lấy trạng thái kết nối của thiết bị.
-Ví dụ thực thi: adb get-state.
+Get the connection state of the device.
+Example execution: adb get-state.
 """
