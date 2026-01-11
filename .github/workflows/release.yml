@@ -31,7 +31,7 @@ jobs:
           [ -f mcp-server/package.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
 
       - name: Build MCP Server
-        working-directory: ./adb-control-gemini/mcp-server
+        working-directory: ./mcp-server
         run: |
           npm ci
           npm run build
