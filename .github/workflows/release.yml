@@ -1,49 +1,51 @@
 name: Create Release
 
 on:
-push:
-tags:
-- 'v*'
-workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 permissions:
-contents: write
+  contents: write
 
 jobs:
-build-and-release:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout code
-uses: actions/checkout@v4
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-- name: Setup Node.js  
-    uses: actions/setup-node@v4  
-    with:  
-      node-version: '20'  
-      cache: 'npm'  
-      cache-dependency-path: '**/package-lock.json'  
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
-  - name: Update Version from Tag  
-    run: |  
-      VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')  
-      echo "Updating extension to version $VERSION"  
-      [ -f gemini-extension.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json  
-      [ -f mcp-server/package.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json  
-  - name: Build MCP Server  
-    working-directory: ./mcp-server  
-    run: |  
-      npm ci  
-      npm run build  
-  - name: Package Extension for Release  
-    run: |
-      tar -czvf adb-release.tar.gz .
-      
-  - name: Create GitHub Release and Upload Asset  
-    env:  
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-    run: |  
-      gh release create ${{ github.ref_name }} \  
-        --generate-notes \  
-        --title "Release ${{ github.ref_name }}" \  
-        --notes "Automated release based on new version tag." \  
-        ./adb-release.tar.gz
+      - name: Update Version from Tag
+        run: |
+          VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')
+          echo "Updating extension to version $VERSION"
+          [ -f gemini-extension.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
+          [ -f mcp-server/package.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
+
+      - name: Build MCP Server
+        working-directory: ./mcp-server
+        run: |
+          npm ci
+          npm run build
+
+      - name: Package Extension for Release
+        run: |
+          tar -czvf adb-release.tar.gz .
+
+      - name: Create GitHub Release and Upload Asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --generate-notes \
+            --title "Release ${{ github.ref_name }}" \
+            --notes "Automated release based on new version tag." \
+            ./adb-release.tar.gz
