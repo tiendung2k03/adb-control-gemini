@@ -43,10 +43,12 @@ jobs:
            --exclude='**/.git' \
            --exclude='**/.github' \
            commands/ \
+           docs/ \
            utils/ \
            mcp-server/ \
            GEMINI.md \
            README.md \
+           requirements.txt \
            gemini-extension.json
 
       - name: Create GitHub Release and Upload Asset
