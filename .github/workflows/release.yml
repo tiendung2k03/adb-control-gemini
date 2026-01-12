@@ -12,6 +12,7 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,38 +26,36 @@ jobs:
 
       - name: Update Version from Tag
         run: |
-          VERSION=$(echo ${{ github.ref_name }} | sed 's/v//')
-          echo "Updating extension to version $VERSION"
-          [ -f gemini-extension.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
-          [ -f mcp-server/package.json ] && sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
+          VERSION=$(echo "${{ github.ref_name }}" | sed 's/^v//')
+          echo "Version = $VERSION"
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
 
       - name: Build MCP Server
-        working-directory: ./mcp-server
+        working-directory: mcp-server
         run: |
           npm ci
           npm run build
 
-      - name: Package Extension for Release
+      - name: Prepare release directory
         run: |
-          tar -czvf adb-release.tar.gz \
-           --exclude='**/*.tsbuildinfo' \
-           --exclude='**/.git' \
-           --exclude='**/.github' \
-           commands/ \
-           docs/ \
-           utils/ \
-           mcp-server/ \
-           GEMINI.md \
-           README.md \
-           requirements.txt \
-           gemini-extension.json
+          mkdir -p release/pkg
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='**/*.tsbuildinfo'
 
-      - name: Create GitHub Release and Upload Asset
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create release assets (platform-specific names)
         run: |
-          gh release create ${{ github.ref_name }} \
-            --generate-notes \
-            --title "Release ${{ github.ref_name }}" \
-            --notes "Automated release based on new version tag." \
-            ./adb-release.tar.gz
+          cd release/pkg
+          tar -czf ../linux.x64.adb-control-gemini.tar.gz .
+          tar -czf ../darwin.arm64.adb-control-gemini.tar.gz .
+          zip -r ../win32.adb-control-gemini.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/linux.x64.adb-control-gemini.tar.gz
+            release/darwin.arm64.adb-control-gemini.tar.gz
+            release/win32.adb-control-gemini.zip
