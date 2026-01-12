@@ -57,7 +57,7 @@ jobs:
         platform:
           - { os: "linux", archive_name: "linux.x64.adb-control-gemini.tar.gz", output_binary: "adb-control-gemini" }
           - { os: "darwin", archive_name: "darwin.arm64.adb-control-gemini.tar.gz", output_binary: "adb-control-gemini" }
-          - { os: "win32", archive_name: "win32.adb-control-gemini.zip", output_binary: "adb-control-gemini.exe" }
+          - { os: "win32", archive_name: "win32.adb-control-gemini", output_binary: "adb-control-gemini.exe" }
 
     steps:
       - name: Download build artifacts
