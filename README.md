@@ -19,30 +19,9 @@ This project is a **Gemini CLI Extension** upgraded to an **MCP Server (Model Co
 
 ## 📦 Installation
 
-1. **Clone repository**:
-   ```bash
-   git clone https://github.com/tiendung2k03/adb-control-gemini.git
-   cd adb-control-gemini
-   ```
-
-2. **Install dependencies for the root directory**:
-   ```bash
-   npm install
-   ```
-
-3. **Install and Build MCP Server**:
-   ```bash
-   cd mcp-server
-   npm install
-   npm run build
-   ```
-
-## 🖥 Usage
-
 ### Start MCP Server
 ```bash
-cd mcp-server
-npm start
+gemin extension install https://github.com/tiendung2k03/adb-control-gemini/
 ```
 
 ### Directory Structure
