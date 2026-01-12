@@ -41,10 +41,12 @@ jobs:
           tar -czvf adb-release.tar.gz \
             --exclude='mcp-server/tsconfig.tsbuildinfo' \
             commands/ \
+            docs/ \
             utils/ \
-            mcp-server/dist/ \
+            mcp-server/ \
             GEMINI.md \
             README.md \
+            requirements.txt \
             gemini-extension.json
       
       - name: Create GitHub Release and Upload Asset
