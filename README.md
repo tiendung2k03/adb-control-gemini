@@ -19,9 +19,8 @@ This project is a **Gemini CLI Extension** upgraded to an **MCP Server (Model Co
 
 ## 📦 Installation
 
-### Start MCP Server
 ```bash
-gemin extension install https://github.com/tiendung2k03/adb-control-gemini/
+gemini extension install https://github.com/tiendung2k03/adb-control-gemini/
 ```
 
 ### Directory Structure
