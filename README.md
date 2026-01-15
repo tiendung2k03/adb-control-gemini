@@ -1,6 +1,6 @@
-# NexusDroid - Advanced Android Control for AI Agents
+# AureDroid - Advanced Android Control for AI Agents
 
-**NexusDroid** (formerly ADB Control Gemini) is a premium **Gemini CLI Extension** and **MCP Server (Model Context Protocol)** that provides superior Android control and automation capabilities for AI agents. It allows models like Gemini to interact with Android devices through ADB, with added intelligence from OpenCV and smart search.
+**AureDroid** (formerly ADB Control Gemini) is a premium **Gemini CLI Extension** and **MCP Server (Model Context Protocol)** that provides superior Android control and automation capabilities for AI agents. It allows models like Gemini to interact with Android devices through ADB, with added intelligence from OpenCV and smart search.
 
 ## 🚀 Key Features
 
@@ -45,7 +45,11 @@ gemini extension install https://github.com/tiendung2k03/adb-control-gemini/
 
 
 ## ✍️ Author
-Developed by the NexusDroid Team.
+Developed by the AuraDroid Team.
+[Join Channel Telegram](https://t.me/auredroid_channel)
+
+## 👥 Chat
+[Join Group Telegram](https://t.me/auredroid_chat)
 
 ## 🤝 Contribution
 
