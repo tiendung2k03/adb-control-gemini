@@ -36,14 +36,16 @@ jobs:
         run: |
           npm ci
           npm run build
-
+          
       - name: Prepare release directory
         run: |
           mkdir -p release/pkg
           rsync -av \
             --exclude='.git' \
             --exclude='.github' \
-            --exclude='**/*.tsbuildinfo'
+            --exclude='release' \
+            --exclude='**/*.tsbuildinfo' \
+            ./ release/pkg/
 
       - name: Create release assets (platform-specific names)
         run: |
