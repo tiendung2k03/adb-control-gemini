@@ -1,6 +1,6 @@
 {
   "name": "adb-control-server",
-  "version": "0.1.0",
+  "version": "0.0.3",
   "type": "module",
   "description": "MCP Server for Android automation via ADB for Gemini CLI",
   "main": "dist/index.js",
