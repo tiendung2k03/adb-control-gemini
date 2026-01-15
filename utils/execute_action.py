@@ -22,114 +22,6 @@ from typing import Dict, Any
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import adb_helper
 
-# --- START VIETNAMESE TELEX CONVERSION ---
-ACCENT_MAP = {
-    'a': ['a', 'á', 'à', 'ả', 'ã', 'ạ'],
-    'ă': ['ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ'],
-    'â': ['â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ'],
-    'e': ['e', 'é', 'è', 'ẻ', 'ẽ', 'ẹ'],
-    'ê': ['ê', 'ế', 'ề', 'ể', 'ễ', 'ệ'],
-    'i': ['i', 'í', 'ì', 'ỉ', 'ĩ', 'ị'],
-    'o': ['o', 'ó', 'ò', 'ỏ', 'õ', 'ọ'],
-    'ô': ['ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ'],
-    'ơ': ['ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ'],
-    'u': ['u', 'ú', 'ù', 'ủ', 'ũ', 'ụ'],
-    'ư': ['ư', 'ứ', 'ừ', 'ử', 'ữ', 'ự'],
-    'y': ['y', 'ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ']
-}
-
-TONE_MARKS = {
-    's': 1, # sharp
-    'f': 2, # falling
-    'r': 3, # asking
-    'x': 4, # tilde
-    'j': 5, # dot
-    'z': 0  # remove tone
-}
-
-# Mapping for special characters like 'aa' -> 'â'
-SPECIAL_CHARS = {
-    'aa': 'â', 'AA': 'Â',
-    'aw': 'ă', 'AW': 'Ă',
-    'ee': 'ê', 'EE': 'Ê',
-    'oo': 'ô', 'OO': 'Ô',
-    'ow': 'ơ', 'OW': 'Ơ',
-    'uw': 'ư', 'UW': 'Ư',
-    'dd': 'đ', 'DD': 'Đ'
-}
-
-VOWELS = "aeiouyAEIOUYăâêôơưĂÂÊÔƠƯ"
-
-def convert_telex_to_vietnamese(text: str) -> str:
-    
-    def get_base_vowel(char: str) -> str:
-        # Check if the character is an accented vowel or a base vowel (case-insensitive)
-        char_lower = char.lower()
-        for base, accents in ACCENT_MAP.items():
-            if char_lower in [v.lower() for v in accents]:
-                return base
-        return char_lower # If not found in ACCENT_MAP, return its lowercase
-
-    def apply_tone(vowel_char: str, tone_index: int) -> str:
-        is_upper = vowel_char.isupper()
-        base_vowel = get_base_vowel(vowel_char) # Get base vowel, already lowercased from get_base_vowel
-        
-        if base_vowel in ACCENT_MAP and 0 <= tone_index < len(ACCENT_MAP[base_vowel]):
-            result_vowel = ACCENT_MAP[base_vowel][tone_index]
-            return result_vowel.upper() if is_upper else result_vowel
-        return vowel_char # Return original if cannot apply tone
-
-    output_chars = []
-    i = 0
-    
-    # Process text character by character
-    while i < len(text):
-        matched_special = False
-        # Try to match longest special character sequences first
-        for telex_seq, viet_char in sorted(SPECIAL_CHARS.items(), key=lambda x: len(x[0]), reverse=True):
-            if text[i:i+len(telex_seq)].lower() == telex_seq.lower(): # Case-insensitive match for telex_seq
-                output_chars.append(viet_char)
-                i += len(telex_seq)
-                matched_special = True
-                break
-        
-        if matched_special:
-            continue # Move to next character after replacement
-
-        # If no special character sequence matched, handle single character
-        current_char = text[i]
-
-        if current_char.lower() in TONE_MARKS:
-            tone_index = TONE_MARKS[current_char.lower()]
-            
-            # Find the target vowel for tone application in `output_chars`
-            target_vowel_idx = -1
-            # Search backward in output_chars from its end
-            for j in range(len(output_chars) - 1, -1, -1):
-                if not output_chars[j].isalpha(): # Word boundary
-                    break
-                # Check if it's a vowel that can take a tone
-                if get_base_vowel(output_chars[j]) in ACCENT_MAP:
-                    target_vowel_idx = j
-                    break
-            
-            if target_vowel_idx != -1:
-                # Apply the tone to the found vowel
-                original_vowel_char = output_chars[target_vowel_idx]
-                modified_vowel_char = apply_tone(original_vowel_char, tone_index)
-                output_chars[target_vowel_idx] = modified_vowel_char
-                # The tone mark character itself is consumed and not added to output_chars
-            # Else: If no vowel found or not applicable, just drop the tone mark
-        else:
-            # Not a special sequence, not a tone mark, just append the character
-            output_chars.append(current_char)
-        
-        i += 1 # Move to next input character
-            
-    return "".join(output_chars)
-
-# --- END VIETNAMESE TELEX CONVERSION ---
-
 LOG_FILE = "logs/execution.log"
 
 
@@ -311,7 +203,7 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             }
 
         elif action_type == "type":
-            text = convert_telex_to_vietnamese(action["text"])
+            text = action["text"]
             # Enclose the text in single quotes for adb shell to handle spaces and special characters correctly
             # The 'adb shell input text' command generally handles spaces correctly when the entire string is quoted.
             # Using '%s' for spaces is typically for direct adb commands without Python's quoting.
