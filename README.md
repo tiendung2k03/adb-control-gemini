@@ -1,21 +1,23 @@
-# ADB Control Gemini - MCP Server
+# NexusDroid - Advanced Android Control for AI Agents
 
-This project is a **Gemini CLI Extension** upgraded to an **MCP Server (Model Context Protocol)**, allowing AI models (like Claude, Gemini) to control Android devices via ADB (Android Debug Bridge).
+**NexusDroid** (formerly ADB Control Gemini) is a premium **Gemini CLI Extension** and **MCP Server (Model Context Protocol)** that provides superior Android control and automation capabilities for AI agents. It allows models like Gemini to interact with Android devices through ADB, with added intelligence from OpenCV and smart search.
 
 ## 🚀 Key Features
 
-- **Device Control**: Supports over 100 ADB commands from basic to advanced (tap, swipe, type, install, screenshot, logcat, etc.).
-- **UI Automation**: Find UI elements by text and perform actions.
+- **Smart Element Finding:** Find UI elements extremely fast by text, ID, or description, without needing the AI to parse the full screen XML.
+- **Visual Perception (OpenCV):** Recognize on-screen images using Template Matching. Users can supply a directory of sample images for the AI to perform complex visual tasks (e.g., finding a specific icon or button).
+- **Comprehensive Device Control**: Supports over 100 ADB commands, from basic taps and swipes to advanced actions like file management, logcat, and system settings.
 - **App Management**: Install, debug, list, and manage application packages.
 - **System Monitoring**: Check battery, memory, CPU, temperature, and network status.
-- **MCP Integration**: Acts as a complete MCP Server, easily connecting with AI Agents.
+- **Optimized MCP Server**: The server is performance-optimized, loading all commands into memory at startup for fast and stable execution.
 
 ## 🛠 System Requirements
 
-- **Node.js**: Version 18 or higher.
-- **Python**: Version 3.10 or higher.
-- **ADB**: Installed and added to the environment variable (PATH).
-- **Android Device**: "USB Debugging" mode enabled.
+- **Node.js**: v18+
+- **Python**: v3.10+
+- **Python Libraries**: `opencv-python`, `numpy`
+- **ADB**: Installed and added to the system's PATH.
+- **Android Device**: USB Debugging mode enabled.
 
 ## 📦 Installation
 
@@ -35,9 +37,15 @@ gemini extension install https://github.com/tiendung2k03/adb-control-gemini/
 |---|---|
 | `connect` | Connect to a device via TCP/IP. |
 | `screenshot` | Take a screenshot of the device. |
+| `smart_finder` | Find a UI element by text or resource-id. |
+| `visual_perception`| Find an image on the screen using a template. |
 | `install` | Install an application from an APK file. |
 | `logcat` | View real-time system logs. |
 | `input_tap` | Simulate a tap at coordinates. |
+
+
+## ✍️ Author
+Developed by the NexusDroid Team.
 
 ## 🤝 Contribution
 

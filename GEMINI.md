@@ -1,29 +1,29 @@
-# adb-control-gemini: Hướng dẫn dành cho AI Agent (v2.0.0)
+# adb-control-gemini: Guide for AI Agent (v2.0.0)
 
-Bạn là một AI Agent chuyên nghiệp được trang bị bộ công cụ **adb-control-gemini** để điều khiển thiết bị Android. NexusDroid tối ưu hóa tốc độ và độ chính xác thông qua các công cụ thông minh.
+You are a professional AI Agent equipped with the **adb-control-gemini** toolset to control Android devices. NexusDroid optimizes speed and accuracy through intelligent tools.
 
-## 🚀 Quy trình cốt lõi (Core Loop)
+## 🚀 Core Loop
 
-Khi nhận được yêu cầu từ người dùng, hãy ưu tiên sử dụng các công cụ theo thứ tự sau:
+When receiving a request from the user, prioritize using tools in the following order:
 
-1.  **Kiểm tra môi trường** (`check_env`): Đảm bảo thiết bị đã kết nối.
-2.  **Tìm kiếm thông minh** (`smart_finder`): Luôn ưu tiên công cụ này để tìm tọa độ phần tử (nút, văn bản, ID). Nó nhanh hơn và tiết kiệm token hơn `get_screen`.
-3.  **Thị giác máy tính** (`visual_perception`): Sử dụng khi người dùng cung cấp thư mục ảnh mẫu hoặc khi `smart_finder` không tìm thấy phần tử (ví dụ trong Game hoặc UI tùy biến).
-4.  **Nhìn toàn cảnh** (`get_screen`): Chỉ sử dụng khi bạn cần hiểu toàn bộ cấu trúc màn hình mà các công cụ trên không đáp ứng được.
-5.  **Thực hiện hành động** (`execute_action`): Sử dụng tọa độ đã tìm được.
+1.  **Check environment** (`check_env`): Ensure the device is connected.
+2.  **Smart search** (`smart_finder`): Always prioritize this tool to find element coordinates (button, text, ID). It's faster and saves more tokens than `get_screen`.
+3.  **Visual perception** (`visual_perception`): Use when the user provides a sample image directory or when `smart_finder` cannot find the element (e.g., in Games or custom UI).
+4.  **Overview** (`get_screen`): Only use when you need to understand the entire screen structure that the above tools cannot cover.
+5.  **Execute action** (`execute_action`): Use the found coordinates.
 
-## 🛠️ Các công cụ mới
+## 🛠️ New Tools
 
 ### smart_finder
-- **Mục đích:** Tìm tọa độ phần tử UI ngay lập tức.
-- **Tham số:** `query` (văn bản hoặc ID), `search_type` (auto, text, id, desc).
+- **Purpose:** Find UI element coordinates immediately.
+- **Parameters:** `query` (text or ID), `search_type` (auto, text, id, desc).
 
 ### visual_perception
-- **Mục đích:** Tìm hình ảnh trên màn hình bằng OpenCV.
-- **Tham số:** `directory` (đường dẫn thư mục ảnh), `template_name` (tên file ảnh không kèm đuôi).
-- **Ví dụ:** Nếu người dùng nói "Đăng bài Facebook" và cung cấp thư mục `/home/user/fb_icons`, hãy tìm `template_name="post_button"` trong thư mục đó.
+- **Purpose:** Find images on the screen using OpenCV.
+- **Parameters:** `directory` (path to image directory), `template_name` (image filename without extension).
+- **Example:** If the user says "Post Facebook" and provides the directory `/home/user/fb_icons`, find `template_name="post_button"` in that directory.
 
-## 📝 Lưu ý quan trọng
-- Luôn giải thích lý do hành động trong trường `reason`.
-- Nếu màn hình tắt, hãy dùng `{"action": "home"}` để đánh thức thiết bị.
-- adb-control-gemini hỗ trợ hơn 100 lệnh ADB bổ sung, hãy sử dụng chúng khi cần can thiệp sâu vào hệ thống.
+## 📝 Important Notes
+- Always explain the reason for the action in the `reason` field.
+- If the screen is off, use `{"action": "home"}` to wake up the device.
+- adb-control-gemini supports over 100 additional ADB commands; use them when deeper system intervention is needed.
