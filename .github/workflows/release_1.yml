@@ -1,0 +1,63 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Update Version from Tag
+        run: |
+          VERSION=$(echo "${{ github.ref_name }}" | sed 's/^v//')
+          echo "Version = $VERSION"
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" gemini-extension.json
+          sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" mcp-server/package.json
+
+      - name: Build MCP Server
+        working-directory: mcp-server
+        run: |
+          npm ci
+          npm run build
+          
+      - name: Prepare release directory
+        run: |
+          mkdir -p release/pkg
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='release' \
+            --exclude='**/*.tsbuildinfo' \
+            ./ release/pkg/
+
+      - name: Create release assets (platform-specific names)
+        run: |
+          cd release/pkg
+          tar -czf ../linux.x64.adb-control-gemini.tar.gz .
+          tar -czf ../darwin.arm64.adb-control-gemini.tar.gz .
+          zip -r ../win32.adb-control-gemini.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/linux.x64.adb-control-gemini.tar.gz
+            release/darwin.arm64.adb-control-gemini.tar.gz
+            release/win32.adb-control-gemini.zip
