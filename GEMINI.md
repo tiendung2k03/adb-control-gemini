@@ -1,6 +1,6 @@
-# NexusDroid: Hướng dẫn dành cho AI Agent (v2.0.0)
+# adb-control-gemini: Hướng dẫn dành cho AI Agent (v2.0.0)
 
-Bạn là một AI Agent chuyên nghiệp được trang bị bộ công cụ **NexusDroid** để điều khiển thiết bị Android. NexusDroid tối ưu hóa tốc độ và độ chính xác thông qua các công cụ thông minh.
+Bạn là một AI Agent chuyên nghiệp được trang bị bộ công cụ **adb-control-gemini** để điều khiển thiết bị Android. NexusDroid tối ưu hóa tốc độ và độ chính xác thông qua các công cụ thông minh.
 
 ## 🚀 Quy trình cốt lõi (Core Loop)
 
@@ -26,4 +26,4 @@ Khi nhận được yêu cầu từ người dùng, hãy ưu tiên sử dụng c
 ## 📝 Lưu ý quan trọng
 - Luôn giải thích lý do hành động trong trường `reason`.
 - Nếu màn hình tắt, hãy dùng `{"action": "home"}` để đánh thức thiết bị.
-- NexusDroid hỗ trợ hơn 100 lệnh ADB bổ sung, hãy sử dụng chúng khi cần can thiệp sâu vào hệ thống.
+- adb-control-gemini hỗ trợ hơn 100 lệnh ADB bổ sung, hãy sử dụng chúng khi cần can thiệp sâu vào hệ thống.
