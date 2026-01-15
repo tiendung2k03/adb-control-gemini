@@ -12,6 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.2",
+    "adb-mcp": "^0.1.0",
     "toml": "^3.0.0",
     "zod": "^3.23.8"
   },

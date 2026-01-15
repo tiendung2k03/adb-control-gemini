@@ -12,6 +12,9 @@ import { exec } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import toml from 'toml';
+import { promisify } from 'util';
+
+const execPromise = promisify(exec);
 
 // Ensure the EXTENSION_PATH is set.
 const extensionPath = process.env.EXTENSION_PATH;
@@ -23,7 +26,7 @@ if (!extensionPath) {
 // Initialize the MCP Server.
 const server = new McpServer({
   name: 'adb-control-gemini',
-  version: '0.1.0', // Final working version
+  version: '0.2.0', // Updated version with adb-mcp integration
 });
 
 /**
@@ -72,7 +75,7 @@ server.tool(
   'execute_action',
   'Execute an action on the Android device.',
   {
-    action_json: z.string().describe('JSON object describing the action. Example: `{\"action\":\"tap\", \"coordinates\":[x,y]}`'),
+    action_json: z.string().describe('JSON object describing the action. Example: `{"action":"tap", "coordinates":[x,y]}`'),
   },
   ({ action_json }) => {
     const encodedJson = Buffer.from(action_json, 'utf8').toString('base64');
@@ -85,6 +88,61 @@ server.tool(
   'Check the ADB environment and Android device connection.',
   {},
   () => executeCommandAsTool(`python3 ${utilsPath('check_env.py')}`)
+);
+
+// --- Register adb-mcp Tools ---
+
+/**
+ * Helper to format device argument for ADB commands
+ */
+function formatDeviceArg(device?: string): string {
+  return device ? `-s ${device} ` : '';
+}
+
+server.tool(
+  'adb_devices',
+  'Lists all connected Android devices and emulators with their status and details.',
+  {},
+  () => executeCommandAsTool('adb devices -l')
+);
+
+server.tool(
+  'inspect_ui',
+  'Captures the complete UI hierarchy of the current screen as an XML document. Essential for UI automation and identifying interactive elements.',
+  {
+    device: z.string().optional().describe('Optional device ID'),
+  },
+  async ({ device }) => {
+    const deviceArg = formatDeviceArg(device);
+    const tempFile = `/tmp/view-${Date.now()}.xml`;
+    try {
+      await execPromise(`adb ${deviceArg}shell uiautomator dump ${tempFile}`);
+      const { stdout } = await execPromise(`adb ${deviceArg}shell cat ${tempFile}`);
+      await execPromise(`adb ${deviceArg}shell rm ${tempFile}`);
+      return {
+        content: [{ type: 'text', text: stdout }],
+      };
+    } catch (error: any) {
+      return {
+        content: [{ type: 'text', text: `Error inspecting UI: ${error.message}` }],
+      };
+    }
+  }
+);
+
+server.tool(
+  'adb_logcat',
+  'Retrieves Android system and application logs from a connected device.',
+  {
+    device: z.string().optional().describe('Optional device ID'),
+    lines: z.number().optional().default(50).describe('Number of lines to retrieve'),
+    filter: z.string().optional().describe('Optional logcat filter expression'),
+  },
+  ({ device, lines, filter }) => {
+    const deviceArg = formatDeviceArg(device);
+    const filterArg = filter ? ` ${filter}` : '';
+    return executeCommandAsTool(`adb ${deviceArg}logcat -d -t ${lines}${filterArg}`);
+  }
 );
 
 // --- Dynamically Register TOML-based Tools ---
@@ -148,10 +206,10 @@ try {
  * Starts the MCP server and connects the transport.
  */
 async function startServer() {
-  console.log('Starting MCP Server for ADB Control...');
+  console.error('Starting MCP Server for ADB Control...');
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.log('Server connected and ready.');
+  console.error('Server connected and ready.');
 }
 
 // Start the server.
