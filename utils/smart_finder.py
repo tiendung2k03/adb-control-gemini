@@ -38,7 +38,7 @@ def parse_bounds(bounds_str: str):
 def find_element(query: str, search_type: str = "auto"):
     """
     Finds an element based on a query string.
-    search_type: 'auto', 'text', 'id', 'desc'
+    search_type: 'auto', 'text', 'id', 'desc', ...
     """
     xml_content = get_xml_dump()
     if not xml_content:
