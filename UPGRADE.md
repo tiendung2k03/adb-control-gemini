@@ -40,7 +40,7 @@ Cho phép gửi một danh sách các hành động JSON trong một lần gọi
 
 Công cụ này trả về một phiên bản rút gọn của cấu trúc màn hình, chỉ bao gồm các phần tử có text hoặc ID quan trọng.
 - **Nhanh hơn**: Giảm thời gian xử lý JSON.
-- **Tiết kiệm Token**: Giúp AI tập trung vào các phần tử tương tác được mà không bị nhiễu bởi các container trống.
+- **Tiết kiệm Token**: Giúp tập trung vào các phần tử tương tác được mà không bị nhiễu bởi các container trống.
 
 ## 4. Tối ưu hóa ADB Helper
 
