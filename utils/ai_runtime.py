@@ -36,18 +36,26 @@ class AIRuntime:
         except:
             return None
 
-    def find(self, text: str = None, resource_id: str = None, content_desc: str = None) -> Optional[Tuple[int, int]]:
-        """Finds element coordinates by text, id, or description."""
+    def find(self, text: str = None, resource_id: str = None, content_desc: str = None, query: str = None) -> Optional[Tuple[int, int]]:
+        """Finds element coordinates by text, id, description, or a general query."""
         xml = self._get_xml()
         if not xml: return None
         
         try:
             root = ET.fromstring(xml)
             for node in root.iter():
+                node_text = node.attrib.get("text", "").lower()
+                node_desc = node.attrib.get("content-desc", "").lower()
+                node_id = node.attrib.get("resource-id", "").lower()
+                
                 match = False
-                if text and text.lower() in node.attrib.get("text", "").lower(): match = True
-                if resource_id and resource_id in node.attrib.get("resource-id", ""): match = True
-                if content_desc and content_desc in node.attrib.get("content-desc", ""): match = True
+                if query:
+                    q = query.lower()
+                    if q in node_text or q in node_desc or q in node_id: match = True
+                else:
+                    if text and text.lower() in node_text: match = True
+                    if resource_id and resource_id.lower() in node_id: match = True
+                    if content_desc and content_desc.lower() in node_desc: match = True
                 
                 if match:
                     bounds = node.attrib.get("bounds")
@@ -57,11 +65,11 @@ class AIRuntime:
             pass
         return None
 
-    def click(self, text: str = None, resource_id: str = None, point: Tuple[int, int] = None) -> bool:
-        """Clicks on an element or a point."""
+    def click(self, text: str = None, resource_id: str = None, content_desc: str = None, query: str = None, point: Tuple[int, int] = None) -> bool:
+        """Clicks on an element or a point. Supports text, resource_id, content_desc, or a general query."""
         target = point
-        if not target and (text or resource_id):
-            target = self.find(text=text, resource_id=resource_id)
+        if not target and (text or resource_id or content_desc or query):
+            target = self.find(text=text, resource_id=resource_id, content_desc=content_desc, query=query)
         
         if target:
             x, y = target
@@ -80,11 +88,11 @@ class AIRuntime:
     def wait(self, seconds: float):
         time.sleep(seconds)
 
-    def wait_for(self, text: str, timeout: int = 10) -> bool:
-        """Waits for an element with specific text to appear."""
+    def wait_for(self, query: str, timeout: int = 10) -> bool:
+        """Waits for an element (text, desc, or id) to appear."""
         start = time.time()
         while time.time() - start < timeout:
-            if self.find(text=text):
+            if self.find(query=query):
                 return True
             time.sleep(1)
         return False
@@ -124,37 +132,40 @@ class AIRuntime:
         return elements
 
     def read_messages(self, container_id: str = None) -> List[str]:
-        """Reads visible messages from the screen."""
+        """Reads visible messages from the screen, checking both text and content-desc."""
         elements = self.get_elements()
         messages = []
         for el in elements:
-            # Logic to identify message bubbles (usually have text and specific classes/ids)
-            if el["text"] and ("message" in el["id"].lower() or "text" in el["class"].lower()):
-                messages.append(el["text"])
+            content = el["text"] or el["desc"]
+            if content and ("message" in el["id"].lower() or "text" in el["class"].lower() or "chat" in el["id"].lower()):
+                messages.append(content)
         return messages
 
     def reply(self, text: str, input_id: str = None):
-        """Finds input field, types reply and sends."""
+        """Finds input field, types reply and sends. Checks text, desc, and id for hints."""
         if input_id:
             self.click(resource_id=input_id)
         else:
-            # Try to find common input field IDs or hints
-            for hint in ["message", "edit", "reply", "comment"]:
-                if self.click(resource_id=hint): break
-                if self.click(text=hint): break
+            # Try to find common input field hints in ID, Text, or Content-Desc
+            hints = ["message", "edit", "reply", "comment", "nhập", "tin nhắn", "bình luận"]
+            found = False
+            for hint in hints:
+                if self.click(query=hint):
+                    found = True
+                    break
         
         self.type(text)
 
 # Global instance for scripts to use
 runtime = AIRuntime()
 
-def click(text=None, resource_id=None, point=None): return runtime.click(text, resource_id, point)
+def click(text=None, resource_id=None, content_desc=None, query=None, point=None): return runtime.click(text, resource_id, content_desc, query, point)
 def type(text, enter=True): return runtime.type(text, enter)
 def wait(seconds): return runtime.wait(seconds)
-def wait_for(text, timeout=10): return runtime.wait_for(text, timeout)
+def wait_for(query, timeout=10): return runtime.wait_for(query, timeout)
 def home(): return runtime.home()
 def back(): return runtime.back()
-def find(text=None, resource_id=None): return runtime.find(text, resource_id)
+def find(text=None, resource_id=None, content_desc=None, query=None): return runtime.find(text, resource_id, content_desc, query)
 def get_elements(): return runtime.get_elements()
 def read_messages(container_id=None): return runtime.read_messages(container_id)
 def reply(text, input_id=None): return runtime.reply(text, input_id)

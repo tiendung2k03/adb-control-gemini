@@ -15,10 +15,13 @@ def get_summary():
     elements = state.get("elements", [])
     summary = []
     for el in elements:
-        # Only include elements with text or meaningful IDs
-        if el.get("text") or (el.get("id") and "id/" in el.get("id")):
+        # Include elements with text, content-desc, or meaningful IDs
+        text = el.get("text")
+        desc = el.get("desc")
+        if text or desc or (el.get("id") and "id/" in el.get("id")):
             summary.append({
-                "text": el.get("text"),
+                "text": text,
+                "desc": desc,
                 "id": el.get("id").split("/")[-1] if el.get("id") else None,
                 "center": el.get("center"),
                 "type": el.get("type")
