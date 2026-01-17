@@ -1,48 +1,103 @@
-# Contribution Guidelines
+# Contributing to AureDroid
 
-## The Golden Rule for Protecting the Main Branch
-Always ensure that the main branch is stable and clean. No direct commits are allowed to the main branch. Instead, all changes should be made in feature branches and merged through pull requests after thorough code reviews.
+First off, thank you for considering contributing to AureDroid! It's people like you who make this tool better for the AI and Android automation community.
 
-## Step-by-Step Contribution Workflow
-1. **Fork the repository** to your GitHub account.
-2. **Clone your fork** to your local machine.
-3. **Create a new branch** for your feature or bug fix:
-   ```bash
-   git checkout -b my-feature-branch
-   ```
-4. **Make your changes** in the code.
-5. **Commit your changes** with a descriptive message:
-   ```bash
-   git commit -m "Add my new feature"
-   ```
-6. **Push changes** to your fork:
-   ```bash
-   git push origin my-feature-branch
-   ```
-7. **Open a pull request** against the main repository.
+To maintain the quality and stability of the project, please follow these guidelines.
 
-## Development Guidelines
-- Follow the code style guidelines established in the repository.
-- Write clear and concise documentation for your code.
-- Ensure that your code passes all tests.
+## 🛡️ The Golden Rule: Protect the main Branch
 
-## Commit Practices
-- Commits should be atomic, meaning each commit should represent one logical change.
-- Use meaningful commit messages that explain the purpose of the change.
-- Refrain from committing commented-out code or debug statements.
+To ensure the stability of the production code:
 
-## Pull Request Process
-1. After pushing your branch, open a pull request against the main repository.
-2. Provide a clear description of what your pull request does.
-3. Tag relevant reviewers and request their feedback.
-4. Make any requested changes and push them to your branch.
-5. Once approved, your pull request will be merged by someone with write access.
+* Never push changes directly to the main branch.
+* All changes must be submitted via a Pull Request (PR).
+* The main branch is reserved for stable, reviewed, and tested code.
 
-## PR Checklist
-- [ ] My code follows the repository's code style.
-- [ ] I have written tests for my code.
-- [ ] I have updated the documentation, if needed.
-- [ ] My pull request is ready for review.
+## 🚀 How to Contribute
 
-## License Information
-By contributing to this project, you agree that your contributions will be licensed under the project's license. Please refer to the LICENSE file for more details.
+### 1. Fork & Clone
+
+* Fork this repository to your own GitHub account.
+* Clone your fork to your local machine:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/adb-control-gemini.git
+cd adb-control-gemini
+```
+
+### 2. Create a Feature Branch
+
+Always create a new branch for your work. Use descriptive names:
+
+```bash
+# For new features
+git checkout -b feature/your-feature-name
+
+# For bug fixes
+git checkout -b fix/issue-description
+```
+
+### 3. Set Up Your Environment
+
+Since this project uses both Python and TypeScript, ensure you have the requirements installed:
+
+* **Python (ADB Logic & OpenCV):**
+
+```bash
+pip install -r requirements.txt
+```
+
+* **TypeScript (MCP Server):**
+
+```bash
+cd mcp-server
+npm install
+npm run build
+```
+
+### 4. Development Guidelines
+
+* **Adding ADB Commands:** New commands should be added as .toml files in the `commands/android/` directory.
+* **Complex Logic:** Use the `utils/` directory for Python-based logic (OpenCV, screen processing, etc.).
+* **MCP Protocol:** Modify the TypeScript source in `mcp-server/` if you are updating how the AI interacts with the server.
+* **Code Style:**
+  * Python: Follow PEP 8 standards.
+  * TypeScript: Use Prettier for formatting.
+
+### 5. Commit and Push
+
+* Keep your commits small and focused.
+* Use clear commit messages:
+
+```bash
+git commit -m "feat: add support for biometric authentication bypass"
+```
+
+* Push to your fork:
+
+```bash
+git push origin feature/your-feature-name
+```
+
+### 6. Submit a Pull Request (PR)
+
+* Go to the original tiendung2k03/adb-control-gemini repository.
+* Click "Compare & pull request".
+* Provide a detailed description of what you changed and why.
+* Reference any related Issues (e.g., `Closes #123`).
+
+## 📋 Pull Request Checklist
+
+Before submitting your PR, please make sure:
+
+* [ ] Your code runs correctly on a real Android device or emulator.
+* [ ] You have not included any sensitive information (API keys, personal logs).
+* [ ] Your branch is up-to-date with the latest main branch.
+* [ ] The documentation (README or specific .md files) is updated if necessary.
+
+## ⚖️ License
+
+By contributing to this project, you agree that your contributions will be licensed under the MIT License.
+
+Thank you for your support! 🚀
+
+If you have any questions, feel free to open an Issue or reach out via our Telegram community.
