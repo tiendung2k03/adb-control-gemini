@@ -72,6 +72,13 @@ server.tool(
 );
 
 server.tool(
+  'get_screen_summary',
+  'Get a summarized version of the screen state. Faster and uses fewer tokens. Recommended for initial exploration.',
+  {},
+  () => executeCommandAsTool(`python3 ${utilsPath('get_screen_summary.py')}`)
+);
+
+server.tool(
   'execute_action',
   'Execute an action on the Android device.',
   {
@@ -88,6 +95,30 @@ server.tool(
   'Check the ADB environment and Android device connection.',
   {},
   () => executeCommandAsTool(`python3 ${utilsPath('check_env.py')}`)
+);
+
+server.tool(
+  'run_ai_script',
+  'Execute a Python script for complex ADB logic. Use this for multi-step actions to avoid round-trip latency. Available functions: click(text/id/point), type(text, enter=True), wait(seconds), wait_for(text, timeout), home(), back(), find(text/id).',
+  {
+    code: z.string().describe('Python code to execute.'),
+  },
+  ({ code }) => {
+    const encodedCode = Buffer.from(code, 'utf8').toString('base64');
+    return executeCommandAsTool(`echo '${encodedCode}' | base64 -d | python3 ${utilsPath('run_ai_script.py')}`);
+  }
+);
+
+server.tool(
+  'execute_batch',
+  'Execute a sequence of ADB actions in one go. Useful for simple multi-step tasks like filling a form.',
+  {
+    actions_json: z.string().describe('JSON array of actions. Example: `[{"action":"tap", "coordinates":[100,200]}, {"action":"type", "text":"hello"}]`'),
+  },
+  ({ actions_json }) => {
+    const encodedJson = Buffer.from(actions_json, 'utf8').toString('base64');
+    return executeCommandAsTool(`echo '${encodedJson}' | base64 -d | python3 ${utilsPath('execute_batch.py')}`);
+  }
 );
 
 // --- Register adb-mcp Tools ---
