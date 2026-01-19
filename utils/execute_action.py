@@ -6,8 +6,7 @@ Executes a single action on the Android device via ADB.
 This is the "action" step of the agent loop.
 
 Usage:
-    echo '{"action":"tap","coordinates":[540,1200]}' | python execute_action.py
-    python execute_action.py --json '{"action":"home"}'
+    python execute_action.py <base64_json_string>
 """
 
 import sys
@@ -15,6 +14,7 @@ import os
 import json
 import argparse
 import time
+import base64
 from datetime import datetime
 from typing import Dict, Any
 
@@ -425,4 +425,67 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             duration = action.get("duration", 1000)
 
             stdout, stderr, code = adb_helper.run_adb([
-(Content truncated due to size limit. Use line ranges to read remaining content)
+                "shell", "input", "swipe",
+                str(int(sx)), str(int(sy)),
+                str(int(ex)), str(int(ey)),
+                str(int(duration))
+            ])
+
+            details = f"start=[{sx},{sy}], end=[{ex},{ey}], duration={duration}"
+            if code != 0:
+                log_action("drag_and_drop", details, f"ERROR: {stderr}")
+                return {"status": "error", "message": f"Drag and drop failed: {stderr}"}
+            
+            log_action("drag_and_drop", details, "SUCCESS")
+            return {"status": "success", "action": "drag_and_drop", "message": f"Dragged from [{sx},{sy}] to [{ex},{ey}]"}
+
+        elif action_type == "get_current_package":
+            stdout, stderr, code = adb_helper.run_adb([
+                "shell", "dumpsys", "window", "windows", "|", "grep", "-E", "'mCurrentFocus|mFocusedApp'"
+            ])
+            
+            if code != 0:
+                log_action("get_current_package", "", f"ERROR: {stderr}")
+                return {"status": "error", "message": f"Get current package failed: {stderr}"}
+            
+            log_action("get_current_package", "", "SUCCESS")
+            return {"status": "success", "action": "get_current_package", "output": stdout}
+
+        else:
+            return {"status": "error", "message": f"Action '{action_type}' not implemented"}
+
+    except Exception as e:
+        return {"status": "error", "message": f"Unexpected error: {str(e)}"}
+
+
+def main():
+    """
+    Main function to parse arguments and execute action.
+    Reads base64 encoded JSON from command line argument.
+    """
+    if len(sys.argv) != 2:
+        print(json.dumps({"status": "error", "message": "Usage: python execute_action.py <base64_json_string>"}))
+        sys.exit(1)
+
+    try:
+        base64_json_string = sys.argv[1]
+        # It's better to remove the quotes that shell might add
+        if base64_json_string.startswith("'"') and base64_json_string.endswith("'"'):
+            base64_json_string = base64_json_string[1:-1]
+            
+        decoded_json_string = base64.b64decode(base64_json_string).decode('utf-8')
+        action = json.loads(decoded_json_string)
+    except (json.JSONDecodeError, base64.binascii.Error, UnicodeDecodeError) as e:
+        print(json.dumps({"status": "error", "message": f"Invalid input format: {str(e)}"}))
+        sys.exit(1)
+
+    result = execute_action(action)
+    print(json.dumps(result, indent=2))
+
+    if result.get("status") == "error":
+        sys.exit(1)
+    else:
+        sys.exit(0)
+
+if __name__ == "__main__":
+    main()

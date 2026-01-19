@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import traceback
+import base64
 
 # Add current directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -35,12 +36,21 @@ def run_script(code: str):
         }
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        # Read from stdin if no argument
-        code = sys.stdin.read()
-    else:
-        code = sys.argv[1]
-    
+    if len(sys.argv) != 2:
+        print(json.dumps({"status": "error", "message": "Usage: python run_ai_script.py <base64_code_string>"}))
+        sys.exit(1)
+
+    try:
+        base64_code_string = sys.argv[1]
+        # It's better to remove the quotes that shell might add
+        if base64_code_string.startswith("'") and base64_code_string.endswith("'"):
+            base64_code_string = base64_code_string[1:-1]
+
+        code = base64.b64decode(base64_code_string).decode('utf-8')
+    except (base64.binascii.Error, UnicodeDecodeError) as e:
+        print(json.dumps({"status": "error", "message": f"Invalid base64 input: {str(e)}"}))
+        sys.exit(1)
+
     if not code.strip():
         print(json.dumps({"status": "error", "message": "No code provided"}))
         sys.exit(1)

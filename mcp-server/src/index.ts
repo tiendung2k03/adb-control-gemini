@@ -86,7 +86,7 @@ server.tool(
   },
   ({ action_json }) => {
     const encodedJson = Buffer.from(action_json, 'utf8').toString('base64');
-    return executeCommandAsTool(`echo '${encodedJson}' | base64 -d | python3 ${utilsPath('execute_action.py')}`);
+    return executeCommandAsTool(`python3 ${utilsPath('execute_action.py')} '${encodedJson}'`);
   }
 );
 
@@ -105,7 +105,7 @@ server.tool(
   },
   ({ code }) => {
     const encodedCode = Buffer.from(code, 'utf8').toString('base64');
-    return executeCommandAsTool(`echo '${encodedCode}' | base64 -d | python3 ${utilsPath('run_ai_script.py')}`);
+    return executeCommandAsTool(`python3 ${utilsPath('run_ai_script.py')} '${encodedCode}'`);
   }
 );
 
@@ -117,7 +117,7 @@ server.tool(
   },
   ({ actions_json }) => {
     const encodedJson = Buffer.from(actions_json, 'utf8').toString('base64');
-    return executeCommandAsTool(`echo '${encodedJson}' | base64 -d | python3 ${utilsPath('execute_batch.py')}`);
+    return executeCommandAsTool(`python3 ${utilsPath('execute_batch.py')} '${encodedJson}'`);
   }
 );
 
