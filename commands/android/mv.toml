@@ -1,6 +1,0 @@
-description = "Move or rename a file/directory on the device."
-prompt = """
-Move or rename a file/directory on the device.
-Enter the following parameters: <source_path param name>, <destination_path param name>.
-Example execution: adb shell mv /sdcard/old.txt /sdcard/new.txt.
-"""

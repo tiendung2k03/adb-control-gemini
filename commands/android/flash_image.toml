@@ -1,6 +1,0 @@
-description = "Flash an image to the device (requires fastboot)."
-prompt = """
-Flash an image to the device (requires fastboot).
-Enter the following parameters: <partition param name>, <image_file param name>.
-Example execution: fastboot flash <partition> <image_file> (Note: This is a fastboot command, not adb, and requires the device to be in bootloader mode).
-"""

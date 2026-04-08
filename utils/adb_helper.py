@@ -7,38 +7,67 @@ Provides common ADB operations with proper error handling.
 import subprocess
 import os
 import shutil
-from typing import List, Tuple
+import json
+import requests
+from typing import List, Tuple, Optional, Dict, Any
 
-
-def get_adb_path() -> str:
+def get_zerotap_config() -> Optional[Dict[str, Any]]:
     """
-    Get the path to ADB binary.
-
-    Checks:
-    1. ADB_PATH environment variable
-    2. adb in system PATH
-
-    Returns:
-        str: Path to ADB binary
-
-    Raises:
-        FileNotFoundError: If ADB is not found
+    Read ZeroTap configuration from Gemini CLI settings.
     """
-    # Check environment variable first
-    adb_path = os.environ.get("ADB_PATH")
-    if adb_path and os.path.exists(adb_path):
-        return adb_path
+    try:
+        settings_path = os.path.expanduser("~/.gemini/settings.json")
+        if os.path.exists(settings_path):
+            with open(settings_path, "r") as f:
+                settings = json.load(f)
+                mcp_servers = settings.get("mcpServers", {})
+                # Look for 'zerotab' or any server with 'zerotap' in its name
+                for name, config in mcp_servers.items():
+                    if "zerota" in name.lower():
+                        return config
+    except Exception as e:
+        print(f"Warning: Failed to load ZeroTap config: {e}")
+    return None
 
-    # Check if adb is in PATH
-    adb_path = shutil.which("adb")
-    if adb_path:
-        return adb_path
-
-    raise FileNotFoundError(
-        "ADB not found. Please install Android Platform Tools and ensure "
-        "'adb' is in your PATH, or set ADB_PATH environment variable."
-    )
-
+def run_zerotap_tool(method: str, params: Dict[str, Any]) -> Tuple[str, str, int]:
+    """
+    Execute a tool on the ZeroTap MCP server.
+    """
+    config = get_zerotap_config()
+    if not config or "url" not in config:
+        return "", "ZeroTap config not found in Gemini CLI settings", 1
+    
+    url = config["url"]
+    headers = config.get("headers", {})
+    
+    # Simple MCP JSON-RPC call
+    payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "callTool",
+        "params": {
+            "name": method,
+            "arguments": params
+        }
+    }
+    
+    try:
+        response = requests.post(url, json=payload, headers=headers, timeout=5)
+        result = response.json()
+        
+        if "error" in result:
+            return "", json.dumps(result["error"]), 1
+        
+        # Extract text content from MCP result
+        content = result.get("result", {}).get("content", [])
+        text_output = ""
+        for item in content:
+            if item.get("type") == "text":
+                text_output += item.get("text", "")
+        
+        return text_output, "", 0
+    except Exception as e:
+        return "", f"ZeroTap connection error: {str(e)}", 1
 
 def run_adb(args: List[str], timeout: int = 30) -> Tuple[str, str, int]:
     """

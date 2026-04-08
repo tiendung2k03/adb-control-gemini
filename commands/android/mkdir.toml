@@ -1,6 +1,0 @@
-description = "Create a directory on the device."
-prompt = """
-Create a directory on the device.
-Enter the following parameters: <directory_path param name>.
-Example execution: adb shell mkdir /sdcard/new_dir.
-"""

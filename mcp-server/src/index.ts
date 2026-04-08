@@ -60,6 +60,35 @@ async function executeCommandAsTool(command: string): Promise<CallToolResult> {
   });
 }
 
+server.tool(
+  'setup_zerotap',
+  'Configure ZeroTap MCP server for a specific device to speed up UI interactions. If device_id is not provided, it sets the default configuration.',
+  {
+    url: z.string().describe('ZeroTap MCP Server URL (e.g., http://192.168.1.100:8486/mcp)'),
+    token: z.string().describe('ZeroTap Authorization Token'),
+    device_id: z.string().optional().describe('The ADB serial number of the device'),
+  },
+  async ({ url, token, device_id }) => {
+    const configPath = path.join(extensionPath, 'zerotap_config.json');
+    let config: any = {};
+    try {
+      if (fs.existsSync(configPath)) {
+        config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+      }
+    } catch (e) {
+      config = {};
+    }
+    
+    const target = device_id || 'default';
+    config[target] = { url, token };
+    fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+    
+    return {
+      content: [{ type: 'text', text: `Successfully configured ZeroTap for ${target}. The system will now prefer ZeroTap for UI actions on this device.` }],
+    };
+  }
+);
+
 // --- Register Core Python-based Tools ---
 
 const utilsPath = (script: string) => path.join(extensionPath, 'utils', script);

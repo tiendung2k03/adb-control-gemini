@@ -1,6 +1,0 @@
-description = "Delete a file on the device."
-prompt = """
-Delete a file on the device.
-Enter the following parameters: <file_path param name>.
-Example execution: adb shell rm /sdcard/file.txt.
-"""

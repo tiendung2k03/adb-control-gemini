@@ -184,6 +184,13 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             x, y = action["coordinates"]
             x, y = int(x), int(y)
 
+            # Try ZeroTap first
+            stdout, stderr, code = adb_helper.run_zerotap_tool("tap", {"x": x, "y": y})
+            if code == 0:
+                log_action("tap (zerotap)", f"{x},{y}", "SUCCESS")
+                return {"status": "success", "action": "tap", "message": f"Tapped at ({x}, {y}) via ZeroTap"}
+
+            # Fallback to ADB
             stdout, stderr, code = adb_helper.run_adb([
                 "shell", "input", "tap", str(x), str(y)
             ])
@@ -199,15 +206,19 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "status": "success",
                 "action": "tap",
-                "message": f"Tapped at ({x}, {y})"
+                "message": f"Tapped at ({x}, {y}) via ADB"
             }
 
         elif action_type == "type":
             text = action["text"]
-            # Enclose the text in single quotes for adb shell to handle spaces and special characters correctly
-            # The 'adb shell input text' command generally handles spaces correctly when the entire string is quoted.
-            # Using '%s' for spaces is typically for direct adb commands without Python's quoting.
-            # However, the primary limitation observed is with Unicode characters, not spaces.
+
+            # Try ZeroTap first (Supports Unicode and is faster)
+            stdout, stderr, code = adb_helper.run_zerotap_tool("type", {"text": text})
+            if code == 0:
+                log_action("type (zerotap)", text, "SUCCESS")
+                return {"status": "success", "action": "type", "message": f"Typed: {text} via ZeroTap"}
+
+            # Fallback to ADB
             quoted_text = f"'{text}'" 
 
             stdout, stderr, code = adb_helper.run_adb([
@@ -225,10 +236,16 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "status": "success",
                 "action": "type",
-                "message": f"Typed: {text}"
+                "message": f"Typed: {text} via ADB"
             }
 
         elif action_type == "home":
+            # Try ZeroTap first
+            stdout, stderr, code = adb_helper.run_zerotap_tool("home", {})
+            if code == 0:
+                log_action("home (zerotap)", "", "SUCCESS")
+                return {"status": "success", "action": "home", "message": "Pressed Home button via ZeroTap"}
+
             stdout, stderr, code = adb_helper.run_adb([
                 "shell", "input", "keyevent", "KEYCODE_HOME"  # FIX: was KEYWORDS_HOME
             ])
@@ -248,6 +265,12 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             }
 
         elif action_type == "back":
+            # Try ZeroTap first
+            stdout, stderr, code = adb_helper.run_zerotap_tool("back", {})
+            if code == 0:
+                log_action("back (zerotap)", "", "SUCCESS")
+                return {"status": "success", "action": "back", "message": "Pressed Back button via ZeroTap"}
+
             stdout, stderr, code = adb_helper.run_adb([
                 "shell", "input", "keyevent", "KEYCODE_BACK"  # FIX: was KEYWORDS_BACK
             ])
@@ -267,12 +290,12 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             }
 
         elif action_type == "wait":
-            time.sleep(2)
-            log_action("wait", "2s", "SUCCESS")
+            time.sleep(1) # ZeroTap is faster, can wait less
+            log_action("wait", "1s", "SUCCESS")
             return {
                 "status": "success",
                 "action": "wait",
-                "message": "Waited 2 seconds"
+                "message": "Waited 1 second"
             }
 
         elif action_type == "done":
@@ -309,21 +332,31 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
         elif action_type == "swipe":
             start_x, start_y = action["start_coordinates"]
             end_x, end_y = action["end_coordinates"]
-            duration = action.get("duration")
+            duration = action.get("duration", 300)
 
+            # Try ZeroTap first
+            stdout, stderr, code = adb_helper.run_zerotap_tool("swipe", {
+                "startX": int(start_x), 
+                "startY": int(start_y),
+                "endX": int(end_x),
+                "endY": int(end_y),
+                "duration": int(duration)
+            })
+            if code == 0:
+                log_action("swipe (zerotap)", f"[{start_x},{start_y}] to [{end_x},{end_y}]", "SUCCESS")
+                return {"status": "success", "action": "swipe", "message": f"Swiped via ZeroTap"}
+
+            # Fallback to ADB
             adb_command = [
                 "shell", "input", "swipe",
                 str(int(start_x)), str(int(start_y)),
-                str(int(end_x)), str(int(end_y))
+                str(int(end_x)), str(int(end_y)),
+                str(int(duration))
             ]
-            if duration is not None:
-                adb_command.append(str(int(duration)))
 
             stdout, stderr, code = adb_helper.run_adb(adb_command)
 
-            details = f"start=[{start_x},{start_y}], end=[{end_x},{end_y}]"
-            if duration is not None:
-                details += f", duration={duration}"
+            details = f"start=[{start_x},{start_y}], end=[{end_x},{end_y}], duration={duration}"
 
             if code != 0:
                 log_action("swipe", details, f"ERROR: {stderr}")
@@ -336,7 +369,7 @@ def execute_action(action: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "status": "success",
                 "action": "swipe",
-                "message": f"Swiped from [{start_x},{start_y}] to [{end_x},{end_y}]" + (f" over {duration}ms" if duration else "")
+                "message": f"Swiped via ADB"
             }
 
         elif action_type == "open_app":

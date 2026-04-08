@@ -1,5 +1,0 @@
-description = "Press the Home button."
-prompt = """
-Press the Home button.
-Example execution: adb shell input keyevent KEYCODE_HOME.
-"""

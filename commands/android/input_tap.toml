@@ -1,6 +1,0 @@
-description = "Tap a position on the screen."
-prompt = """
-Tap a position on the screen.
-Enter the following parameters: <x param name>, <y param name>.
-Example execution: adb shell input tap 500 1000.
-"""

@@ -1,6 +1,0 @@
-description = "View the content of a file page by page (if available)."
-prompt = """
-View the content of a file page by page (if available).
-Enter the following parameters: <file_path param name>.
-Example execution: adb shell less /sdcard/log.txt.
-"""

@@ -1,5 +1,0 @@
-description = "Display the current username."
-prompt = """
-Display the current username.
-Example execution: adb shell whoami.
-"""

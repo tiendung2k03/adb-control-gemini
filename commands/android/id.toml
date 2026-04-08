@@ -1,5 +1,0 @@
-description = "Display user and group information."
-prompt = """
-Display user and group information.
-Example execution: adb shell id.
-"""

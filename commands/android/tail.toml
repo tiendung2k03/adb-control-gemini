@@ -1,6 +1,0 @@
-description = "Display the last few lines of a file."
-prompt = """
-Display the last few lines of a file.
-Enter the following parameters: <file_path param name>.
-Example execution: adb shell tail -n 10 /sdcard/log.txt.
-"""

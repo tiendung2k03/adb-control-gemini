@@ -1,6 +1,0 @@
-description = "List the content of a directory."
-prompt = """
-List the content of a directory.
-Enter the following parameters: <path (optional) param name>.
-Example execution: adb shell ls /sdcard.
-"""

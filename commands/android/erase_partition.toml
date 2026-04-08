@@ -1,6 +1,0 @@
-description = "Erase a partition on the device (requires fastboot)."
-prompt = """
-Erase a partition on the device (requires fastboot).
-Enter the following parameters: <partition param name>.
-Example execution: fastboot erase <partition> (Note: This is a fastboot command, not adb, and requires the device to be in bootloader mode).
-"""

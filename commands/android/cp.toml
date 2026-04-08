@@ -1,6 +1,0 @@
-description = "Copy a file or directory on the device."
-prompt = """
-Copy a file or directory on the device.
-Enter the following parameters: <source_path param name>, <destination_path param name>.
-Example execution: adb shell cp /sdcard/file.txt /sdcard/file_copy.txt.
-"""

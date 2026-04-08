@@ -1,5 +1,0 @@
-description = "Open the recent apps screen."
-prompt = """
-Open the recent apps screen.
-Example execution: adb shell input keyevent KEYCODE_APP_SWITCH.
-"""

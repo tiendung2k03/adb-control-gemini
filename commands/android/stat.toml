@@ -1,5 +1,0 @@
-description = "Display file or directory status information."
-prompt = """
-Display file or directory status information.
-Example execution: adb shell stat /sdcard/file.txt.
-"""

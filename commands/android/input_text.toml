@@ -1,6 +1,0 @@
-description = "Enter text on the device."
-prompt = """
-Enter text on the device.
-Enter the following parameters: <text param name>.
-Example execution: adb shell input text hello world.
-"""

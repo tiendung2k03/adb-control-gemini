@@ -1,6 +1,0 @@
-description = "Delete an empty directory on the device."
-prompt = """
-Delete an empty directory on the device.
-Enter the following parameters: <directory_path param name>.
-Example execution: adb shell rmdir /sdcard/empty_dir.
-"""

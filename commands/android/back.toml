@@ -1,5 +1,0 @@
-description = "Press the Back button."
-prompt = """
-Press the Back button.
-Example execution: adb shell input keyevent KEYCODE_BACK.
-"""
