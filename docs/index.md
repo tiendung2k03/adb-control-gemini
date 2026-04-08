@@ -1,21 +1,22 @@
-# `adb-control-gemini` Extension Documentation
+# AureDroid Documentation
 
-Welcome to the user guide for the `adb-control-gemini` extension for Gemini CLI. This extension provides powerful control over Android devices via ADB (Android Debug Bridge), helping you automate tasks, test devices, and interact with applications.
+Welcome to the official documentation for **AureDroid**, the advanced Android control and automation extension for Gemini CLI.
 
-## Getting Started
+AureDroid empowers your AI agents to interact with Android devices with unprecedented speed and intelligence, combining traditional ADB control with modern automation techniques.
 
--   [**Installation**](/docs/getting_started/installation.md): Detailed instructions on how to install ADB and set up the environment.
--   [**Quick Start**](/docs/getting_started/quick_start.md): Basic steps to start using the extension immediately.
+## 🏁 Getting Started
+- [**Installation**](/docs/getting_started/installation.md): Set up ADB, Python, and the AureDroid extension.
+- [**Quick Start**](/docs/getting_started/quick_start.md): Learn the basics and run your first commands.
 
-## Command Reference
+## 🚀 Core Features
+- [**AI Runtime (Python Scripts)**](/docs/core_features/ai_runtime.md): High-speed automation using local Python execution.
+- [**Perception & Screen Analysis**](/docs/core_features/perception.md): How AureDroid "sees" the screen using UI hierarchy and OpenCV.
+- [**ZeroTap Acceleration**](/docs/core_features/zerotap.md): Turbocharge your UI interactions with ZeroTap integration.
 
--   [**ADB Commands**](/docs/commands_reference/adb_commands.md): A complete list of supported ADB commands, categorized by function.
--   [**Slash Commands**](/docs/commands_reference/slash_commands.md): Explanation of custom `/android:...` commands for performing tasks quickly.
+## 📖 Reference
+- [**Core Tools Reference**](/docs/commands_reference/core_tools.md): Documentation for all internal MCP tools.
+- [**ADB Command Reference**](/docs/commands_reference/adb_commands.md): A categorized list of 100+ supported ADB commands.
 
-## Frequently Asked Questions
-
--   [**General Questions**](/docs/faq/general.md): Answers to common questions when using the extension.
-
-## About the Extension
-
--   [**Original Guide**](/docs/GEMINI.md): The original guide for the extension.
+## ❓ Support
+- [**Troubleshooting & FAQ**](/docs/faq/troubleshooting.md): Solutions to common setup and execution issues.
+- [**Community**](https://t.me/auredroid_chat): Join our Telegram group for support and discussion.

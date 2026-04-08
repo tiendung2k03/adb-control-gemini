@@ -1,88 +1,58 @@
-# Quick Start Guide
+# Quick Start: Basic Usage
 
-This guide will help you get started quickly with the `adb-control-gemini` extension.
+Once installed, AureDroid gives your AI agent superpowers for Android control. Here are the first steps to start using it.
 
-## 1. Check Device Connection
+## 1. Check Connection
 
-Before performing any action, make sure your Android device is connected and ADB is working:
-
-```
-/android:status
-```
-This command will provide information about the battery status, screen status, and the currently running application.
-
-If the device is not connected or detected, you will receive an error message. Please refer to the [Installation Guide](/docs/getting_started/installation.md) to troubleshoot the connection.
-
-## 2. Basic Actions
-
-### Take a screenshot
-To take a screenshot of the device and save it locally:
+Verify that your device is recognized:
 
 ```
-/android:screenshot
+adb_devices()
 ```
-The result will return the path of the screenshot file saved on your computer.
-
-### Go to Home Screen
-To return the device to the home screen:
-
+or 
 ```
-/android:reset
-```
-This command is equivalent to pressing the Home button on the device.
-
-### Turn Wi-Fi On/Off
-To turn on Wi-Fi:
-
-```
-/android:wifi_on
+check_env()
 ```
 
-To turn off Wi-Fi:
+## 2. Peek at the Screen
+
+Get a quick summary of the current UI:
 
 ```
-/android:wifi_off
+get_screen_summary()
+```
+The result will contain text labels and IDs of interactive elements like "Settings" or "Log in".
+
+## 3. Simple Interaction
+
+You can perform simple actions using `execute_action`:
+
+- **Tap a button:** `execute_action({"action":"tap", "coordinates":[500,1200]})`
+- **Type text:** `execute_action({"action":"type", "text":"Hello AureDroid"})`
+- **Go Home:** `execute_action({"action":"home"})`
+
+## 4. Run Multiple Actions (Batch)
+
+For a simple sequence, use `execute_batch`:
+
+```json
+execute_batch([
+  {"action":"home"},
+  {"action":"wait"},
+  {"action":"tap", "coordinates":[100,200]}
+])
 ```
 
-### Type Text
-You can type text directly into your Android device. For example, to type "Hello Gemini" into an input field:
+## 5. Explore Complex Automation
 
+For powerful tasks like WhatsApp auto-reply or navigating complex menus, use **AI Runtime**. Instead of calling tools one by one, your agent can write a Python script and run it using `run_ai_script`.
+
+**Example:**
+```python
+if find("Search"):
+    click("Search")
+    type("Settings")
+    wait(1)
+    click("Settings")
 ```
-execute_action({"action": "type", "text": "Hello Gemini", "reason": "Type text into the input field"})
-```
-*Note*: The `type` command automatically handles Telex for Vietnamese.
-
-### Tap a Specific Location
-If you know the X, Y coordinates on the screen, you can simulate a tap:
-
-```
-execute_action({"action": "tap", "coordinates": [500, 1000], "reason": "Tap the middle of the screen"})
-```
-*Note*: These coordinates are just an example, you need to determine the exact coordinates from the results of `get_screen` or `dumpsys`.
-
-### Swipe on the Screen
-To simulate a swipe from one point to another:
-
-```
-execute_action({"action": "swipe", "start_coordinates": [500, 1500], "end_coordinates": [500, 500], "duration": 200, "reason": "Scroll up"})
-```
-
-## 3. Get Screen State
-
-To understand the current UI structure of the application, you can get the screen state as JSON:
-
-```
-get_screen()
-```
-The result will be a JSON object describing the interactive UI elements on the screen, including ID, text, type, coordinates, and clickability.
-
-## 4. Find UI Element
-
-Based on the `get_screen` result, you can search for a specific element:
-
-```
-find_element(text="Settings")
-```
-This command will return the elements with the text "Settings" on the screen.
-
-For more details on all available ADB commands, please refer to the [ADB Command Reference](/docs/commands_reference/adb_commands.md).
+Refer to the [**AI Runtime Guide**](/docs/core_features/ai_runtime.md) for all available functions.
